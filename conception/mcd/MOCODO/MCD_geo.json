@@ -1,0 +1,29 @@
+{
+  "width": 360,
+  "height": 228,
+  "cx": [
+    [ "MEMBRE", 55 ],
+    [ "ECRIT_PAR", 175 ],
+    [ "COMMENTAIRE", 300 ],
+    [ "A", 55 ],
+    [ "RECETTE", 175 ],
+    [ "CONTIENT", 300 ]
+  ],
+  "cy": [
+    [ "MEMBRE", 51 ],
+    [ "ECRIT_PAR", 51 ],
+    [ "COMMENTAIRE", 51 ],
+    [ "A", 160 ],
+    [ "RECETTE", 160 ],
+    [ "CONTIENT", 160 ]
+  ],
+  "shift": [
+    [ "ECRIT_PAR,COMMENTAIRE,0", 0 ],
+    [ "ECRIT_PAR,MEMBRE,0", 0 ],
+    [ "A,MEMBRE,0", 0 ],
+    [ "A,RECETTE,0", 0 ],
+    [ "CONTIENT,RECETTE,0", 0 ],
+    [ "CONTIENT,COMMENTAIRE,0", 0 ]
+  ],
+  "ratio": []
+}
