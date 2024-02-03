@@ -29,12 +29,14 @@
 </script>
 
 <div class="container_search_recipe">
-    <input
-        bind:value={searchRecipe}
-        type="text"
-        placeholder="Rechercher une recette"
-    />
-    <input type="button" value="Rechercher" on:click={handleSearch}/>
+    <form on:submit={handleSearch}>
+        <input
+            bind:value={searchRecipe}
+            type="text"
+            placeholder="Rechercher une recette"
+        />
+        <input type="submit" value="Rechercher" disabled={!searchRecipe} />
+    </form>
 </div>
 
 {#if recipes}
