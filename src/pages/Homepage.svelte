@@ -2,6 +2,7 @@
     import Welcome from "../components/Welcome.svelte";
     import SearchRecipe from "../components/SearchRecipe.svelte";
     import LinkAllRecipes from "../components/LinkAllRecipes.svelte";
+    import LastRecipes from "../components/LastRecipes.svelte";
     import ThreeLastRecipes from "../components/ThreeLastRecipes.svelte";
 </script>
 
@@ -11,6 +12,7 @@
 
 <SearchRecipe />
 <LinkAllRecipes />
+<LastRecipes />
 
 <section class="container_cards_recipes">
     <ThreeLastRecipes />
