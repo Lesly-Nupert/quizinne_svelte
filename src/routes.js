@@ -11,8 +11,8 @@ import AddRecipe from "./pages/AddRecipe.svelte";
 import UpdateRecipe from "./pages/UpdateRecipe.svelte";
 import User from "./pages/User.svelte";
 import Users from "./pages/Users.svelte";
-// import UserUpdate from "./pages/UserUpdate.svelte";
 import RecipesByUser from "./pages/RecipesByUser.svelte";
+// import UserUpdate from "./pages/UserUpdate.svelte";
 // import Favorites from "./pages/Favorites.svelte";
 
 
@@ -31,7 +31,7 @@ export default {
     "/recipes/update/:id": UpdateRecipe,
     "/users/:id": User,
     "/users/": Users,
-    // "/users/update/:id": UserUpdate,
     "/recipes/user/:id": RecipesByUser,
+    // "/users/update/:id": UserUpdate,
     // "/recipes/favorites/": Favorites,
 };

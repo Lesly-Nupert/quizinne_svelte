@@ -1,21 +1,29 @@
 <script>
     import { link } from "svelte-spa-router";
+    // cours Udemy: Svelte 3 et SvelteKit 1.0, formation complète pour débutants
 
-    export let params = {};
-    console.log(params.id);
+    let searchRecipe = "";
+    let recipes = [];
 
-    let searchRecipe;
-
-    async function handleSubmit() {
+    async function handleSearch() {
         try {
-            const response = await fetch(`http://localhost:3000/recipes/${params.id}`);
-            if (!response.ok) {
-                throw new Error("Problème lors de la récupération des données");
+            const response = await fetch(
+                import.meta.env.VITE_API_BASE_URL + "recipes",
+                // import.meta.env.VITE_API_BASE_URL + "recipes/title",
+                // `${import.meta.env.VITE_API_BASE_URL}recipes/${params.id}/${searchRecipe}`
+            );
+            if (response.ok) {
+                recipes = await response.json();
+                console.log(recipes);
+                return recipes
+            } else {
+                console.error(
+                    "Erreur lors de la récupération du titre de la recette",
+                );
             }
-            const searchRecipe = await response.json();
         } catch (error) {
-            console.error("Erreur lors de la recherche", error);
-            // alert("Erreur réseau.");
+            console.error("Erreur réseau", error);
+
         }
     }
 </script>
@@ -26,8 +34,17 @@
         type="text"
         placeholder="Rechercher une recette"
     />
-    <button on:submit={handleSubmit}>Rechercher</button>
+    <input type="button" value="Rechercher" on:click={handleSearch}/>
 </div>
+
+{#if recipes}
+<ul>
+    {#each recipes as recipe}
+      <li>{recipe.title}</li>
+    {/each}
+</ul>
+{/if}
+
 
 
 <style>
@@ -52,8 +69,7 @@
         border: #00008b 1px solid;
     }
 
-    input,
-    button {
+    input {
         padding: 5px;
         font-size: 24px;
     }
@@ -64,8 +80,7 @@
             height: 150px;
         }
 
-        input,
-        button {
+        input {
             font-size: 20px;
         }
     }
@@ -75,8 +90,7 @@
             height: 120px;
         }
 
-        input,
-        button {
+        input {
             font-size: 18px;
         }
     }
@@ -86,8 +100,7 @@
             height: 70px;
         }
 
-        input,
-        button {
+        input{
             font-size: 16px;
         }
     }
