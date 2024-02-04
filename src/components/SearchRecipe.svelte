@@ -3,19 +3,26 @@
     // cours Udemy: Svelte 3 et SvelteKit 1.0, formation complète pour débutants
 
     let searchRecipe = "";
-    let recipes = [];
+    let recipeTitle = [];
+
+    // Exporte la variable params pour récupérer l'identifiant id
+    // Route dynamique
+    export let params = {};
+    console.log(params.id)
 
     async function handleSearch() {
         try {
             const response = await fetch(
-                import.meta.env.VITE_API_BASE_URL + "recipes",
+                // import.meta.env.VITE_API_BASE_URL + "recipes",
                 // import.meta.env.VITE_API_BASE_URL + "recipes/title",
-                // `${import.meta.env.VITE_API_BASE_URL}recipes/${params.id}/${searchRecipe}`
+                `${import.meta.env.VITE_API_BASE_URL}recipes/title/${searchRecipe}`
             );
             if (response.ok) {
-                recipes = await response.json();
-                console.log(recipes);
-                return recipes
+                recipeTitle = await response.json();
+                console.log(recipeTitle);
+                return recipeTitle
+
+                // window.location.href = `recipes/${params.id}`;
             } else {
                 console.error(
                     "Erreur lors de la récupération du titre de la recette",
@@ -39,13 +46,13 @@
     </form>
 </div>
 
-{#if recipes}
+<!-- {#if recipes}
 <ul>
     {#each recipes as recipe}
       <li>{recipe.title}</li>
     {/each}
 </ul>
-{/if}
+{/if} -->
 
 
 
