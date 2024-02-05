@@ -7,20 +7,24 @@
 
     // Exporte la variable params pour récupérer l'identifiant id
     // Route dynamique
-    export let params = {};
-    console.log(params.id)
+    // export let params = {};
+    // console.log(params.id)
+
+    // TODO: Redirection vers la recette
 
     async function handleSearch() {
         try {
             const response = await fetch(
                 // import.meta.env.VITE_API_BASE_URL + "recipes",
                 // import.meta.env.VITE_API_BASE_URL + "recipes/title",
-                `${import.meta.env.VITE_API_BASE_URL}recipes/title/${searchRecipe}`
+                `${
+                    import.meta.env.VITE_API_BASE_URL
+                }recipes/title/${searchRecipe}`,
             );
             if (response.ok) {
                 recipeTitle = await response.json();
                 console.log(recipeTitle);
-                return recipeTitle
+                return recipeTitle;
 
                 // window.location.href = `recipes/${params.id}`;
             } else {
@@ -30,14 +34,16 @@
             }
         } catch (error) {
             console.error("Erreur réseau", error);
-
         }
     }
 </script>
 
 <div class="container_search_recipe">
     <form on:submit={handleSearch}>
+        <!-- TODO: A mettre pour l'accessibilité mais trouver comment le cacher -->
+        <!-- <label for="searchRecipe" class="label_hidden">Rechercher une recette</label> -->
         <input
+            id="searchRecipe"
             bind:value={searchRecipe}
             type="text"
             placeholder="Rechercher une recette"
@@ -53,8 +59,6 @@
     {/each}
 </ul>
 {/if} -->
-
-
 
 <style>
     /*CONTAINER SEARCH RECIPE*/
@@ -83,6 +87,10 @@
         font-size: 24px;
     }
 
+    /* .label_hidden{
+        visibility:hidden;
+    } */
+
     /* Largeur d'écran inférieur à */
     @media screen and (max-width: 1024px) {
         .container_search_recipe {
@@ -109,7 +117,7 @@
             height: 70px;
         }
 
-        input{
+        input {
             font-size: 16px;
         }
     }

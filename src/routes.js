@@ -27,7 +27,7 @@ export default {
     "/recipes/category/dishes": CategoryDishes,
     "/recipes/category/desserts": CategoryDesserts,
     "/recipes/category/drinks": CategoryDrinks,
-    "/admin/addRecipe": AddRecipe,
+    "/addRecipe": AddRecipe,
     "/recipes/update/:id": UpdateRecipe,
     "/users/:id": User,
     "/users/": Users,

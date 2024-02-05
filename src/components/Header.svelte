@@ -6,11 +6,6 @@
     import user from "svelte-awesome/icons/user";
     import plus from "svelte-awesome/icons/plus";
 
-    // Exporte la variable params pour récupérer l'identifiant id
-    // Route dynamique
-    export let params = {};
-    console.log(params.id);
-
     // Obtention du token et ID user dans le localStorage
     let token = localStorage.getItem("TOKEN");
     let userId = localStorage.getItem("USER_ID");
@@ -75,7 +70,7 @@
         {:else}
             <a  title="Ajouter une recette"
                 class="btn_login"
-                href="/admin/addRecipe"
+                href="/addRecipe"
                 aria-label="Accès à la page d'ajout de recettes"
                 use:link><Icon data={plus} width="50" /></a
             >

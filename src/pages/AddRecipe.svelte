@@ -22,7 +22,7 @@
 
         try {
             const response = await fetch(
-                import.meta.env.VITE_API_BASE_URL + "admin/addRecipe",
+                import.meta.env.VITE_API_BASE_URL + "addRecipe",
                 {
                     method: "POST",
                     headers: {

@@ -28,7 +28,8 @@
         <p>Chargement des recettes</p>
     {:then recipes}
         {#each recipes as recipe}
-            <a  title={recipe.title}
+            <a
+                title={recipe.title}
                 aria-label={`Accès aux détails de la recette dont le nom est : ${recipe.title}`}
                 href={`/recipes/${recipe.id_recipe}`}
                 use:link
