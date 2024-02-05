@@ -32,7 +32,7 @@
     }
 </script>
 
-{#if token}
+{#if token && userId}
 <h1>MES RECETTES</h1>
 
 <div class="container_cards_recipes">

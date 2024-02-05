@@ -30,17 +30,12 @@
                 const userId = result.userId;
                 console.log(userId);
 
-                // Puis le role de la méthode du postLogin du authControllers.js du serveur
-                const role = result.role;
-                console.log(role);
-
                 console.log("Données soumises avec succès");
                 alert("Connexion réussie !");
 
                 // Mémorisation du token et userID dans le localStorage
                 localStorage.setItem("TOKEN", token);
                 localStorage.setItem("USER_ID", userId);
-                localStorage.setItem("ROLE", role);
                 
                 //Redirection + Rechargement
                 window.location.href = "#/";

@@ -24,9 +24,9 @@
             if (response.ok) {
                 recipeTitle = await response.json();
                 console.log(recipeTitle);
-                return recipeTitle;
+                // return recipeTitle;
 
-                // window.location.href = `recipes/${params.id}`;
+                // window.location.href = `recipes/${recipeTitle.id_recipe}`;
             } else {
                 console.error(
                     "Erreur lors de la récupération du titre de la recette",

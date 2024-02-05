@@ -26,8 +26,7 @@
     function disconnect() {
         localStorage.removeItem("TOKEN");
         localStorage.removeItem("USER_ID");
-        // Le retire du LS même si non utilisé ici
-        localStorage.removeItem("ROLE");
+        
         window.location.href = "#/";
         window.location.reload();
     }
@@ -75,10 +74,9 @@
                 use:link><Icon data={plus} width="50" /></a
             >
 
-            <!-- href="/users/:id" -->
             <a  title="Compte utilisateur"
                 class="btn_account"
-                href={`/users/${userId }`}
+                href={`/recipes/user/${userId}`}
                 aria-label="Accès au compte utilisateur"
                 use:link><Icon data={user} width="50" /></a
             >

@@ -9,12 +9,8 @@ import CategoryDesserts from "./pages/CategoryDesserts.svelte";
 import CategoryDrinks from "./pages/CategoryDrinks.svelte";
 import AddRecipe from "./pages/AddRecipe.svelte";
 import UpdateRecipe from "./pages/UpdateRecipe.svelte";
-import User from "./pages/User.svelte";
-import Users from "./pages/Users.svelte";
 import RecipesByUser from "./pages/RecipesByUser.svelte";
-// import UserUpdate from "./pages/UserUpdate.svelte";
-// import Favorites from "./pages/Favorites.svelte";
-
+// import ResultsSearchRecipes from "./pages/ResultsSearchRecipes.svelte";
 
 
 export default {
@@ -29,9 +25,6 @@ export default {
     "/recipes/category/drinks": CategoryDrinks,
     "/addRecipe": AddRecipe,
     "/recipes/update/:id": UpdateRecipe,
-    "/users/:id": User,
-    "/users/": Users,
     "/recipes/user/:id": RecipesByUser,
-    // "/users/update/:id": UserUpdate,
-    // "/recipes/favorites/": Favorites,
+    // "/resultsSearchRecipes": ResultsSearchRecipes,
 };
