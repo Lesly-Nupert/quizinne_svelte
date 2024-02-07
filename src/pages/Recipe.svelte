@@ -2,14 +2,6 @@
     // Routeur optimisé pour Single Page Application (SPA)
     import { link } from "svelte-spa-router";
 
-    import Like from "../components/Like.svelte";
-    // import AddComment from "../components/AddComment.svelte";
-    // import Comment from "../components/Comment.svelte";
-
-    //coeur test
-    // import { Icon } from "svelte-awesome";
-    // import heart from "svelte-awesome/icons/heart";
-
     // Obtention du token et ID user dans le localStorage
     let token = localStorage.getItem("TOKEN");
     let userId = localStorage.getItem("USER_ID");
@@ -19,8 +11,11 @@
     export let params = {};
     console.log(params.id);
 
-    //Variable du Formulaire ajout commentaire
+    // Variable du Formulaire ajout commentaire
     let content;
+
+    // Variable initialisation du compteur à Zéro
+    let count = 0;
 
     // Fonction pour charger une recette
     async function getRecipe() {
@@ -54,22 +49,19 @@
                     },
                 },
             );
-
             if (response.ok) {
-                console.log("Recette supprimée avec succès");
+                console.log("Recette supprimée");
                 alert("Recette supprimée avec succès !");
 
-                // Redirection
-                window.location.href = "/#";
             } else {
-                console.error("Erreur lors de la suppression", response.status);
-                alert("Erreur lors de la suppression de la recette !");
+                console.error("Erreur Suppression", response.status);
+                alert("Erreur lors de la suppression !");
             }
         } catch (error) {
             console.error("Erreur réseau", error);
         }
     }
-
+        
     // Fonction pour ajouter un commentaire
     async function handleComment() {
         try {
@@ -89,7 +81,6 @@
                     body: new URLSearchParams(data).toString(),
                 },
             );
-            // Indique le code HTTP si response KO
             if (!response.ok) {
                 throw new Error(`Erreur HTTP : ${response.status}`);
             }
@@ -100,7 +91,7 @@
             console.log("Données soumises avec succès");
             alert("Commentaire publié !");
 
-            // Rechargement de la page
+            // Rechargement de la page après ajout commentaire
             window.location.reload();
         } catch (error) {
             console.error("Erreur réseau", error);
@@ -125,6 +116,55 @@
         }
     }
 
+
+     // Fonction pour Aimer une recette
+     async function handleLike() {
+        try {
+            const response = await fetch(
+                `${import.meta.env.VITE_API_BASE_URL}recipes/like/${
+                    params.id
+                }`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        Authorization: "Bearer " + token,
+                    },
+                    body: new URLSearchParams().toString(),
+                },
+            );
+            if (response.ok) {
+                count += 1;
+                console.log("Like fonctionne");
+                alert("Vous aimez cette recette !");
+
+            } else {
+                console.error("Erreur Recette déjà liké par le membre", response.status);
+                alert("Vous aimez déjà cette recette !");
+            }
+        } catch (error) {
+            console.error("Erreur réseau", error);
+        }
+    }
+
+     // Fonction pour charger les J'aime
+     async function getLikes() {
+        try {
+            const response = await fetch(
+                `${import.meta.env.VITE_API_BASE_URL}recipes/${params.id}/likes`,
+            );
+            if (response.ok) {
+                const likes = await response.json();
+                console.log(likes);
+                return likes;
+            } else {
+                console.error("Erreur lors de la récupération des J'aime");
+            }
+        } catch (error) {
+            console.error("Erreur réseau", error);
+        }
+    }
+
     
 </script>
 
@@ -140,6 +180,9 @@
             alt={`photo de ${recipe.title}`}
         />
 
+
+        <!-- TODO AFFICHAGE DU COMPTEUR J'AIME MIS A JOUR -->
+        <!-- *BLOC TEXTE RECETTE FAITE PAR  + LA DATE ET LE COMPTEUR J'AIME -->
         <!-- Méthode toLocaleDateString = Conversion en date locale -->
         <div class="doneAndLike">
             <p class="done_by">
@@ -148,15 +191,30 @@
                     >{new Date(recipe.created_at).toLocaleDateString()}</span
                 >
             </p>
+            
+            <!-- https://svelte.dev/repl/f5acc8113ec14bc7946eff9687916fa1?version=3.4.1 -->
             <span class="like">
-                <Like />
+                <button on:click={handleLike} disabled={!token}>
+                    {count} J'aime
+                </button>
             </span>
         </div>
 
-        <!-- <span>
-            <Icon data={heart} color="red" width="32" height="32" />
-        </span> -->
+        <!-- {#await getLikes()}
+            <p>Chargement des J'aime</p>
+            {:then likes}
+            {#each likes as like}
+            <span class="like">
+                <button on:click={handleLike} disabled={!token}>
+                    {like} J'aime
+                </button>
+            </span>
+            {/each}
+            {/await} -->
 
+
+
+        <!-- *BLOC INGREDIENTS + ETAPES-->
         <div class="container_ingredients">
             <h2>Ingrédients :</h2>
             <p class="ingredients">{recipe.ingredients}</p>
@@ -167,6 +225,9 @@
             <p class="steps">{recipe.steps}</p>
         </div>
 
+
+
+        <!-- *BLOC BOUTONS MODIFIER + SUPPRIMER UNE RECETTE -->
         <!-- Si User connecté visualise sa propre recette -->
         {#if token && userId == recipe.id_member}
             <a
@@ -185,7 +246,9 @@
         {/if}
     {/await}
 
-    <!-- FORMULAIRE AJOUT COMMENTAIRE-->
+
+
+    <!-- * BLOC FORMULAIRE AJOUT COMMENTAIRE-->
     <div class="container_addComment">
         <form on:submit|preventDefault={handleComment}>
             <label for="content">Partager un commentaire :</label>
@@ -200,17 +263,20 @@
         </form>
     </div>
 
-    <!-- COMMENTAIRE DES MEMBRES-->
+
+    
+
+    <!-- *BLOC COMMENTAIRE DES MEMBRES-->
 <div class="container_comments">
     {#await getComments()}
         <p>Chargement des commenatires</p>
     {:then comments}
         {#each comments as comment}
             <section class="comments">
-                <p>{comment.content}</p>
-                <span>{comment.pseudo}</span>
-                <span>{`.`}</span>
-                <span class="date">
+                <p class="content">{comment.content}</p>
+                <span class="content_pseudo_date">{comment.pseudo}</span>
+                <span class="content_pseudo_date">{`-`}</span>
+                <span class="content_pseudo_date">
                     {new Date(comment.created_at).toLocaleDateString()}
                 </span>
             </section>
@@ -222,6 +288,24 @@
 </div>
 
 <style>
+    .like button{
+        width: 100px;
+        font-weight: 300;
+        background: linear-gradient(
+            90deg,
+            hsla(277, 79%, 84%, 1) 0%,
+            hsla(204, 95%, 77%, 1) 100%
+        );
+    }
+
+    .content{
+        font-size: 16px;
+    }
+
+    .content_pseudo_date{
+        color: #777575;
+    }
+
     .container_comments {
         max-width: 700px;
         margin-top: 50px;
@@ -232,7 +316,7 @@
     .comments{
         border-bottom: lightgray 2px solid;
         margin-bottom: 10px;
-        line-height: 1.5;
+        line-height: 1.7;
     }
 
     .container_addComment {
@@ -322,7 +406,7 @@
         font-size: 13px;
         margin-top: 35px;
         margin-left: 10px;
-        width: 125px;
+        width: 134px;
         border: 1px solid black;
         border-radius: 2px;
         text-align: center;
@@ -330,6 +414,7 @@
         color: black;
         background-color: #efefef;
         padding: 5px;
+
     }
 
     .delete_recipe {

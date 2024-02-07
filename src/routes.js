@@ -10,7 +10,6 @@ import CategoryDrinks from "./pages/CategoryDrinks.svelte";
 import AddRecipe from "./pages/AddRecipe.svelte";
 import UpdateRecipe from "./pages/UpdateRecipe.svelte";
 import RecipesByUser from "./pages/RecipesByUser.svelte";
-// import CommentsbyRecipe from "./pages/CommentsbyRecipe.svelte";
 // import ResultsSearchRecipes from "./pages/ResultsSearchRecipes.svelte";
 
 
@@ -27,6 +26,5 @@ export default {
     "/addRecipe": AddRecipe,
     "/recipes/update/:id": UpdateRecipe,
     "/recipes/user/:id": RecipesByUser,
-    // "/comments/recipes/:recipe": CommentsbyRecipe,
     // "/resultsSearchRecipes": ResultsSearchRecipes,
 };
