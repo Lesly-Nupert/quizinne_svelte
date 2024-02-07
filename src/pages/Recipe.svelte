@@ -9,7 +9,7 @@
     // Exporte la variable params pour récupérer l'identifiant id
     // Route dynamique
     export let params = {};
-    console.log(params.id);
+    console.log(`id recette: ${params.id}`);
 
     // Variable du Formulaire ajout commentaire
     let content;
@@ -52,7 +52,6 @@
             if (response.ok) {
                 console.log("Recette supprimée");
                 alert("Recette supprimée avec succès !");
-
             } else {
                 console.error("Erreur Suppression", response.status);
                 alert("Erreur lors de la suppression !");
@@ -61,7 +60,7 @@
             console.error("Erreur réseau", error);
         }
     }
-        
+
     // Fonction pour ajouter un commentaire
     async function handleComment() {
         try {
@@ -102,28 +101,29 @@
     async function getComments() {
         try {
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}recipes/${params.id}/comments`,
+                `${import.meta.env.VITE_API_BASE_URL}recipes/${
+                    params.id
+                }/comments`,
             );
             if (response.ok) {
                 const comments = await response.json();
                 console.log(comments);
                 return comments;
             } else {
-                console.error("Erreur lors de la récupération des commentaires");
+                console.error(
+                    "Erreur lors de la récupération des commentaires",
+                );
             }
         } catch (error) {
             console.error("Erreur réseau", error);
         }
     }
 
-
-     // Fonction pour Aimer une recette
-     async function handleLike() {
+    // Fonction pour Aimer une recette
+    async function handleLike() {
         try {
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}recipes/like/${
-                    params.id
-                }`,
+                `${import.meta.env.VITE_API_BASE_URL}recipes/like/${params.id}`,
                 {
                     method: "POST",
                     headers: {
@@ -138,8 +138,13 @@
                 console.log("Like fonctionne");
                 alert("Vous aimez cette recette !");
 
+                // Rechargement de la page après avoir cliquer sur J'aime
+                window.location.reload();
             } else {
-                console.error("Erreur Recette déjà liké par le membre", response.status);
+                console.error(
+                    "Erreur Recette déjà liké par le membre",
+                    response.status,
+                );
                 alert("Vous aimez déjà cette recette !");
             }
         } catch (error) {
@@ -147,11 +152,13 @@
         }
     }
 
-     // Fonction pour charger les J'aime
-     async function getLikes() {
+    // Fonction pour charger les J'aime
+    async function getLikes() {
         try {
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}recipes/${params.id}/likes`,
+                `${import.meta.env.VITE_API_BASE_URL}recipes/${
+                    params.id
+                }/likes`,
             );
             if (response.ok) {
                 const likes = await response.json();
@@ -164,8 +171,6 @@
             console.error("Erreur réseau", error);
         }
     }
-
-    
 </script>
 
 <div class="container_details_recipe">
@@ -180,7 +185,6 @@
             alt={`photo de ${recipe.title}`}
         />
 
-
         <!-- TODO AFFICHAGE DU COMPTEUR J'AIME MIS A JOUR -->
         <!-- *BLOC TEXTE RECETTE FAITE PAR  + LA DATE ET LE COMPTEUR J'AIME -->
         <!-- Méthode toLocaleDateString = Conversion en date locale -->
@@ -191,28 +195,26 @@
                     >{new Date(recipe.created_at).toLocaleDateString()}</span
                 >
             </p>
-            
+
             <!-- https://svelte.dev/repl/f5acc8113ec14bc7946eff9687916fa1?version=3.4.1 -->
-            <span class="like">
-                <button on:click={handleLike} disabled={!token}>
-                    {count} J'aime
-                </button>
-            </span>
+            <div class="like_content">
+                    {#await getLikes()}
+                        <p>Chargement des J'aime</p>
+                    {:then likes}
+                        <span class="like_count">
+                            {likes.count}
+                        </span>
+                    {/await}
+
+                    <button
+                        class="like_click"
+                        on:click|once={handleLike}
+                        disabled={!token}
+                    >
+                        J'aime
+                    </button>
+            </div>
         </div>
-
-        <!-- {#await getLikes()}
-            <p>Chargement des J'aime</p>
-            {:then likes}
-            {#each likes as like}
-            <span class="like">
-                <button on:click={handleLike} disabled={!token}>
-                    {like} J'aime
-                </button>
-            </span>
-            {/each}
-            {/await} -->
-
-
 
         <!-- *BLOC INGREDIENTS + ETAPES-->
         <div class="container_ingredients">
@@ -224,8 +226,6 @@
             <h2>Étapes :</h2>
             <p class="steps">{recipe.steps}</p>
         </div>
-
-
 
         <!-- *BLOC BOUTONS MODIFIER + SUPPRIMER UNE RECETTE -->
         <!-- Si User connecté visualise sa propre recette -->
@@ -246,8 +246,6 @@
         {/if}
     {/await}
 
-
-
     <!-- * BLOC FORMULAIRE AJOUT COMMENTAIRE-->
     <div class="container_addComment">
         <form on:submit|preventDefault={handleComment}>
@@ -263,34 +261,40 @@
         </form>
     </div>
 
-
-    
-
     <!-- *BLOC COMMENTAIRE DES MEMBRES-->
-<div class="container_comments">
-    {#await getComments()}
-        <p>Chargement des commenatires</p>
-    {:then comments}
-        {#each comments as comment}
-            <section class="comments">
-                <p class="content">{comment.content}</p>
-                <span class="content_pseudo_date">{comment.pseudo}</span>
-                <span class="content_pseudo_date">{`-`}</span>
-                <span class="content_pseudo_date">
-                    {new Date(comment.created_at).toLocaleDateString()}
-                </span>
-            </section>
-            <!-- <hr> -->
-        {/each}
-    {/await}
-</div>
-
+    <div class="container_comments">
+        {#await getComments()}
+            <p>Chargement des commenatires</p>
+        {:then comments}
+            {#each comments as comment}
+                <section class="comments">
+                    <p class="content">{comment.content}</p>
+                    <span class="content_pseudo_date">{comment.pseudo}</span>
+                    <span class="content_pseudo_date">{`-`}</span>
+                    <span class="content_pseudo_date">
+                        {new Date(comment.created_at).toLocaleDateString()}
+                    </span>
+                </section>
+                <!-- <hr> -->
+            {/each}
+        {/await}
+    </div>
 </div>
 
 <style>
-    .like button{
-        width: 100px;
+    .like_content {
+        display: flex;
+    }
+
+    .like_count {
+        padding: 5px;
+    }
+
+    .like_click {
+        width: 55px;
         font-weight: 300;
+        border: none;
+        outline: 1px solid #00008b;
         background: linear-gradient(
             90deg,
             hsla(277, 79%, 84%, 1) 0%,
@@ -298,11 +302,11 @@
         );
     }
 
-    .content{
+    .content {
         font-size: 16px;
     }
 
-    .content_pseudo_date{
+    .content_pseudo_date {
         color: #777575;
     }
 
@@ -313,7 +317,7 @@
         margin-right: 10px;
     }
 
-    .comments{
+    .comments {
         border-bottom: lightgray 2px solid;
         margin-bottom: 10px;
         line-height: 1.7;
@@ -414,7 +418,6 @@
         color: black;
         background-color: #efefef;
         padding: 5px;
-
     }
 
     .delete_recipe {
