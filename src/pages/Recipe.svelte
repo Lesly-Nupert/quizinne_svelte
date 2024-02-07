@@ -2,6 +2,10 @@
     // Routeur optimisé pour Single Page Application (SPA)
     import { link } from "svelte-spa-router";
 
+    import Like from "../components/Like.svelte";
+    // import AddComment from "../components/AddComment.svelte";
+    // import Comment from "../components/Comment.svelte";
+
     //coeur test
     // import { Icon } from "svelte-awesome";
     // import heart from "svelte-awesome/icons/heart";
@@ -14,6 +18,9 @@
     // Route dynamique
     export let params = {};
     console.log(params.id);
+
+    //Variable du Formulaire ajout commentaire
+    let content;
 
     // Fonction pour charger une recette
     async function getRecipe() {
@@ -62,6 +69,63 @@
             console.error("Erreur réseau", error);
         }
     }
+
+    // Fonction pour ajouter un commentaire
+    async function handleComment() {
+        try {
+            const data = { content };
+            console.log(data);
+
+            const response = await fetch(
+                `${import.meta.env.VITE_API_BASE_URL}recipes/comment/${
+                    params.id
+                }`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        Authorization: "Bearer " + token,
+                    },
+                    body: new URLSearchParams(data).toString(),
+                },
+            );
+            // Indique le code HTTP si response KO
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP : ${response.status}`);
+            }
+
+            const json = await response.json();
+            console.log(json);
+
+            console.log("Données soumises avec succès");
+            alert("Commentaire publié !");
+
+            // Rechargement de la page
+            window.location.reload();
+        } catch (error) {
+            console.error("Erreur réseau", error);
+        }
+    }
+
+    // Fonction pour charger les commentaires
+    async function getComments() {
+        try {
+            const response = await fetch(
+                `${import.meta.env.VITE_API_BASE_URL}recipes/${params.id}/comments`,
+            );
+            if (response.ok) {
+                const comments = await response.json();
+                console.log(comments);
+                return comments;
+            } else {
+                console.error("Erreur lors de la récupération des commentaires");
+            }
+        } catch (error) {
+            console.error("Erreur réseau", error);
+        }
+    }
+
+    
 </script>
 
 <div class="container_details_recipe">
@@ -77,12 +141,17 @@
         />
 
         <!-- Méthode toLocaleDateString = Conversion en date locale -->
-        <p class="done_by">
-            Fait par <span class="user">{recipe.pseudo}</span>, le
-            <span class="date"
-                >{new Date(recipe.created_at).toLocaleDateString()}</span
-            >
-        </p>
+        <div class="doneAndLike">
+            <p class="done_by">
+                Fait par <span class="user">{recipe.pseudo}</span>, le
+                <span class="date"
+                    >{new Date(recipe.created_at).toLocaleDateString()}</span
+                >
+            </p>
+            <span class="like">
+                <Like />
+            </span>
+        </div>
 
         <!-- <span>
             <Icon data={heart} color="red" width="32" height="32" />
@@ -100,7 +169,8 @@
 
         <!-- Si User connecté visualise sa propre recette -->
         {#if token && userId == recipe.id_member}
-            <a  title="Modifier votre recette"
+            <a
+                title="Modifier votre recette"
                 aria-label="Accès à la page de modification de votre recette"
                 href={`/recipes/update/${recipe.id_recipe}`}
                 use:link
@@ -113,16 +183,77 @@
                 </button>
             </form>
         {/if}
+    {/await}
 
-        <!-- Juste pour le visuel-->
-        <div class="container_comments">
-            <textarea name="" id="" placeholder="Commentaires..."></textarea>
-            <button>Publier commentaire</button>
-        </div>
+    <!-- FORMULAIRE AJOUT COMMENTAIRE-->
+    <div class="container_addComment">
+        <form on:submit|preventDefault={handleComment}>
+            <label for="content">Partager un commentaire :</label>
+            <textarea
+                bind:value={content}
+                name="contents"
+                id="contents"
+                placeholder="Commentaires..."
+                required
+            ></textarea>
+            <button disabled={!token}>Publier commentaire</button>
+        </form>
+    </div>
+
+    <!-- COMMENTAIRE DES MEMBRES-->
+<div class="container_comments">
+    {#await getComments()}
+        <p>Chargement des commenatires</p>
+    {:then comments}
+        {#each comments as comment}
+            <section class="comments">
+                <p>{comment.content}</p>
+                <span>{comment.pseudo}</span>
+                <span>{`.`}</span>
+                <span class="date">
+                    {new Date(comment.created_at).toLocaleDateString()}
+                </span>
+            </section>
+            <!-- <hr> -->
+        {/each}
     {/await}
 </div>
 
+</div>
+
 <style>
+    .container_comments {
+        max-width: 700px;
+        margin-top: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .comments{
+        border-bottom: lightgray 2px solid;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+
+    .container_addComment {
+        max-width: 700px;
+        margin-top: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .container_addcomment button {
+        margin-top: 10px;
+        display: block;
+        padding: 5px;
+    }
+
+    .doneAndLike {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
     .container_details_recipe {
         max-width: 700px;
         width: 100%;
@@ -131,17 +262,6 @@
         flex-direction: column;
         margin-bottom: 20px;
         box-sizing: border-box;
-    }
-
-    .container_comments {
-        max-width: 700px;
-        margin-top: 50px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .container_comments button {
-        margin-top: 10px;
     }
 
     textarea {
@@ -159,7 +279,7 @@
         text-align: center;
         margin-top: 50px;
         font-size: 48px;
-        word-wrap: break-word; 
+        word-wrap: break-word;
         max-width: 100%;
     }
 
