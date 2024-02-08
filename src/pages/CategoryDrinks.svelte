@@ -26,7 +26,7 @@
 </script>
 
 <div class="title_category">
-    <img src="/public/images/category_drinks.png" alt="" />
+    <!-- <img src="/public/images/category_drinks.png" alt="" /> -->
     <h1>BOISSONS</h1>
 
     <img src="/public/images/category_drinks.png" alt="" />
@@ -105,12 +105,12 @@
         overflow: hidden;
         text-align: center;
         margin-top: 30px;
-        box-shadow: 1px 1px 1px 2px gray;
+        box-shadow: 1px 1px 1px 2px #5B59C7;
         border-radius: 5px;
     }
 
     .cards_recipes:hover {
-        box-shadow: 5px 5px 5px 5px gray;
+        box-shadow: 5px 5px 5px 5px #5B59C7;
     }
 
     .cards_recipes img {

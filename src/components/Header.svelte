@@ -74,10 +74,10 @@
                 use:link><Icon data={plus} width="50" /></a
             >
 
-            <a  title="Compte utilisateur"
+            <a  title="Consulter mes recettes"
                 class="btn_account"
                 href={`/recipes/user/${userId}`}
-                aria-label="Accès au compte utilisateur"
+                aria-label="Accès à la liste de mes recettes"
                 use:link><Icon data={user} width="50" /></a
             >
             <button
@@ -102,15 +102,17 @@
 
     .quizine {
         font-size: 50px;
-        color: #00008b;
-        /* font-weight: bolder; */
+        color: #fff;
         padding: 5px;
         border-width: 6px;
         border-radius: 10px;
         font-family: 'Black Ops One', sans-serif;
+        text-shadow: 2px 2px 2px #000;  
     }
 
     header {
+        max-width: 1200px;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -119,14 +121,27 @@
         font-size: 24px;
         border-radius: 10px;
         margin-top: 0.5px;
-        border: 5px solid lightgray;
-        height: 220px;
+        border: 5px solid #5B59C7;
+        /* background-color: lightgray; */
+        /* background: linear-gradient(90deg, hsla(210, 71%, 55%, 1) 0%, hsla(334, 77%, 69%, 1) 100%); */
+        /* background: linear-gradient(90deg, hsla(254, 68%, 9%, 1) 0%, hsla(269, 97%, 37%, 1) 33%, hsla(320, 77%, 55%, 1) 66%, hsla(316, 41%, 93%, 1) 100%); */
+        /* background: linear-gradient(90deg, rgb(68, 65, 251) 0%, hsla(295, 94%, 76%, 1) 100%); */
+        /* background: linear-gradient(90deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%); */
+        /* background: linear-gradient(90deg, hsla(232, 73%, 65%, 1) 0%, hsla(279, 33%, 48%, 1) 100%); */
+        /* background: linear-gradient(90deg, hsla(210, 91%, 39%, 1) 0%, hsla(321, 55%, 50%, 1) 100%); */
+        /* background: linear-gradient(90deg, hsla(354, 95%, 24%, 1) 0%, hsla(234, 70%, 24%, 1) 100%); */
+        /* background: linear-gradient(90deg, hsla(210, 71%, 55%, 1) 0%, hsla(334, 77%, 69%, 1) 100%); */
+        /* background: linear-gradient(90deg, hsla(344, 97%, 63%, 1) 0%, hsla(232, 90%, 59%, 1) 100%); */
+        /* background: linear-gradient(90deg, hsla(291, 79%, 51%, 1) 0%, hsla(240, 91%, 73%, 1) 100%); */
+        background: linear-gradient(90deg, hsla(210, 91%, 39%, 1) 0%, hsla(321, 55%, 50%, 1) 100%);
+        height: 220px; 
     }
 
     .nav_header a {
         text-decoration: none;
         padding: 15px;
-        color: #00008b;
+        color: #fff;
+        text-shadow: 2px 2px 2px #000; 
     }
 
     .burger button {
@@ -141,19 +156,20 @@
         text-decoration: none;
         padding: 5px;
         margin: 10px;
-        color: #00008b;
+        color: #fff;
         font-weight: bold;
-        border: 1px solid #00008b;
+        border: 2px solid #00008b;
         border-radius: 20px;
+        text-shadow: 2px 2px 2px #000; 
     }
 
     .btn_logout {
         text-decoration: none;
         padding: 5px;
         margin: 10px;
-        color: #00008b;
+        color: #fff;
         font-weight: bold;
-        border: 1px solid #00008b;
+        border: 2px solid #00008b;
         border-radius: 20px;
         font-size: 24px;
         background-color: transparent;

@@ -36,17 +36,20 @@
             console.error("Erreur réseau", error);
         }
     }
+
+
+
+    
 </script>
 
 <div class="container_search_recipe">
     <form on:submit={handleSearch}>
-        <!-- TODO: A mettre pour l'accessibilité mais trouver comment le cacher -->
-        <!-- <label for="searchRecipe" class="label_hidden">Rechercher une recette</label> -->
+        <label for="searchRecipe">Rechercher une recette</label>
         <input
             id="searchRecipe"
             bind:value={searchRecipe}
             type="text"
-            placeholder="Rechercher une recette"
+            placeholder="Parcourir Quizine..."
         />
         <input type="submit" value="Rechercher" disabled={!searchRecipe} />
     </form>
@@ -71,7 +74,7 @@
         margin: auto;
         margin-top: 40px;
         border-radius: 20px;
-        background-image: url(/images/background_search.svg);
+        background-image: url(/images/bg_search.svg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -82,14 +85,24 @@
         border: #00008b 1px solid;
     }
 
+    form{
+        /* display: flex;
+        flex-direction: column; */
+    }
+
+    label{
+        display:block;  
+        font-size: 16px;  
+        margin-bottom: 5px; 
+        text-align: center;  
+        color: black;    
+        background-color: #fff;
+    }
+
     input {
         padding: 5px;
         font-size: 24px;
     }
-
-    /* .label_hidden{
-        visibility:hidden;
-    } */
 
     /* Largeur d'écran inférieur à */
     @media screen and (max-width: 1024px) {

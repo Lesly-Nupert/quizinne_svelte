@@ -6,7 +6,7 @@
     section{
         max-width: 1200px;
         margin: 0 auto;
-        color: #00008b;
+        color: black;
         font-size: 16px;
         font-weight:500;
     }

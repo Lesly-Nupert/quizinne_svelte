@@ -85,13 +85,13 @@
         overflow: hidden;
         text-align: center;
         margin-top: 30px;
-        box-shadow: 1px 1px 1px 2px gray;
+        box-shadow: 1px 1px 1px 2px #5B59C7;
         border-radius: 5px;
         box-sizing: border-box;
     }
 
     .cards_recipes:hover {
-        box-shadow: 5px 5px 5px 5px gray;
+        box-shadow: 5px 5px 5px 5px #5B59C7;
     }
 
     .cards_recipes img {

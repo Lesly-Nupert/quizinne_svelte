@@ -185,8 +185,7 @@
             alt={`photo de ${recipe.title}`}
         />
 
-        <!-- TODO AFFICHAGE DU COMPTEUR J'AIME MIS A JOUR -->
-        <!-- *BLOC TEXTE RECETTE FAITE PAR  + LA DATE ET LE COMPTEUR J'AIME -->
+        <!-- *BLOC TEXTE RECETTE FAITE PAR  + LA DATE -->
         <!-- Méthode toLocaleDateString = Conversion en date locale -->
         <div class="doneAndLike">
             <p class="done_by">
@@ -196,6 +195,7 @@
                 >
             </p>
 
+            <!-- *BLOC DU COMPTEUR J'AIME -->
             <!-- https://svelte.dev/repl/f5acc8113ec14bc7946eff9687916fa1?version=3.4.1 -->
             <div class="like_content">
                     {#await getLikes()}
@@ -210,6 +210,8 @@
                         class="like_click"
                         on:click|once={handleLike}
                         disabled={!token}
+                        title="Cliquer pour aimer la recette" 
+                        aria-label="Ajouter un J'aime à la recette"
                     >
                         J'aime
                     </button>
@@ -239,7 +241,7 @@
             >
 
             <form on:submit|preventDefault={deleteRecipe} class="delete_recipe">
-                <button type="submit" class="btn_delete_recipe">
+                <button type="submit" class="btn_delete_recipe" title="Supprimer votre recette" aria-label="Suppression de votre recette">
                     Supprimer la recette
                 </button>
             </form>
@@ -257,7 +259,7 @@
                 placeholder="Commentaires..."
                 required
             ></textarea>
-            <button disabled={!token}>Publier commentaire</button>
+            <button disabled={!token} title="Publier un commentaire" aria-label="Publication du commentaire">Publier commentaire</button>
         </form>
     </div>
 
@@ -275,7 +277,6 @@
                         {new Date(comment.created_at).toLocaleDateString()}
                     </span>
                 </section>
-                <!-- <hr> -->
             {/each}
         {/await}
     </div>
@@ -295,6 +296,7 @@
         font-weight: 300;
         border: none;
         outline: 1px solid #00008b;
+        cursor: pointer;
         background: linear-gradient(
             90deg,
             hsla(277, 79%, 84%, 1) 0%,
@@ -334,6 +336,7 @@
         margin-top: 10px;
         display: block;
         padding: 5px;
+        
     }
 
     .doneAndLike {
@@ -361,6 +364,7 @@
     button {
         display: block;
         padding: 5px;
+        cursor: pointer;
     }
 
     h1 {
@@ -377,7 +381,7 @@
 
     .img_recipe {
         margin-top: 50px;
-        border: 5px solid lightgrey;
+        border: 5px solid #5B59C7;
     }
 
     .done_by {
@@ -418,6 +422,10 @@
         color: black;
         background-color: #efefef;
         padding: 5px;
+    }
+
+    .btn_delete_recipe {
+        cursor: pointer;
     }
 
     .delete_recipe {
