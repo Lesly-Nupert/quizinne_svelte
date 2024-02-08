@@ -25,7 +25,7 @@
             );
             if (response.ok) {
                 const recipe = await response.json();
-                console.log(recipe);
+                // console.log(recipe);
                 return recipe;
             } else {
                 console.error("Erreur lors de la récupération de la recette");
@@ -50,8 +50,12 @@
                 },
             );
             if (response.ok) {
-                console.log("Recette supprimée");
+                console.log("Recette supprimée !");
                 alert("Recette supprimée avec succès !");
+
+                // Redirection
+                window.location.href = '#/';
+
             } else {
                 console.error("Erreur Suppression", response.status);
                 alert("Erreur lors de la suppression !");
@@ -65,7 +69,7 @@
     async function handleComment() {
         try {
             const data = { content };
-            console.log(data);
+            // console.log(data);
 
             const response = await fetch(
                 `${import.meta.env.VITE_API_BASE_URL}recipes/comment/${
@@ -107,7 +111,7 @@
             );
             if (response.ok) {
                 const comments = await response.json();
-                console.log(comments);
+                // console.log(comments);
                 return comments;
             } else {
                 console.error(
@@ -162,7 +166,7 @@
             );
             if (response.ok) {
                 const likes = await response.json();
-                console.log(likes);
+                // console.log(likes);
                 return likes;
             } else {
                 console.error("Erreur lors de la récupération des J'aime");
@@ -294,8 +298,7 @@
     .like_click {
         width: 55px;
         font-weight: 300;
-        border: none;
-        outline: 1px solid #00008b;
+        border-radius: 20px;
         cursor: pointer;
         background: linear-gradient(
             90deg,
@@ -382,6 +385,7 @@
     .img_recipe {
         margin-top: 50px;
         border: 5px solid #5B59C7;
+        border-radius: 10px;
     }
 
     .done_by {

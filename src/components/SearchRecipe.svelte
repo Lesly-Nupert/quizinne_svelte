@@ -3,47 +3,32 @@
     // cours Udemy: Svelte 3 et SvelteKit 1.0, formation complète pour débutants
 
     let searchRecipe = "";
-    let recipeTitle = [];
-
-    // Exporte la variable params pour récupérer l'identifiant id
-    // Route dynamique
-    // export let params = {};
-    // console.log(params.id)
-
-    // TODO: Redirection vers la recette
-
+    
     async function handleSearch() {
         try {
             const response = await fetch(
-                // import.meta.env.VITE_API_BASE_URL + "recipes",
-                // import.meta.env.VITE_API_BASE_URL + "recipes/title",
-                `${
-                    import.meta.env.VITE_API_BASE_URL
-                }recipes/title/${searchRecipe}`,
+                import.meta.env.VITE_API_BASE_URL + "recipesFilter",
+                
             );
             if (response.ok) {
-                recipeTitle = await response.json();
-                console.log(recipeTitle);
-                // return recipeTitle;
+                const recipes = await response.json();
+                console.log(recipes);
+               
+                // Redirection
+                window.location.href = '#/recipesFilter';
 
-                // window.location.href = `recipes/${recipeTitle.id_recipe}`;
             } else {
-                console.error(
-                    "Erreur lors de la récupération du titre de la recette",
-                );
+                console.error("Erreur lors de la récupération des recettes");
             }
         } catch (error) {
             console.error("Erreur réseau", error);
         }
     }
 
-
-
-    
 </script>
 
 <div class="container_search_recipe">
-    <form on:submit={handleSearch}>
+    <form>
         <label for="searchRecipe">Rechercher une recette</label>
         <input
             id="searchRecipe"
@@ -51,30 +36,23 @@
             type="text"
             placeholder="Parcourir Quizine..."
         />
-        <input type="submit" value="Rechercher" disabled={!searchRecipe} />
+        <input on:click={handleSearch} type="button" value="Rechercher" disabled={!searchRecipe} />
     </form>
 </div>
 
-<!-- {#if recipes}
-<ul>
-    {#each recipes as recipe}
-      <li>{recipe.title}</li>
-    {/each}
-</ul>
-{/if} -->
 
 <style>
     /*CONTAINER SEARCH RECIPE*/
     .container_search_recipe {
         max-width: 1200px;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         margin: auto;
         margin-top: 40px;
         border-radius: 20px;
-        background-image: url(/images/bg_search.svg);
+        background-image: url(/images/bg_search2.svg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;

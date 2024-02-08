@@ -6,7 +6,7 @@
 
 <style>
     footer {
-        max-width: 1200px;
+        /* max-width: 1200px; */
         width: 100%;
         margin: 0 auto;
         color: #00008b;

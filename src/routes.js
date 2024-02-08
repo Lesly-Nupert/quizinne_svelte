@@ -10,7 +10,7 @@ import CategoryDrinks from "./pages/CategoryDrinks.svelte";
 import AddRecipe from "./pages/AddRecipe.svelte";
 import UpdateRecipe from "./pages/UpdateRecipe.svelte";
 import RecipesByUser from "./pages/RecipesByUser.svelte";
-// import ResultsSearchRecipes from "./pages/ResultsSearchRecipes.svelte";
+import RecipesFilter from "./pages/RecipesFilter.svelte";
 
 
 export default {
@@ -25,6 +25,6 @@ export default {
     "/recipes/category/drinks": CategoryDrinks,
     "/addRecipe": AddRecipe,
     "/recipes/update/:id": UpdateRecipe,
-    "/recipes/user/:id": RecipesByUser,
-    // "/resultsSearchRecipes": ResultsSearchRecipes,
+    "/recipes/user/:userId": RecipesByUser,
+    "/recipesFilter": RecipesFilter,
 };

@@ -136,6 +136,10 @@
         font-size: 24px;
     }
 
+    input::first-letter {
+        text-transform: uppercase;
+    }
+
     form label {
         font-weight: bold;
         margin-bottom: 0px;

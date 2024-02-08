@@ -23,7 +23,6 @@
         max-width: 1200px;
         margin: 0 auto;
         text-align: center;
-        /* border: 5px solid lightgray; */
         border: 5px solid #5B59C7;
         border-radius: 10px;
     }
