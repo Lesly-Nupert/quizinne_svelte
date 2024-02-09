@@ -1,29 +1,29 @@
 <script>
-    import { link } from "svelte-spa-router";
-    // cours Udemy: Svelte 3 et SvelteKit 1.0, formation complète pour débutants
-
-    let searchRecipe = "";
+    import { searchRecipe  } from '../store';
     
     async function handleSearch() {
-        try {
-            const response = await fetch(
-                import.meta.env.VITE_API_BASE_URL + "recipesFilter",
-                
-            );
-            if (response.ok) {
-                const recipes = await response.json();
-                console.log(recipes);
-               
-                // Redirection
-                window.location.href = '#/recipesFilter';
-
-            } else {
-                console.error("Erreur lors de la récupération des recettes");
-            }
-        } catch (error) {
-            console.error("Erreur réseau", error);
+    try {
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}recipes/title/${$searchRecipe}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP : ${response.status}`);
         }
+        const results = await response.json();
+        console.log(results);
+
+        console.log("Recherche effectuée avec succès");
+
+        // Redirection 
+        window.location.href = "#/RecipesFilter";
+
+    } catch (error) {
+        console.error("Erreur réseau", error);
     }
+}
 
 </script>
 
@@ -32,13 +32,14 @@
         <label for="searchRecipe">Rechercher une recette</label>
         <input
             id="searchRecipe"
-            bind:value={searchRecipe}
+            bind:value={$searchRecipe}
             type="text"
             placeholder="Parcourir Quizine..."
         />
-        <input on:click={handleSearch} type="button" value="Rechercher" disabled={!searchRecipe} />
+        <input on:click={handleSearch} type="button" value="Rechercher" disabled={!$searchRecipe}  />
     </form>
 </div>
+
 
 
 <style>
@@ -61,11 +62,6 @@
 
     .container_search_recipe input {
         border: #00008b 1px solid;
-    }
-
-    form{
-        /* display: flex;
-        flex-direction: column; */
     }
 
     label{

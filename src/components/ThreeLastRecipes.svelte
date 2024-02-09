@@ -7,7 +7,7 @@
             const response = await fetch(`http://localhost:3000/recipesLast`);
             if (response.ok) {
                 const recipes = await response.json();
-                console.log(recipes);
+                // console.log(recipes);
                 return recipes;
             } else {
                 console.error(

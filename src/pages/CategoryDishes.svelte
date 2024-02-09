@@ -5,7 +5,7 @@
     async function getRecipes() {
         try {
             const response = await fetch(
-                `http://localhost:3000/recipes/category/Plats`,
+                import.meta.env.VITE_API_BASE_URL + "recipes/category/Plats",
             );
             if (response.ok) {
                 const recipes = await response.json();
@@ -32,12 +32,12 @@
     <img src="/public/images/category_dishes.png" alt="" />
 </div>
 
-<div class="select_category">
+<!-- <div class="select_category">
     <a href="/recipes/category/entries" use:link>Entrées</a>
     <a href="/recipes/category/dishes" use:link>Plats</a>
     <a href="/recipes/category/desserts" use:link>Desserts</a>
     <a href="/recipes/category/drinks" use:link>Boissons</a>
-</div>
+</div> -->
 
 <div class="container_cards_recipes">
     {#await getRecipes()}

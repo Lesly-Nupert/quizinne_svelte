@@ -54,8 +54,7 @@
                 alert("Recette supprimée avec succès !");
 
                 // Redirection
-                window.location.href = '#/';
-
+                window.location.href = "#/";
             } else {
                 console.error("Erreur Suppression", response.status);
                 alert("Erreur lors de la suppression !");
@@ -131,10 +130,9 @@
                 {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/x-www-form-urlencoded",
+                        "Content-Type": "application/json",
                         Authorization: "Bearer " + token,
                     },
-                    body: new URLSearchParams().toString(),
                 },
             );
             if (response.ok) {
@@ -202,23 +200,23 @@
             <!-- *BLOC DU COMPTEUR J'AIME -->
             <!-- https://svelte.dev/repl/f5acc8113ec14bc7946eff9687916fa1?version=3.4.1 -->
             <div class="like_content">
-                    {#await getLikes()}
-                        <p>Chargement des J'aime</p>
-                    {:then likes}
-                        <span class="like_count">
-                            {likes.count}
-                        </span>
-                    {/await}
+                {#await getLikes()}
+                    <p>Chargement des J'aime</p>
+                {:then likes}
+                    <span class="like_count">
+                        {likes.count}
+                    </span>
+                {/await}
 
-                    <button
-                        class="like_click"
-                        on:click|once={handleLike}
-                        disabled={!token}
-                        title="Cliquer pour aimer la recette" 
-                        aria-label="Ajouter un J'aime à la recette"
-                    >
-                        J'aime
-                    </button>
+                <button
+                    class="like_click"
+                    on:click|once={handleLike}
+                    disabled={!token}
+                    title="Cliquer pour aimer la recette"
+                    aria-label="Ajouter un J'aime à la recette"
+                >
+                    J'aime
+                </button>
             </div>
         </div>
 
@@ -245,7 +243,12 @@
             >
 
             <form on:submit|preventDefault={deleteRecipe} class="delete_recipe">
-                <button type="submit" class="btn_delete_recipe" title="Supprimer votre recette" aria-label="Suppression de votre recette">
+                <button
+                    type="submit"
+                    class="btn_delete_recipe"
+                    title="Supprimer votre recette"
+                    aria-label="Suppression de votre recette"
+                >
                     Supprimer la recette
                 </button>
             </form>
@@ -263,7 +266,12 @@
                 placeholder="Commentaires..."
                 required
             ></textarea>
-            <button disabled={!token} title="Publier un commentaire" aria-label="Publication du commentaire">Publier commentaire</button>
+            <button
+                disabled={!token}
+                title="Publier un commentaire"
+                aria-label="Publication du commentaire"
+                >Publier commentaire</button
+            >
         </form>
     </div>
 
@@ -339,7 +347,6 @@
         margin-top: 10px;
         display: block;
         padding: 5px;
-        
     }
 
     .doneAndLike {
@@ -384,7 +391,7 @@
 
     .img_recipe {
         margin-top: 50px;
-        border: 5px solid #5B59C7;
+        border: 5px solid #5b59c7;
         border-radius: 10px;
     }
 

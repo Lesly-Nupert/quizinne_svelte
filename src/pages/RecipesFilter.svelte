@@ -1,19 +1,20 @@
 <script>
-     import { link } from "svelte-spa-router";
-    
+    import { searchRecipe  } from '../store';
+    import { link } from "svelte-spa-router";
+
+
     async function resultsSearch() {
         try {
             const response = await fetch(
-                import.meta.env.VITE_API_BASE_URL + "recipesFilter",
-                
+                `${import.meta.env.VITE_API_BASE_URL
+                }recipes/title/${$searchRecipe}`,
             );
             if (response.ok) {
                 const recipes = await response.json();
                 console.log(recipes);
                 return recipes;
-
             } else {
-                console.error("Erreur lors de la récupération des recettes");
+                console.error("Erreur lors de la récupération des recettes filtrées");
             }
         } catch (error) {
             console.error("Erreur réseau", error);
@@ -74,13 +75,13 @@
         overflow: hidden;
         text-align: center;
         margin-top: 30px;
-        box-shadow: 1px 1px 1px 2px #5B59C7;
+        box-shadow: 1px 1px 1px 2px #5b59c7;
         border-radius: 5px;
         box-sizing: border-box;
     }
 
     .cards_recipes:hover {
-        box-shadow: 5px 5px 5px 5px #5B59C7;
+        box-shadow: 5px 5px 5px 5px #5b59c7;
     }
 
     .cards_recipes img {
