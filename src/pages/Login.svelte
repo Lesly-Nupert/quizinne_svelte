@@ -2,6 +2,8 @@
     // Variables du Formulaire Connexion
     let email, password;
 
+    
+
     // Fonction d'authentification
     async function handleSubmit() {
         try {
@@ -58,37 +60,42 @@
     }
 </script>
 
-<h1>CONNEXION <span>💻</span></h1>
 
-<div class="form_login">
-    <form on:submit|preventDefault={handleSubmit}>
-        <label class="label_signup_login" for="email">Email :</label>
-        <input
-            bind:value={email}
-            class="input_signup_login"
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Email"
-            required
-        />
+    <h1>CONNEXION <span>💻</span></h1>
+    
+    <div class="form_login">
+        <form on:submit|preventDefault={handleSubmit} >
+            <label class="label_signup_login" for="email">Email :</label>
+            <input
+                bind:value={email}
+                class="input_signup_login"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                required
+    
+            />
+    
+            <label class="label_signup_login" for="password">Mot de passe :</label>
+            <input
+                bind:value={password}
+                class="input_signup_login"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Mot de passe"
+                required
+                
+            />
+    
+            <input class="submit" type="submit" value="Se connecter" />
+        </form>
+    </div>
 
-        <label class="label_signup_login" for="password">Mot de passe :</label>
-        <input
-            bind:value={password}
-            class="input_signup_login"
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Mot de passe"
-            required
-        />
-
-        <input class="submit" type="submit" value="Se connecter" />
-    </form>
-</div>
 
 <style>
+    
     h1 {
         text-align: center;
         margin-top: 50px;
@@ -128,6 +135,7 @@
         cursor: pointer;
         transition: background 1000ms ease-in-out;
     }
+
 
     /* Largeur d'écran inférieur à */
     @media screen and (max-width: 768px) {

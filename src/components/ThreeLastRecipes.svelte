@@ -4,7 +4,7 @@
     // Fonction pour charger les cartes des 3 dernières recettes qui sont sur la page d'accueil du site.
     async function getRecipes() {
         try {
-            const response = await fetch(`http://localhost:3000/recipesLast`);
+            const response = await fetch(import.meta.env.VITE_API_BASE_URL + "recipesLast",);
             if (response.ok) {
                 const recipes = await response.json();
                 // console.log(recipes);
@@ -24,7 +24,7 @@
 </script>
 
 {#await getRecipes()}
-    <p>Chargement des cartes de recettes</p>
+    <p>Chargement des recettes</p>
 {:then recipes}
     {#each recipes as recipe}
         <a

@@ -72,6 +72,7 @@
             id="password"
             placeholder="Mot de passe"
             required
+            maxlength="12"
         />
 
         <input class="submit" type="submit" value="S'inscrire" />

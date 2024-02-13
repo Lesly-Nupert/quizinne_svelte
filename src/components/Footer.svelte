@@ -17,13 +17,16 @@
         border: 5px solid #5B59C7;
         border-radius: 10px;
         background: linear-gradient(90deg, hsla(210, 91%, 39%, 1) 0%, hsla(321, 55%, 50%, 1) 100%);
+        /* position: fixed;
+        bottom: 0; */
+
     }
 
     footer span {
         margin: 10px;
         color: #fff;
         text-shadow: 1px 1px 2px #000; 
-     
+        
     }
 
     /* Largeur d'écran inférieur à */
