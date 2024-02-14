@@ -17,5 +17,4 @@
 <Router {routes} />
 <Footer />
 
-<style>
-</style>
+

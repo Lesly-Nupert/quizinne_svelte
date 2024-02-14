@@ -5,23 +5,21 @@
   padding: 0;
 }
 
-/*Footer reste en bas ??? */
-html, body{
-  background-image: url(/images/bg_site.svg);
-  background-repeat: no-repeat;
-  background-size: cover; 
-  min-height: 100%;
+/* Solution pour que le Footer reste n bas avec ou sans contenu  */
+/* https://www.youtube.com/watch?v=J-r75L3Tflg */
+
+html{
+  height: 100%;
 }
 
 body {
   font-family: "Favorite Font", sans-serif;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 6.74rem;
 }
 
-main{
-  flex-grow: 1;
-}
+
 
 
 

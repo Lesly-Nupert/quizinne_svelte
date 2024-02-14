@@ -15,10 +15,11 @@
         background-color: #efefef;
         font-size: 16px;
         border: 5px solid #5B59C7;
-        border-radius: 10px;
         background: linear-gradient(90deg, hsla(210, 91%, 39%, 1) 0%, hsla(321, 55%, 50%, 1) 100%);
-        /* position: fixed;
-        bottom: 0; */
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        right: 0;
 
     }
 

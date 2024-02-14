@@ -120,8 +120,7 @@
         align-items: center;
         height: 250px;
         font-size: 24px;
-        border-radius: 10px;
-        margin-top: 0.5px;
+        /* border-radius: 10px; */
         border: 5px solid #5B59C7;
         /* https://coolors.co/gradients */
         background: linear-gradient(90deg, hsla(210, 91%, 39%, 1) 0%, hsla(321, 55%, 50%, 1) 100%);
