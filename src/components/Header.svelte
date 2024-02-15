@@ -70,7 +70,7 @@
             <a  title="Ajouter une recette"
                 class="btn_login"
                 href="/addRecipe"
-                aria-label="Accès à la page d'ajout de recettes"
+                aria-label="Accès à la page d'ajout d'une recette"
                 use:link><Icon data={plus} width="50" /></a
             >
 
@@ -82,7 +82,7 @@
             >
             <button
                 title="Deconnexion"
-                aria-label="Bouton pour se déconnecter"
+                aria-label="Se déconnecter de son compte utilisateur"
                 class="btn_logout"
                 on:click={disconnect}
                 ><Icon data={powerOff} width="50" /></button
@@ -92,7 +92,7 @@
 </header>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Caveat&family=Pacifico&family=Rubik+Burned&display=swap');
+    /* @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Caveat&family=Pacifico&family=Rubik+Burned&display=swap'); */
 
 
     .link_home {
@@ -101,14 +101,15 @@
     }
 
     .quizine {
-        font-size: 50px;
+        font-size: 60px;
         color: #fff;
         padding: 5px;
         border-width: 6px;
         border-radius: 10px;
-        font-family: 'Black Ops One', sans-serif;
-        text-shadow: 2px 2px 2px #000; 
-        letter-spacing: 3px; 
+        /* font-family: 'Black Ops One', sans-serif; */
+        text-shadow: 5px 5px 5px #000; 
+        letter-spacing: 10px;
+        font-weight: bolder; 
     }
 
     header {

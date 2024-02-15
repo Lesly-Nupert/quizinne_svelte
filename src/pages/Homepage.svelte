@@ -20,14 +20,14 @@
 
 <style>
     .container_cards_recipes {
-        max-width: 1200px;
+        max-width: 1050px;
         width: 100%;
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
         margin-top: 20px;
         margin-bottom: 50px;
+        box-sizing: border-box; 
     }
 
     .welcome{

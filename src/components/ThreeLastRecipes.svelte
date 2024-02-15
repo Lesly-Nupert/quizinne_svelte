@@ -46,7 +46,7 @@
 {/await}
 
 <style>
-    .cards_recipes {
+    /* .cards_recipes {
         text-decoration: none;
         width: 310px;
         height: 300px;
@@ -56,6 +56,18 @@
         box-shadow: 1px 1px 1px 2px #5B59C7;
         border-radius: 5px;
         box-sizing: border-box;
+    } */
+
+    .cards_recipes {
+        text-decoration: none;
+        width: 310px;
+        height: 315px;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 1px 1px 1px 2px #5B59C7;
+        border-radius: 5px;
+        box-sizing: border-box;
+        margin: 20px 20px;
     }
 
     .cards_recipes:hover {

@@ -20,14 +20,12 @@
         bottom: 0px;
         left: 0;
         right: 0;
-
     }
 
     footer span {
         margin: 10px;
         color: #fff;
         text-shadow: 1px 1px 2px #000; 
-        
     }
 
     /* Largeur d'écran inférieur à */

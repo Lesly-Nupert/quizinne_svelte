@@ -262,7 +262,7 @@
             <textarea
                 bind:value={content}
                 name="contents"
-                id="contents"
+                id="content"
                 placeholder="Commentaires..."
                 required
             ></textarea>
@@ -278,7 +278,7 @@
     <!-- *BLOC COMMENTAIRE DES MEMBRES-->
     <div class="container_comments">
         {#await getComments()}
-            <p>Chargement des commenatires</p>
+            <p>Chargement des commentaires</p>
         {:then comments}
             {#each comments as comment}
                 <section class="comments">

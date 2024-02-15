@@ -72,6 +72,7 @@
             id="title"
             placeholder="Titre de la recette"
             required
+            autocapitalize="sentences"
         />
 
         <label for="image">Télécharger une photo</label>

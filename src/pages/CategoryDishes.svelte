@@ -26,10 +26,7 @@
 </script>
 
 <div class="title_category">
-    <!-- <img src="/public/images/category_dishes.png" alt="" /> -->
-    <h1>PLATS</h1>
-
-    <img src="/public/images/category_dishes.png" alt="" />
+    <h1>Catégorie : Plats</h1>
 </div>
 
 <!-- <div class="select_category">
@@ -69,14 +66,14 @@
     }
 
     .container_cards_recipes {
-        max-width: 1200px;
+        max-width: 1050px;
         width: 100%;
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
         margin-top: 20px;
         margin-bottom: 50px;
+        box-sizing: border-box; 
     }
 
     h1 {
@@ -102,12 +99,13 @@
     .cards_recipes {
         text-decoration: none;
         width: 310px;
-        height: 300px;
+        height: 315px;
         overflow: hidden;
         text-align: center;
-        margin-top: 30px;
         box-shadow: 1px 1px 1px 2px #5B59C7;
         border-radius: 5px;
+        box-sizing: border-box;
+        margin: 20px 20px;
     }
 
     .cards_recipes:hover {
