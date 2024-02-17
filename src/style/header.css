@@ -1,0 +1,129 @@
+.link_home {
+    text-decoration: none;
+    padding: 20px;
+}
+
+.quizine {
+    font-size: 60px;
+    color: var(--white-color);
+    padding: 5px;
+    border-width: 6px;
+    border-radius: 10px;
+    text-shadow: 5px 5px 5px var(--black-color);
+    letter-spacing: 10px;
+    font-weight: bolder;
+}
+
+header {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    font-size: 24px;
+    border: var(--border);
+    background: var(--background-header-and-footer);
+    height: 220px;
+}
+
+.nav_header a {
+    text-decoration: none;
+    padding: 15px;
+    color: var(--white-color);
+    text-shadow: 1px 1px 2px var(--black-color);
+}
+
+.burger button {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--blue-color);
+}
+
+.btn_login,
+.btn_account {
+    text-decoration: none;
+    padding: 5px;
+    margin: 10px;
+    color: var(--white-color);
+    font-weight: bold;
+    border: 2px solid var(--blue-color);
+    border-radius: 20px;
+}
+
+.btn_logout {
+    text-decoration: none;
+    padding: 5px;
+    margin: 10px;
+    color: var(--white-color);
+    font-weight: bold;
+    border: 2px solid var(--blue-color);
+    border-radius: 20px;
+    font-size: 24px;
+    background-color: transparent;
+}
+
+.btn_login:hover,
+.btn_logout:hover,
+.btn_account:hover {
+    background-color: var(--white-color);
+    color: var(--blue-color);
+}
+
+@media screen and (max-width: 1024px) {
+    .quizine {
+        font-size: 30px;
+    }
+
+    header {
+        font-size: 20px;
+        height: 180px;
+    }
+
+    .btn_logout {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        font-size: 18px;
+        height: 200px;
+    }
+
+    .burger button {
+        display: block;
+        font-size: 18px;
+    }
+
+    .nav_header {
+        display: none;
+    }
+
+    .nav_header.open {
+        display: block;
+    }
+
+    .btn_logout {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        font-size: 16px;
+    }
+
+    .nav_header.open {
+        display: block;
+    }
+
+    .nav_header a {
+        font-size: 12px;
+    }
+
+    .btn_logout {
+        font-size: 16px;
+    }
+}

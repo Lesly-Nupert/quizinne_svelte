@@ -1,0 +1,80 @@
+.add_and_update_recipe h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 48px;
+    color: var(--black-color);
+}
+
+.add_and_update_recipe form {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    color: var(--blue-color);
+}
+
+.add_and_update_recipe form label,
+.add_and_update_recipe form input,
+.add_and_update_recipe form select,
+.add_and_update_recipe form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 24px;
+}
+
+.add_and_update_recipe input::first-letter {
+    text-transform: uppercase;
+}
+
+.add_and_update_recipe form label {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.add_and_update_recipe .submit:hover {
+    background-color: var(--blue-color);
+    color: #fff;
+    cursor: pointer;
+    transition: background 1000ms ease-in-out;
+}
+
+/* Largeur d'écran inférieur à */
+@media screen and (max-width: 768px) {
+    .add_and_update_recipe h1 {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 36px;
+    }
+
+    .add_and_update_recipe form label,
+    .add_and_update_recipe form input,
+    .add_and_update_recipe form select,
+    .add_and_update_recipe form textarea {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 8px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .add_and_update_recipe h1 {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 24px;
+    }
+
+    .add_and_update_recipe form label,
+    .add_and_update_recipe form input,
+    .add_and_update_recipe form select,
+    .add_and_update_recipe form textarea {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 8px;
+        font-size: 16px;
+    }
+}

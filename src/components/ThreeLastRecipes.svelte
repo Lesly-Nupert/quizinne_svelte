@@ -23,6 +23,7 @@
     }
 </script>
 
+<section class="container_cards_recipes">
 {#await getRecipes()}
     <p>Chargement des recettes</p>
 {:then recipes}
@@ -44,65 +45,6 @@
         </a>
     {/each}
 {/await}
+</section>
 
-<style>
-    /* .cards_recipes {
-        text-decoration: none;
-        width: 310px;
-        height: 300px;
-        overflow: hidden;
-        text-align: center;
-        margin-top: 30px;
-        box-shadow: 1px 1px 1px 2px #5B59C7;
-        border-radius: 5px;
-        box-sizing: border-box;
-    } */
 
-    .cards_recipes {
-        text-decoration: none;
-        width: 310px;
-        height: 315px;
-        overflow: hidden;
-        text-align: center;
-        box-shadow: 1px 1px 1px 2px #5B59C7;
-        border-radius: 5px;
-        box-sizing: border-box;
-        margin: 20px 20px;
-    }
-
-    .cards_recipes:hover {
-        box-shadow: 5px 5px 5px 5px #5B59C7;
-    }
-
-    .cards_recipes img {
-        width: 100%;
-        height: 70%;
-        object-fit: cover;
-    }
-
-    .p_category {
-        font-size: 16px;
-        font-weight: bold;
-        color: darkred;
-        margin: 10px;
-    }
-
-    .p_category::first-letter {
-        text-transform: uppercase;
-    }
-
-    .p_title {
-        font-size: 20px;
-        font-weight: bold;
-        color: black;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        width: 100%;
-        padding: 0px 10px;
-    }
-
-    .p_title::first-letter {
-        text-transform: uppercase;
-    }
-</style>

@@ -1,3 +1,16 @@
+@import './variables.css';
+@import './header.css';
+@import './footer.css';
+@import './searchRecipe.css';
+@import './linkAllRecipes.css';
+@import './textLastRecipes.css';
+@import './welcome.css';
+@import './recipesCards.css';
+@import './addAndUpdateRecipe.css';
+@import './signupAndLogin.css';
+@import './recipeDetails.css';
+@import './h1.css';
+
 /*Reset: enlève les styles par défaut du navigateur*/
 *, ::before, ::after {
   box-sizing: border-box;

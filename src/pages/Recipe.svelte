@@ -6,7 +6,7 @@
     let token = localStorage.getItem("TOKEN");
     let userId = localStorage.getItem("USER_ID");
 
-    // Exporte la variable params pour récupérer l'identifiant id
+    // Exporte la variable params pour récupérer l'identifiant de la recette
     // Route dynamique
     export let params = {};
     console.log(`id recette: ${params.id}`);
@@ -175,7 +175,7 @@
     }
 </script>
 
-<div class="container_details_recipe">
+<main class="container_details_recipe">
     {#await getRecipe()}
         <p>Chargement de la recette</p>
     {:then recipe}
@@ -232,7 +232,7 @@
         </div>
 
         <!-- *BLOC BOUTONS MODIFIER + SUPPRIMER UNE RECETTE -->
-        <!-- Si User connecté visualise sa propre recette -->
+        <!-- *Si User connecté visualise sa propre recette -->
         {#if token && userId == recipe.id_member}
             <a
                 title="Modifier votre recette"
@@ -292,200 +292,4 @@
             {/each}
         {/await}
     </div>
-</div>
-
-<style>
-    .like_content {
-        display: flex;
-    }
-
-    .like_count {
-        padding: 5px;
-    }
-
-    .like_click {
-        width: 55px;
-        font-weight: 300;
-        border-radius: 20px;
-        cursor: pointer;
-        background: linear-gradient(
-            90deg,
-            hsla(277, 79%, 84%, 1) 0%,
-            hsla(204, 95%, 77%, 1) 100%
-        );
-    }
-
-    .content {
-        font-size: 16px;
-    }
-
-    .content_pseudo_date {
-        color: #777575;
-    }
-
-    .container_comments {
-        max-width: 700px;
-        margin-top: 50px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .comments {
-        border-bottom: lightgray 2px solid;
-        margin-bottom: 10px;
-        line-height: 1.7;
-    }
-
-    .container_addComment {
-        max-width: 700px;
-        margin-top: 50px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .container_addcomment button {
-        margin-top: 10px;
-        display: block;
-        padding: 5px;
-    }
-
-    .doneAndLike {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-    }
-
-    .container_details_recipe {
-        max-width: 700px;
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 20px;
-        box-sizing: border-box;
-    }
-
-    textarea {
-        width: 100%;
-        padding: 8px;
-        font-size: 16px;
-    }
-
-    button {
-        display: block;
-        padding: 5px;
-        cursor: pointer;
-    }
-
-    h1 {
-        text-align: center;
-        margin-top: 50px;
-        font-size: 48px;
-        word-wrap: break-word;
-        max-width: 100%;
-    }
-
-    h1::first-letter {
-        text-transform: uppercase;
-    }
-
-    .img_recipe {
-        margin-top: 50px;
-        border: 5px solid #5b59c7;
-        border-radius: 10px;
-    }
-
-    .done_by {
-        font-size: 16px;
-    }
-
-    h2 {
-        font-size: 36px;
-        color: #00008b;
-    }
-
-    .container_ingredients,
-    .container_steps {
-        margin-top: 30px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    p {
-        font-size: 24px;
-        line-height: 1.2;
-    }
-
-    .ingredients,
-    .steps {
-        white-space: pre-line;
-    }
-
-    .btn_patch_recipe {
-        font-size: 13px;
-        margin-top: 35px;
-        margin-left: 10px;
-        width: 134px;
-        border: 1px solid black;
-        border-radius: 2px;
-        text-align: center;
-        text-decoration: none;
-        color: black;
-        background-color: #efefef;
-        padding: 5px;
-    }
-
-    .btn_delete_recipe {
-        cursor: pointer;
-    }
-
-    .delete_recipe {
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 15px;
-        margin-bottom: -10px;
-        margin-left: 10px;
-    }
-
-    .btn_patch_recipe:hover {
-        background-color: #00008b;
-        color: #fff;
-    }
-    .btn_delete_recipe:hover {
-        background-color: red;
-        color: #fff;
-    }
-
-    /* Largeur d'écran inférieur à */
-    @media screen and (max-width: 768px) {
-        h1 {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 36px;
-        }
-
-        h2 {
-            font-size: 30px;
-        }
-
-        p {
-            font-size: 18px;
-        }
-    }
-
-    @media screen and (max-width: 500px) {
-        h1 {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 24px;
-        }
-
-        h2 {
-            font-size: 20px;
-        }
-
-        p {
-            font-size: 16px;
-        }
-    }
-</style>
+</main>
