@@ -1,13 +1,13 @@
 <script>
     // Chargement du composant dans le Document Object Model (DOM)
     // Equivalent au DOMContentLoad en JS vanilla
-    import { onMount } from 'svelte';
-    
+    import { onMount } from "svelte";
+
     // Obtention du token dans le localStorage
     let token = localStorage.getItem("TOKEN");
 
     // Variables du Formulaire de modification d'une recette
-    let category, title, image, ingredients, steps;
+    let category, title, image, ingredients, steps, addRecipeOk, errorMessage;
 
     // Fonction pour le traitement de l'image
     function handleFile(event) {
@@ -22,11 +22,14 @@
     // Chargement des données existantes de la recette dans le composant
     onMount(async () => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}recipes/${params.id}`, {
-                headers: {
-                    Authorization: "Bearer " + token,
-                }
-            });
+            const response = await fetch(
+                `${import.meta.env.VITE_API_BASE_URL}recipes/${params.id}`,
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                },
+            );
 
             if (response.ok) {
                 const recipe = await response.json();
@@ -37,7 +40,10 @@
                 ingredients = recipe.ingredients;
                 steps = recipe.steps;
             } else {
-                console.error("Erreur lors de la récupération des détails de la recette", response.status);
+                console.error(
+                    "Erreur lors de la récupération des détails de la recette",
+                    response.status,
+                );
             }
         } catch (error) {
             console.error("Erreur réseau", error);
@@ -45,7 +51,7 @@
     });
 
     // Fonction pour modifier la recette après le onMount
-    // FORMDATA car il y a un fichier à télécharger 
+    // FORMDATA car il y a un fichier à télécharger
     async function handleSubmit() {
         const formData = new FormData();
         formData.append("category", category);
@@ -55,46 +61,61 @@
         formData.append("steps", steps);
 
         try {
-
-            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}recipes/update/${params.id}`, {
-                method: "PATCH",
-                headers: {
-                    Authorization: "Bearer " + token,
+            const response = await fetch(
+                `${import.meta.env.VITE_API_BASE_URL}recipes/update/${
+                    params.id
+                }`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                    body: formData,
                 },
-                body: formData,
-            });
+            );
 
             if (response.ok) {
                 console.log("Recette mise à jour avec succès");
-                alert("Mise à jour de la recette réussie !");
+                addRecipeOk =
+                    "Recette mise à jour avec succès ! Vous allez être redirigé vers la page de toutes les recettes";
 
-                // Redirection
-                window.location.href = '/#';
-
+                setTimeout(() => {
+                    window.location.href = "/#/recipes";
+                }, 3000);
             } else {
                 console.error("Erreur lors de la mise à jour", response.status);
-                alert("Erreur lors de la mise à jour de la recette.");
+                errorMessage =
+                    "Erreur lors de la mise à jour de la recette, veuillez réessayer !";
             }
         } catch (error) {
             console.error("Erreur réseau", error);
         }
     }
-
 </script>
 
 <section class="add_and_update_recipe">
     <h1>MODIFIER LA RECETTE</h1>
-    
+
     <form on:submit|preventDefault={handleSubmit}>
-        <label for="category">Choisir une catégorie</label>
-        <select bind:value={category} name="category" id="category" required>
+        <label for="category"
+            >Choisir une catégorie <span aria-hidden="true">*</span></label
+        >
+        <select
+            bind:value={category}
+            name="category"
+            id="category"
+            required
+            aria-required="true"
+        >
             <option value="Entrées">Entrées</option>
             <option value="Plats">Plats</option>
             <option value="Desserts">Desserts</option>
             <option value="Boissons">Boissons</option>
         </select>
-    
-        <label for="title">Titre de la recette</label>
+
+        <label for="title"
+            >Titre de la recette <span aria-hidden="true">*</span></label
+        >
         <input
             bind:value={title}
             type="text"
@@ -102,9 +123,12 @@
             id="title"
             placeholder="Titre de la recette"
             required
+            aria-required="true"
         />
-    
-        <label for="image">Télécharger une photo</label>
+
+        <label for="image"
+            >Télécharger une photo <span aria-hidden="true">*</span></label
+        >
         <!-- on:change car fichier et non texte -->
         <input
             on:change={handleFile}
@@ -112,30 +136,44 @@
             name="image"
             id="image"
             accept=".jpg, .jpeg, .png"
-            required
         />
-    
-        <label for="ingredients">Ingrédients</label>
+
+        <label for="ingredients"
+            >Ingrédients <span aria-hidden="true">*</span></label
+        >
         <textarea
             bind:value={ingredients}
             name="ingredients"
             id="ingredients"
             placeholder="Les ingrédients"
             required
+            aria-required="true"
             rows="5"
         ></textarea>
-    
-        <label for="steps">Les étapes</label>
+
+        <label for="steps">Les étapes <span aria-hidden="true">*</span></label>
         <textarea
             bind:value={steps}
             name="steps"
             id="steps"
             placeholder="Les étapes"
             required
+            aria-required="true"
             rows="10"
         ></textarea>
-    
+
         <input class="submit" type="submit" value="Mettre à jour la recette" />
+
+        {#if addRecipeOk}
+            <div aria-live="polite" class="addRecipeOk">
+                {addRecipeOk}
+            </div>
+        {/if}
+
+        {#if errorMessage}
+            <div class="error_message" aria-live="assertive">
+                {errorMessage}
+            </div>
+        {/if}
     </form>
 </section>
-

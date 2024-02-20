@@ -1,6 +1,6 @@
 <script>
     // Variables du Formulaire Inscription
-    let pseudo, email, password, errorMessageEmail;
+    let pseudo, email, password, errorMessageEmail, signupOk;
 
     function validateEmail(email) {
         let emailRegex = /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/;
@@ -24,7 +24,6 @@
                     body: new URLSearchParams(data).toString(),
                 },
             );
-            // Indique le code HTTP si response KO
             if (!response.ok) {
                 !validateEmail(email);
                 errorMessageEmail =
@@ -35,11 +34,13 @@
 
             const json = await response.json();
             console.log(json);
-
             console.log("Inscription réussie !");
 
-            // Redirection
-            window.location.href = "#/login";
+            signupOk = "Inscription réussie ! Vous allez être redirigé vers la page de connexion";
+
+            setTimeout(() => {
+                window.location.href = "#/login";
+            }, 3000);
         } catch (error) {
             console.error("Erreur réseau", error);
         }
@@ -50,7 +51,9 @@
     <h1>Inscription</h1>
     <section class="signup_and_login">
         <form on:submit|preventDefault={handleSubmit}>
-            <label class="label_signup_login" for="pseudo">Pseudo :</label>
+            <label class="label_signup_login" for="pseudo"
+                >Créer votre pseudo <span aria-hidden="true">*</span> :</label
+            >
             <input
                 bind:value={pseudo}
                 class="input_signup_login"
@@ -59,11 +62,18 @@
                 id="pseudo"
                 placeholder="pseudo"
                 required
+                aria-required="true"
                 minlength="5"
                 maxlength="20"
+                aria-describedby="pseudoDetails"
             />
+            <div class="info_input" id="pseudoDetails" aria-hidden="true">
+                Votre pseudo doit contenir au moins 5 caractères
+            </div>
 
-            <label class="label_signup_login" for="email">Email :</label>
+            <label class="label_signup_login" for="email"
+                >Entrer votre email <span aria-hidden="true">*</span> :</label
+            >
             <input
                 bind:value={email}
                 class="input_signup_login"
@@ -72,16 +82,22 @@
                 id="email"
                 placeholder="exemple@mail.com"
                 required
+                aria-required="true"
                 maxlength="100"
+                aria-describedby="error_message"
             />
+            <div class="info_input" id="emailDetails" aria-hidden="true">
+                Format d'email attendu : exemple@mail.com
+            </div>
+
             {#if errorMessageEmail}
-                <div class="error_message">
+                <div class="error_message" id="email" aria-live="assertive">
                     {errorMessageEmail}
                 </div>
             {/if}
 
             <label class="label_signup_login" for="password"
-                >Mot de passe :</label
+                >Taper votre mot de passe <span aria-hidden="true">*</span> :</label
             >
             <input
                 bind:value={password}
@@ -91,11 +107,21 @@
                 id="password"
                 placeholder="*******"
                 required
+                aria-required="true"
                 minlength="5"
                 maxlength="12"
+                aria-describedby="passwordDetails"
             />
 
+            <div class="info_input" id="passwordDetails" aria-hidden="true">
+                Votre mot de passe doit contenir au moins 5 caractères.
+            </div>
+
             <input class="submit" type="submit" value="S'inscrire" />
+
+            {#if signupOk}
+                <div aria-live="polite" class="signupOk">{signupOk}</div>
+            {/if}
         </form>
     </section>
 </main>

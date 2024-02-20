@@ -1,6 +1,6 @@
 <script>
     // Variables du Formulaire Connexion
-    let email, password, errorMessage;
+    let email, password, errorMessage, loginOk;
 
     // Fonction d'authentification
     async function handleSubmit() {
@@ -17,7 +17,7 @@
                     },
                     body: new URLSearchParams(data).toString(),
                 },
-            );
+        );
 
             if (response.ok) {
                 // On récupère le résultat au format JSON
@@ -39,14 +39,17 @@
                 localStorage.setItem("TOKEN", token);
                 localStorage.setItem("USER_ID", userId);
 
-                //Redirection + Rechargement
+                loginOk = "Connexion réussie ! Vous allez être redirigé vers la page d'accueil";
+
+                setTimeout(() => {
                 window.location.href = "#/";
                 window.location.reload();
+            }, 3000);
+                
             } else {
                 errorMessage =
                     "Email ou mot de passe incorrect. Veuillez réessayer";
 
-                // Indique le code HTTP si response KO
                 console.log(
                     "Erreur : " +
                         response.status +
@@ -66,7 +69,7 @@
         
     
         <form on:submit|preventDefault={handleSubmit}>
-            <label class="label_signup_login" for="email">Email :</label>
+            <label class="label_signup_login" for="email">Entrer votre email <span aria-hidden="true">*</span> :</label>
             <input
                 bind:value={email}
                 class="input_signup_login"
@@ -75,10 +78,15 @@
                 id="email"
                 placeholder="exemple@mail.com"
                 required
+                aria-required="true"
                 maxlength="100"
+                aria-describedby="emailDetails"
             />
+            <div class="info_input" id="emailDetails" aria-hidden="true">
+                Format d'email attendu : exemple@mail.com
+            </div>
     
-            <label class="label_signup_login" for="password">Mot de passe :</label>
+            <label class="label_signup_login" for="password">Taper votre mot de passe <span aria-hidden="true">*</span> :</label>
             <input
                 bind:value={password}
                 class="input_signup_login"
@@ -87,16 +95,25 @@
                 id="password"
                 placeholder="*******"
                 required
+                aria-required="true"
                 minlength="5"
                 maxlength="12"
+                aria-describedby="passwordDetails"
             />
+            <div class="info_input" id="passwordDetails" aria-hidden="true">
+                Votre mot de passe doit contenir au moins 5 caractères.
+            </div>
     
             <input class="submit" type="submit" value="Se connecter" />
     
-            {#if errorMessage}
-                <div class="error_message">
+            {#if errorMessage }
+                <div class="error_message" aria-live="assertive">
                     {errorMessage}
                 </div>
+            {/if}
+
+            {#if loginOk}
+                <div aria-live="polite" class="signupOk">{loginOk}</div>
             {/if}
         </form>
     </section>

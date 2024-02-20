@@ -15,10 +15,7 @@
                 );
             }
         } catch (error) {
-            console.error(
-                "Erreur lors de la récupération des 3 dernières recettes : ",
-                error,
-            );
+            console.error("Erreur réseau", error);
         }
     }
 </script>

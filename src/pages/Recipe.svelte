@@ -14,8 +14,11 @@
     // Variable du Formulaire ajout commentaire
     let content;
 
-    // Variable initialisation du compteur à Zéro
+    // Variable compteur des J'aime
     let count = 0;
+
+    // Message
+    let message = "";
 
     // Fonction pour charger une recette
     async function getRecipe() {
@@ -51,10 +54,12 @@
             );
             if (response.ok) {
                 console.log("Recette supprimée !");
-                alert("Recette supprimée avec succès !");
+                message =
+                    "Recette supprimée avec succès ! Vous allez être rdirigé vers la page d'accueil";
 
-                // Redirection
-                window.location.href = "#/";
+                setTimeout(() => {
+                    window.location.href = "#/";
+                }, 3000);
             } else {
                 console.error("Erreur Suppression", response.status);
                 alert("Erreur lors de la suppression !");
@@ -91,7 +96,7 @@
             console.log(json);
 
             console.log("Données soumises avec succès");
-            alert("Commentaire publié !");
+            // alert("Commentaire publié !");
 
             // Rechargement de la page après ajout commentaire
             window.location.reload();
@@ -138,16 +143,13 @@
             if (response.ok) {
                 count += 1;
                 console.log("Like fonctionne");
-                alert("Vous aimez cette recette !");
 
-                // Rechargement de la page après avoir cliquer sur J'aime
                 window.location.reload();
             } else {
                 console.error(
                     "Erreur Recette déjà liké par le membre",
                     response.status,
                 );
-                alert("Vous aimez déjà cette recette !");
             }
         } catch (error) {
             console.error("Erreur réseau", error);
@@ -184,7 +186,7 @@
         <img
             class="img_recipe"
             src={`http://localhost:3000/${recipe.image}`}
-            alt={`photo de ${recipe.title}`}
+            alt={`${recipe.title}`}
         />
 
         <!-- *BLOC TEXTE RECETTE FAITE PAR  + LA DATE -->
@@ -204,7 +206,7 @@
                     <p>Chargement des J'aime</p>
                 {:then likes}
                     <span class="like_count">
-                        {likes.count}
+                        <span class="text_like">Cette recette a été aimée</span> {likes.count} <span class="text_like">fois</span>
                     </span>
                 {/await}
 
@@ -212,11 +214,13 @@
                     class="like_click"
                     on:click|once={handleLike}
                     disabled={!token}
-                    title="Cliquer pour aimer la recette"
-                    aria-label="Ajouter un J'aime à la recette"
+                    aria-label="Aimer la recette"
                 >
                     J'aime
                 </button>
+                <!-- {#if token && userId && count >1}
+                <p>Vous aimez déjà cette recette</p>
+                {/if} -->
             </div>
         </div>
 
@@ -246,11 +250,15 @@
                 <button
                     type="submit"
                     class="btn_delete_recipe"
-                    title="Supprimer votre recette"
-                    aria-label="Suppression de votre recette"
+                    aria-label="Suppression immédiate de votre recette"
                 >
                     Supprimer la recette
                 </button>
+                {#if message}
+                    <div class="message" aria-live="assertive">
+                        {message}
+                    </div>
+                {/if}
             </form>
         {/if}
     {/await}
@@ -266,10 +274,7 @@
                 placeholder="Commentaires..."
                 required
             ></textarea>
-            <button
-                disabled={!token}
-                title="Publier un commentaire"
-                aria-label="Publication du commentaire"
+            <button disabled={!token} aria-label="Publication du commentaire"
                 >Publier commentaire</button
             >
         </form>
@@ -283,8 +288,10 @@
             {#each comments as comment}
                 <section class="comments">
                     <p class="content">{comment.content}</p>
-                    <span class="content_pseudo_date">{comment.pseudo}</span>
-                    <span class="content_pseudo_date">{`-`}</span>
+                    <span class="content_pseudo_date"
+                        >{`commenté par ${comment.pseudo}`}</span
+                    >
+                    <span class="content_pseudo_date">{`le`}</span>
                     <span class="content_pseudo_date">
                         {new Date(comment.created_at).toLocaleDateString()}
                     </span>

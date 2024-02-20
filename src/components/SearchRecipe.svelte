@@ -34,7 +34,7 @@
         <input
             id="searchRecipe"
             bind:value={$searchRecipe}
-            type="text"
+            type="search"
             placeholder="Parcourir Quizine..."
         />
         <input on:click={handleSearch} type="button" value="Rechercher" disabled={!$searchRecipe}  />
