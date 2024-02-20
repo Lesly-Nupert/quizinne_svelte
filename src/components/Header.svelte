@@ -1,6 +1,5 @@
 <script>
     import { link } from "svelte-spa-router";
-
     import { Icon } from "svelte-awesome";
     import powerOff from "svelte-awesome/icons/powerOff";
     import user from "svelte-awesome/icons/user";
@@ -9,6 +8,9 @@
     // Obtention du token et ID user dans le localStorage
     let token = localStorage.getItem("TOKEN");
     let userId = localStorage.getItem("USER_ID");
+
+    // Message après déconnexion
+    let messageDeconnexion;
     
     // Ouvrir/fermer la navbar en mode tablette et tel portable
     let MenuOpen = false;
@@ -22,8 +24,13 @@
         localStorage.removeItem("TOKEN");
         localStorage.removeItem("USER_ID");
         
+        messageDeconnexion =
+                "Déconnexion de votre compte utilisateur";
+
+                setTimeout(() => {
         window.location.href = "#/";
         window.location.reload();
+    }, 1000);
     }
 </script>
 
@@ -80,6 +87,12 @@
                 on:click={disconnect}
                 ><Icon data={powerOff} width="50" /></button
             >
+        {/if}
+
+        {#if messageDeconnexion}
+            <div class="message_deconnexion" aria-live="assertive">
+                {messageDeconnexion}
+            </div>
         {/if}
     </div>
 </header>

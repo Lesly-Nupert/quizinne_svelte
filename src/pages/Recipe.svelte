@@ -18,7 +18,7 @@
     let count = 0;
 
     // Message
-    let message = "";
+    let messageDeleteRecipe = "";
 
     // Fonction pour charger une recette
     async function getRecipe() {
@@ -54,12 +54,12 @@
             );
             if (response.ok) {
                 console.log("Recette supprimée !");
-                message =
-                    "Recette supprimée avec succès ! Vous allez être rdirigé vers la page d'accueil";
+                messageDeleteRecipe =
+                    "Recette supprimée avec succès ! Redirection vers la page d'accueil";
 
                 setTimeout(() => {
                     window.location.href = "#/";
-                }, 3000);
+                }, 1000);
             } else {
                 console.error("Erreur Suppression", response.status);
                 alert("Erreur lors de la suppression !");
@@ -254,9 +254,9 @@
                 >
                     Supprimer la recette
                 </button>
-                {#if message}
+                {#if messageDeleteRecipe}
                     <div class="message" aria-live="assertive">
-                        {message}
+                        {messageDeleteRecipe}
                     </div>
                 {/if}
             </form>

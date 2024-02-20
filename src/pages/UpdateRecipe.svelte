@@ -77,11 +77,11 @@
             if (response.ok) {
                 console.log("Recette mise à jour avec succès");
                 addRecipeOk =
-                    "Recette mise à jour avec succès ! Vous allez être redirigé vers la page de toutes les recettes";
+                    "Recette mise à jour avec succès ! Redirection vers la page de toutes les recettes";
 
                 setTimeout(() => {
                     window.location.href = "/#/recipes";
-                }, 3000);
+                }, 1000);
             } else {
                 console.error("Erreur lors de la mise à jour", response.status);
                 errorMessage =

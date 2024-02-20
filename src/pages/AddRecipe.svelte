@@ -36,11 +36,11 @@
                 console.log("Recette soumise avec succès");
 
                 addRecipeOk =
-                    "Recette ajoutée avec succès ! Vous allez être redirigé vers la page de toutes les recettes";
+                    "Recette ajoutée avec succès ! Redirection vers la page de toutes les recettes";
 
                 setTimeout(() => {
                     window.location.href = "/#/recipes";
-                }, 3000);
+                }, 1000);
             } else {
                 console.error(
                     "Erreur lors de la soumission des données",

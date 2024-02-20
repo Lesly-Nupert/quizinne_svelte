@@ -24,6 +24,17 @@
     letter-spacing: 2px;
 }
 
+.message_redirection{
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
 .container_search_recipe input {
     padding: 5px;
     font-size: 24px;

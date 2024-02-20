@@ -39,12 +39,12 @@
                 localStorage.setItem("TOKEN", token);
                 localStorage.setItem("USER_ID", userId);
 
-                loginOk = "Connexion réussie ! Vous allez être redirigé vers la page d'accueil";
+                loginOk = "Connexion réussie ! Redirection vers la page d'accueil";
 
                 setTimeout(() => {
                 window.location.href = "#/";
                 window.location.reload();
-            }, 3000);
+            }, 1000);
                 
             } else {
                 errorMessage =

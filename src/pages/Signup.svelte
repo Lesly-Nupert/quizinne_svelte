@@ -36,11 +36,11 @@
             console.log(json);
             console.log("Inscription réussie !");
 
-            signupOk = "Inscription réussie ! Vous allez être redirigé vers la page de connexion";
+            signupOk = "Inscription réussie ! Redirection vers la page de connexion";
 
             setTimeout(() => {
                 window.location.href = "#/login";
-            }, 3000);
+            }, 1000);
         } catch (error) {
             console.error("Erreur réseau", error);
         }
