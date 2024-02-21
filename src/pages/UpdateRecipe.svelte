@@ -7,11 +7,19 @@
     let token = localStorage.getItem("TOKEN");
 
     // Variables du Formulaire de modification d'une recette
-    let category, title, image, ingredients, steps, addRecipeOk, errorMessage;
+    let recipe = {
+        category: "",
+        title: "",
+        image: "",
+        ingredients: "",
+        steps: "",
+        addRecipeOk: "",
+        errorMessage: "",
+    };
 
     // Fonction pour le traitement de l'image
     function handleFile(event) {
-        image = event.target.files[0];
+        recipe.image = event.target.files[0];
     }
 
     // Exporte la variable params pour récupérer l'identifiant id
@@ -21,44 +29,27 @@
 
     // Chargement des données existantes de la recette dans le composant
     onMount(async () => {
-        try {
-            const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}recipes/${params.id}`,
-                {
-                    headers: {
-                        Authorization: "Bearer " + token,
-                    },
+        const response = await fetch(
+            `${import.meta.env.VITE_API_BASE_URL}recipes/${params.id}`,
+            {
+                headers: {
+                    Authorization: "Bearer " + token,
                 },
-            );
+            },
+        );
 
-            if (response.ok) {
-                const recipe = await response.json();
-                console.log(recipe);
-                category = recipe.category;
-                title = recipe.title;
-                image = recipe.image;
-                ingredients = recipe.ingredients;
-                steps = recipe.steps;
-            } else {
-                console.error(
-                    "Erreur lors de la récupération des détails de la recette",
-                    response.status,
-                );
-            }
-        } catch (error) {
-            console.error("Erreur réseau", error);
-        }
+        recipe = await response.json();
     });
 
     // Fonction pour modifier la recette après le onMount
     // FORMDATA car il y a un fichier à télécharger
     async function handleSubmit() {
         const formData = new FormData();
-        formData.append("category", category);
-        formData.append("title", title);
-        formData.append("image", image);
-        formData.append("ingredients", ingredients);
-        formData.append("steps", steps);
+        formData.append("category", recipe.category);
+        formData.append("title", recipe.title);
+        formData.append("image", recipe.image);
+        formData.append("ingredients", recipe.ingredients);
+        formData.append("steps", recipe.steps);
 
         try {
             const response = await fetch(
@@ -76,7 +67,7 @@
 
             if (response.ok) {
                 console.log("Recette mise à jour avec succès");
-                addRecipeOk =
+                recipe.addRecipeOk =
                     "Recette mise à jour avec succès ! Redirection vers la page de toutes les recettes";
 
                 setTimeout(() => {
@@ -84,7 +75,7 @@
                 }, 1000);
             } else {
                 console.error("Erreur lors de la mise à jour", response.status);
-                errorMessage =
+                recipe.errorMessage =
                     "Erreur lors de la mise à jour de la recette, veuillez réessayer !";
             }
         } catch (error) {
@@ -101,7 +92,7 @@
             >Choisir une catégorie <span aria-hidden="true">*</span></label
         >
         <select
-            bind:value={category}
+            bind:value={recipe.category}
             name="category"
             id="category"
             required
@@ -117,7 +108,7 @@
             >Titre de la recette <span aria-hidden="true">*</span></label
         >
         <input
-            bind:value={title}
+            bind:value={recipe.title}
             type="text"
             name="title"
             id="title"
@@ -142,7 +133,7 @@
             >Ingrédients <span aria-hidden="true">*</span></label
         >
         <textarea
-            bind:value={ingredients}
+            bind:value={recipe.ingredients}
             name="ingredients"
             id="ingredients"
             placeholder="Les ingrédients"
@@ -153,7 +144,7 @@
 
         <label for="steps">Les étapes <span aria-hidden="true">*</span></label>
         <textarea
-            bind:value={steps}
+            bind:value={recipe.steps}
             name="steps"
             id="steps"
             placeholder="Les étapes"
@@ -164,15 +155,15 @@
 
         <input class="submit" type="submit" value="Mettre à jour la recette" />
 
-        {#if addRecipeOk}
+        {#if recipe.addRecipeOk}
             <div aria-live="polite" class="addRecipeOk">
-                {addRecipeOk}
+                {recipe.addRecipeOk}
             </div>
         {/if}
 
-        {#if errorMessage}
+        {#if recipe.errorMessage}
             <div class="error_message" aria-live="assertive">
-                {errorMessage}
+                {recipe.errorMessage}
             </div>
         {/if}
     </form>
