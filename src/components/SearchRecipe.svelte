@@ -31,7 +31,7 @@
             // Redirection vers la page des recettes filtrées en fonction de ce qui a été tapé dans la barre de recherche
             setTimeout(() => {
                 window.location.href = "#/RecipesFilter";
-            }, 2000);
+            }, 1200);
         } catch (error) {
             console.error("Erreur réseau", error);
         }

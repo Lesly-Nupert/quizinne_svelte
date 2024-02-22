@@ -84,7 +84,7 @@
                 required
                 aria-required="true"
                 maxlength="100"
-                aria-describedby="error_message"
+                aria-describedby="emailDetails"
             />
             <div class="info_input" id="emailDetails" aria-hidden="true">
                 Format d'email attendu : exemple@mail.com

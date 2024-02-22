@@ -1,34 +1,37 @@
-footer {
+.nav_menu {
     width: 100%;
     margin: 0 auto;
     color: var(--blue-color);
     text-align: center;
-    padding: 20px;
-    font-size: 16px;
     border: var(--border);
     background: var(--background-header-and-footer);
-    position: absolute;
+    position:fixed;
     bottom: 0px;
     left: 0;
     right: 0;
-    height: 90px;
+    z-index: 1;
+    border-top: none;
+    padding: 5px;
 }
 
-footer span {
-    margin: 10px;
+.nav_menu a {
+    text-decoration: none;
+    padding: 15px;
     color: var(--white-color);
     text-shadow: 1px 1px 2px var(--black-color);
+    font-size: 16px;
     
 }
 
 @media screen and (max-width: 768px) {
-    footer {
+    .nav_menu a {
         font-size: 14px;
+        
     }
 }
 
-@media screen and (max-width: 426px) {
-    footer {
+@media screen and (max-width: 410px) {
+    .nav_menu a {
         font-size: 11px;
     }
 }

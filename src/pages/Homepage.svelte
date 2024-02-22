@@ -4,6 +4,7 @@
     import LinkAllRecipes from "../components/LinkAllRecipes.svelte";
     import TextLastRecipes from "../components/TextLastRecipes.svelte";
     import ThreeLastRecipes from "../components/ThreeLastRecipes.svelte";
+    
 </script>
 
 <main>
@@ -12,6 +13,7 @@
     <LinkAllRecipes />
     <TextLastRecipes />
     <ThreeLastRecipes />
+    
 </main>
 
 
