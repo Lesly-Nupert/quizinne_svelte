@@ -40,13 +40,13 @@
     letter-spacing: 2px;
 }
 
-.info_input{ 
+.info_input {
     margin-bottom: 20px;
     font-size: 16px;
 }
 
-.signupOk{
-    color:green;
+.signupOk {
+    color: green;
     font-size: 24px;
 }
 
@@ -60,7 +60,20 @@
     background-color: var(--input-valid-green);
 }
 
+/* Formulaire de contact */
+.checkbox {
+    letter-spacing: 1px; 
+}
+
+.textarea_contact {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 24px;
+}
+
 @media screen and (max-width: 768px) {
+
     .signup_and_login form label,
     .signup_and_login form input {
         width: 100%;
@@ -69,13 +82,14 @@
         font-size: 18px;
     }
 
-    .signupOk{
-        color:green;
+    .signupOk {
+        color: green;
         font-size: 18px;
     }
 }
 
 @media screen and (max-width: 500px) {
+
     .signup_and_login form label,
     .signup_and_login form input {
         width: 100%;
@@ -84,8 +98,8 @@
         font-size: 16px;
     }
 
-    .signupOk{
-        color:green;
+    .signupOk {
+        color: green;
         font-size: 16px;
     }
 }

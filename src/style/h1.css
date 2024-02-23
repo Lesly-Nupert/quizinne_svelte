@@ -1,14 +1,15 @@
 h1{
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
     font-size: 48px;
     color: var(--black-color);
+    margin-bottom: -20px; 
 }
 
 @media screen and (max-width: 768px) {
     h1 {
         text-align: center;
-        margin-top: 50px;
+        margin-top: 20px;
         font-size: 36px;
     }
 }
@@ -16,7 +17,7 @@ h1{
 @media screen and (max-width: 500px) {
     h1 {
         text-align: center;
-        margin-top: 50px;
+        margin-top: 20px;
         font-size: 24px;
     }
 }

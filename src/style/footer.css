@@ -3,7 +3,6 @@ footer {
     margin: 0 auto;
     color: var(--blue-color);
     text-align: center;
-    padding: 20px;
     font-size: 16px;
     border: var(--border);
     background: var(--background-header-and-footer);
@@ -11,14 +10,21 @@ footer {
     bottom: 0px;
     left: 0;
     right: 0;
-    height: 90px;
+    height: 30px;
 }
 
-footer span {
+footer a {
     margin: 10px;
     color: var(--white-color);
     text-shadow: 1px 1px 2px var(--black-color);
-    
+    letter-spacing: 1px;
+}
+
+.footer{
+    margin: 10px;
+    color: var(--white-color);
+    text-shadow: 1px 1px 2px var(--black-color);
+    letter-spacing: 1px;
 }
 
 @media screen and (max-width: 768px) {

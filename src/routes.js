@@ -11,7 +11,8 @@ import AddRecipe from "./pages/AddRecipe.svelte";
 import UpdateRecipe from "./pages/UpdateRecipe.svelte";
 import RecipesByUser from "./pages/RecipesByUser.svelte";
 import RecipesFilter from "./pages/RecipesFilter.svelte";
-
+import Contact from "./pages/Contact.svelte";
+import LegalNotice from "./pages/LegalNotice.svelte";
 
 export default {
     "/": HomePage,
@@ -27,4 +28,6 @@ export default {
     "/recipes/update/:id": UpdateRecipe,
     "/recipes/user/:userId": RecipesByUser,
     "/recipesFilter": RecipesFilter,
+    "/contact": Contact,
+    "/legalNotice": LegalNotice,
 };

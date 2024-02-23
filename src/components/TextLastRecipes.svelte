@@ -1,1 +1,1 @@
-<p class="textLastRecipes">LES DERNIÈRES RECETTES :</p>
+<p class="textLastRecipes">Les dernières recettes :</p>

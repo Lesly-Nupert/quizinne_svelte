@@ -117,6 +117,15 @@
                 Votre mot de passe doit contenir au moins 5 caractères.
             </div>
 
+            <label for="checkbox" class="checkbox">Je consens à ce que ce site collecte et traite mes données personnelles soumises dans ce formulaire afin de valider mon inscription  <span aria-hidden="true">*</span></label>
+            <input
+                id="checkbox"
+                type="checkbox"
+                name="consent"
+                required
+                aria-required="true"
+            />
+
             <input class="submit" type="submit" value="S'inscrire" />
 
             {#if signupOk}

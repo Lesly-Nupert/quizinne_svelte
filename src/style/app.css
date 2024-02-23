@@ -7,10 +7,11 @@
 @import './welcome.css';
 @import './recipesCards.css';
 @import './addAndUpdateRecipe.css';
-@import './signupAndLogin.css';
+@import './signupLoginContact.css';
 @import './recipeDetails.css';
 @import './h1.css';
 @import './menu.css';
+@import './legalNotice.css';
 
 /*Reset: enlève les styles par défaut du navigateur*/
 *, ::before, ::after {
