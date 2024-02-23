@@ -7,6 +7,7 @@
     margin-top: 20px;
     margin-bottom: 50px;
     box-sizing: border-box;
+    justify-content:center;
 }
 
 .cards_recipes {
@@ -56,3 +57,12 @@
 .p_title::first-letter {
     text-transform: uppercase;
 }
+
+
+@media screen and (max-width: 1045px) {
+    .cards_recipes {
+        width: 400px;
+    }
+}
+
+

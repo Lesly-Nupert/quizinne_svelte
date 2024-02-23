@@ -6,6 +6,14 @@ h1{
     margin-bottom: -20px; 
 }
 
+@media screen and (max-width: 1030px) {
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 40px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     h1 {
         text-align: center;
