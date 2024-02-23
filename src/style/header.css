@@ -1,6 +1,6 @@
 .link_home {
     text-decoration: none;
-    padding: 20px;
+    padding: 15px;
 }
 
 .quizine {
@@ -19,16 +19,13 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 24px;
     border: var(--border);
     background: var(--background-header-and-footer);
-    height: 160px;
-
+    height: 135px;
 }
 
 .nav_header a {
     text-decoration: none;
-    padding: 15px;
     color: var(--white-color);
     text-shadow: 1px 1px 2px var(--black-color);
 }
@@ -36,34 +33,34 @@ header {
 .btn_login,
 .btn_account {
     text-decoration: none;
-    padding: 5px;
-    margin: 10px;
+    padding: 3px;
+    margin: 5px;
     color: var(--white-color);
     font-weight: bold;
-    border: 2px solid var(--blue-color);
-    border-radius: 20px;
+    font-size: 18px;
+    letter-spacing: 1px;
 }
 
 .btn_logout {
     text-decoration: none;
-    padding: 5px;
-    margin: 10px;
+    padding: 3px;
+    margin: 5px;
     color: var(--white-color);
     font-weight: bold;
-    border: 2px solid var(--blue-color);
-    border-radius: 20px;
+    border: none;
     font-size: 24px;
     background-color: transparent;
+    font-size: 18px;
+    letter-spacing: 1px;
 }
 
 .btn_login:hover,
 .btn_logout:hover,
 .btn_account:hover {
-    background-color: var(--white-color);
     color: var(--blue-color);
 }
 
-.message_deconnexion{
+.message_deconnexion {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -77,7 +74,7 @@ header {
 @media screen and (max-width: 1024px) {
     .quizine {
         font-size: 30px;
-        
+
     }
 
     header {
@@ -86,7 +83,12 @@ header {
     }
 
     .btn_logout {
-        font-size: 20px;
+        font-size: 16px;
+    }
+
+    .btn_login,
+    .btn_account {
+        font-size: 16px;
     }
 }
 
@@ -95,12 +97,14 @@ header {
         font-size: 18px;
     }
 
-    .nav_header {
-        display: none;
+    .btn_logout {
+        font-size: 14px;
     }
 
-    .btn_logout {
-        font-size: 18px;
+    .btn_login,
+    .btn_account {
+        font-size: 14px;
+        
     }
 }
 
@@ -109,11 +113,12 @@ header {
         font-size: 16px;
     }
 
-    .nav_header a {
-        font-size: 12px;
+    .btn_logout {
+        font-size: 11px;
     }
 
-    .btn_logout {
-        font-size: 16px;
+    .btn_login,
+    .btn_account {
+        font-size: 11px;
     }
 }

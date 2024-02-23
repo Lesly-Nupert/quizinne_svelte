@@ -16,8 +16,12 @@
         try {
             const response = await fetch(
                 `${import.meta.env.VITE_API_BASE_URL}recipes/user/${userId}`,
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                },
             );
-            // const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}recipes/user/5`);
 
             if (response.ok) {
                 const recipes = await response.json();
@@ -32,30 +36,32 @@
     }
 </script>
 
-{#if token && userId}
-<h1>MES RECETTES</h1>
+<main>
+    {#if token && userId}
+        <h1>MES RECETTES</h1>
 
-<section class="container_cards_recipes">
-    {#await getRecipes()}
-        <p>Chargement des recettes</p>
-    {:then recipes}
-        {#each recipes as recipe}
-            <a  title={recipe.title}
-                aria-label={`Accès aux détails de la recette dont le nom est : ${recipe.title}`}
-                href={`/recipes/${recipe.id_recipe}`}
-                use:link
-                class="cards_recipes"
-            >
-                <img
-                    src={`http://localhost:3000/${recipe.image}`}
-                    alt={`Photo de ${recipe.title}`}
-                    class="img_card"
-                />
-                <p class="p_category">{recipe.category}</p>
-                <p class="p_title">{recipe.title}</p>
-            </a>
-        {/each}
-    {/await}
-</section>
-{/if}
-
+        <section class="container_cards_recipes">
+            {#await getRecipes()}
+                <p>Chargement des recettes</p>
+            {:then recipes}
+                {#each recipes as recipe}
+                    <a
+                        title={recipe.title}
+                        aria-label={`Accès aux détails de la recette dont le nom est : ${recipe.title}`}
+                        href={`/recipes/${recipe.id_recipe}`}
+                        use:link
+                        class="cards_recipes"
+                    >
+                        <img
+                            src={`http://localhost:3000/${recipe.image}`}
+                            alt={`Photo de ${recipe.title}`}
+                            class="img_card"
+                        />
+                        <p class="p_category">{recipe.category}</p>
+                        <p class="p_title">{recipe.title}</p>
+                    </a>
+                {/each}
+            {/await}
+        </section>
+    {/if}
+</main>

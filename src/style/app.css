@@ -12,6 +12,7 @@
 @import './h1.css';
 @import './menu.css';
 @import './legalNotice.css';
+@import './account.css';
 
 /*Reset: enlève les styles par défaut du navigateur*/
 *, ::before, ::after {

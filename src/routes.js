@@ -13,6 +13,8 @@ import RecipesByUser from "./pages/RecipesByUser.svelte";
 import RecipesFilter from "./pages/RecipesFilter.svelte";
 import Contact from "./pages/Contact.svelte";
 import LegalNotice from "./pages/LegalNotice.svelte";
+import Account from "./pages/Account.svelte";
+import UpdateAccount from "./pages/UpdateAccount.svelte";
 
 export default {
     "/": HomePage,
@@ -30,4 +32,6 @@ export default {
     "/recipesFilter": RecipesFilter,
     "/contact": Contact,
     "/legalNotice": LegalNotice,
+    "/user/:userId": Account,
+    "/user/update/:userId": UpdateAccount,
 };

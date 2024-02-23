@@ -1,4 +1,4 @@
-.add_and_update_recipe h1 {
+h1 {
     text-align: center;
     margin-top: 50px;
     font-size: 48px;
@@ -54,7 +54,7 @@
 
 /* Largeur d'écran inférieur à */
 @media screen and (max-width: 768px) {
-    .add_and_update_recipe h1 {
+    h1 {
         text-align: center;
         margin-top: 50px;
         font-size: 36px;
@@ -82,7 +82,7 @@
 }
 
 @media screen and (max-width: 500px) {
-    .add_and_update_recipe h1 {
+    h1 {
         text-align: center;
         margin-top: 50px;
         font-size: 24px;
