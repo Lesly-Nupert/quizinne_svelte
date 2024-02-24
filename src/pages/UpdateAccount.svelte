@@ -10,11 +10,10 @@
     let token = localStorage.getItem("TOKEN");
     let userId = localStorage.getItem("USER_ID");
 
-    // Variables du Formulaire Inscription (mise à jour)
+    // Variables du Formulaire de mise à jour du pseudo et du mail
     let user = {
         pseudo: "",
         email: "",
-        password: "",
         errorMessageEmail: "",
         signupOk: "",
     };
@@ -127,27 +126,6 @@
                 </div>
             {/if}
 
-            <label class="label_signup_login" for="password"
-                >Taper votre mot de passe <span aria-hidden="true">*</span> :</label
-            >
-            <input
-                bind:value={user.password}
-                class="input_signup_login"
-                type="password"
-                name="password"
-                id="password"
-                placeholder="*******"
-                required
-                aria-required="true"
-                minlength="5"
-                maxlength="12"
-                aria-describedby="passwordDetails"
-            />
-
-            <div class="info_input" id="passwordDetails" aria-hidden="true">
-                Votre mot de passe doit contenir au moins 5 caractères.
-            </div>
-
             <label for="checkbox" class="checkbox">Je consens à ce que ce site collecte et traite mes données personnelles soumises dans ce formulaire afin de valider mon inscription  <span aria-hidden="true">*</span></label>
             <input
                 id="checkbox"
@@ -156,8 +134,7 @@
                 required
                 aria-required="true"
             />
-
-            <input class="submit" type="submit" value="S'inscrire" />
+            <input class="submit" type="submit" value="Envoyer" />
 
             {#if user.signupOk}
                 <div aria-live="polite" class="signupOk">{user.signupOk}</div>

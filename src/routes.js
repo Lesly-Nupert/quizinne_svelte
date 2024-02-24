@@ -15,6 +15,7 @@ import Contact from "./pages/Contact.svelte";
 import LegalNotice from "./pages/LegalNotice.svelte";
 import Account from "./pages/Account.svelte";
 import UpdateAccount from "./pages/UpdateAccount.svelte";
+import ChangePassword from "./pages/ChangePassword.svelte";
 
 export default {
     "/": HomePage,
@@ -34,4 +35,5 @@ export default {
     "/legalNotice": LegalNotice,
     "/user/:userId": Account,
     "/user/update/:userId": UpdateAccount,
+    "/user/updatePassword/:userId": ChangePassword,
 };

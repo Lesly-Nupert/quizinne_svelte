@@ -59,6 +59,14 @@
 
             <a
                 class="link_update_account"
+                href={`/user/updatePassword/${userId}`}
+                aria-label="Accès à la page de modification de mon mot de passe"
+                use:link
+                >Changer mon mot passe
+            </a>
+
+            <a
+                class="link_update_account"
                 href={`/user/update/${userId}`}
                 aria-label="Accès à la page de modification de mes identifiants de connexion"
                 use:link
