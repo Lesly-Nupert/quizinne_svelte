@@ -112,7 +112,7 @@
                 >
                 <input
                     bind:value={time_cook}
-                    type="time_cook"
+                    type="text"
                     name="time_cook"
                     id="time_cook"
                     placeholder="Temps de préparation"
@@ -142,7 +142,7 @@
                 >
                 <input
                     bind:value={nb_persons}
-                    type="nb_persons"
+                    type="number"
                     name="nb_persons"
                     id="nb_persons"
                     placeholder="Nombre de personnes"
