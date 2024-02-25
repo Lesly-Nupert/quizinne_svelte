@@ -1,10 +1,19 @@
 <script>
     // Variables du Formulaire Inscription
-    let pseudo, email, password, errorMessageEmail, signupOk;
+    let pseudo,
+        email,
+        password,
+        errorMessageEmail,
+        errorMessagePassword,
+        signupOk;
 
     function validateEmail(email) {
         let emailRegex = /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/;
         return emailRegex.test(email);
+    }
+    function validatePassword(password) {
+        let passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,12}$/;
+        return passwordRegex.test(password);
     }
 
     // Fonction pour gérer la soumission du formulaire d'inscription
@@ -25,9 +34,18 @@
                 },
             );
             if (!response.ok) {
-                !validateEmail(email);
-                errorMessageEmail =
-                    "ERREUR Format d'email attendu : exemple@mail.com";
+                errorMessageEmail = "";
+                errorMessagePassword = "";
+
+                if (!validateEmail(email)) {
+                    errorMessageEmail =
+                        "ERREUR Format d'email attendu : exemple@mail.com";
+                }
+
+                if (!validatePassword(password)) {
+                    errorMessagePassword =
+                        "ERREUR Votre mot de passe doit contenir entre 8 et 12 caractères, avec au moins une lettre majuscule, un chiffre et un caractère spécial";
+                }
 
                 throw new Error(`Erreur HTTP : ${response.status}`);
             }
@@ -36,7 +54,8 @@
             console.log(json);
             console.log("Inscription réussie !");
 
-            signupOk = "Inscription réussie ! Redirection vers la page de connexion";
+            signupOk =
+                "Inscription réussie ! Redirection vers la page de connexion";
 
             setTimeout(() => {
                 window.location.href = "#/login";
@@ -108,16 +127,27 @@
                 placeholder="*******"
                 required
                 aria-required="true"
-                minlength="5"
                 maxlength="12"
                 aria-describedby="passwordDetails"
             />
 
             <div class="info_input" id="passwordDetails" aria-hidden="true">
-                Votre mot de passe doit contenir au moins 5 caractères.
+                Votre mot de passe doit contenir entre 8 et 12 caractères, avec
+                au moins une lettre majuscule, un chiffre et un caractère
+                spécial.
             </div>
 
-            <label for="checkbox" class="checkbox">Je consens à ce que ce site collecte et traite mes données personnelles soumises dans ce formulaire afin de valider mon inscription  <span aria-hidden="true">*</span></label>
+            {#if errorMessagePassword}
+                <div class="error_message" id="email" aria-live="assertive">
+                    {errorMessagePassword}
+                </div>
+            {/if}
+
+            <label for="checkbox" class="checkbox"
+                >Je consens à ce que ce site collecte et traite mes données
+                personnelles soumises dans ce formulaire afin de valider mon
+                inscription <span aria-hidden="true">*</span></label
+            >
             <input
                 id="checkbox"
                 type="checkbox"

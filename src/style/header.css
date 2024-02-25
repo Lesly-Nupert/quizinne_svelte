@@ -38,6 +38,8 @@ header {
     font-weight: bold;
     font-size: 22px;
     letter-spacing: 1px;
+    text-decoration: none;
+    /* outline: 2px solid var(--blue-color); */
 }
 
 .btn_logout {

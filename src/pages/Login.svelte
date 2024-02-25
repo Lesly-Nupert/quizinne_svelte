@@ -96,12 +96,11 @@
                 placeholder="*******"
                 required
                 aria-required="true"
-                minlength="5"
                 maxlength="12"
                 aria-describedby="passwordDetails"
             />
             <div class="info_input" id="passwordDetails" aria-hidden="true">
-                Votre mot de passe doit contenir au moins 5 caractères.
+                Votre mot de passe doit contenir entre 8 et 12 caractères, avec au moins une lettre majuscule, un chiffre et un caractère spécial.
             </div>
     
             <input class="submit" type="submit" value="Se connecter" />

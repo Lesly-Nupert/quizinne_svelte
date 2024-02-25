@@ -114,14 +114,16 @@
                     placeholder="*******"
                     required
                     aria-required="true"
-                    minlength="5"
+                    minlength="8"
                     maxlength="12"
                     aria-describedby="passwordDetails"
                 />
 
-                <div class="info_input" id="passwordDetails" aria-hidden="true">
-                    Votre mot de passe doit contenir au moins 5 caractères.
-                </div>
+                <!-- <div class="info_input" id="passwordDetails" aria-hidden="true">
+                    Votre mot de passe doit contenir entre 8 et 12
+                    caractères, avec au moins une lettre majuscule, un chiffre
+                    et un caractère spécial.
+                </div> -->
 
                 <label class="label_signup_login" for="password2"
                     >Taper votre nouveau mot de passe <span aria-hidden="true"
@@ -137,13 +139,15 @@
                     placeholder="*******"
                     required
                     aria-required="true"
-                    minlength="5"
+                    minlength="8"
                     maxlength="12"
                     aria-describedby="passwordDetails"
                 />
 
                 <div class="info_input" id="passwordDetails" aria-hidden="true">
-                    Votre mot de passe doit contenir au moins 5 caractères.
+                    Votre nouveau mot de passe doit contenir entre 8 et 12
+                    caractères, avec au moins une lettre majuscule, un chiffre
+                    et un caractère spécial.
                 </div>
 
                 <input class="submit" type="submit" value="Envoyer" />
@@ -157,4 +161,3 @@
         </section>
     {/if}
 </main>
-
