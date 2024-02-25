@@ -17,7 +17,7 @@
 }
 
 .link_update_account {
-    color: var(--red-color);
+    color: var(--blue-color);
     letter-spacing: 1px;
     font-size: 24px;
 }
@@ -32,12 +32,30 @@
     font-weight: 600;
 }
 
+.btn_delete_account{
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: var(--red-color);
+    background-color: var(--white-color);
+    font-weight: bolder;
+    cursor: pointer;
+    transition: background 500ms ease-in-out;
+    letter-spacing: 1px;
+    border-color: red;
+}
+
+.btn_delete_account:hover{
+    background-color: var(--red-color);
+    color: var(--white-color);
+}
 
 @media screen and (max-width: 768px) {
 
     .link_recipes_by_user,
     .link_update_account,
-    p {
+    .p_account {
         font-size: 18px;
     }
 }
@@ -46,7 +64,7 @@
 
     .link_recipes_by_user,
     .link_update_account,
-    p {
+    .p_account {
         font-size: 16px;
     }
 

@@ -13,6 +13,7 @@
 @import './menu.css';
 @import './legalNotice.css';
 @import './account.css';
+@import './contact.css';
 
 /*Reset: enlève les styles par défaut du navigateur*/
 *, ::before, ::after {
@@ -32,7 +33,8 @@ body {
   font-family: "Favorite Font", sans-serif;
   position: relative;
   min-height: 100%;
-  padding-bottom: 6.74rem;
+  /* padding-bottom: 6.74rem; */
+  padding-bottom: 3.74rem;
 }
 
 

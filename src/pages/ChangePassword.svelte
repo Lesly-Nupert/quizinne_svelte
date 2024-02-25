@@ -10,6 +10,7 @@
     let token = localStorage.getItem("TOKEN");
     let userId = localStorage.getItem("USER_ID");
 
+    // Déconnexion du compte utilisateur après mise à jour
     function disconnect() {
         localStorage.removeItem("TOKEN");
         localStorage.removeItem("USER_ID");
@@ -79,7 +80,7 @@
 
 <main>
     {#if token && userId}
-        <h1>Modifier mon mot de passe</h1>
+        <h1>Modifier mot de passe</h1>
         <section class="signup_and_login">
             <form on:submit|preventDefault={handleSubmit}>
                 <label class="label_signup_login" for="email"

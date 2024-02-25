@@ -10,6 +10,12 @@
     let token = localStorage.getItem("TOKEN");
     let userId = localStorage.getItem("USER_ID");
 
+    // Déconnexion du compte utilisateur après mise à jour
+    function disconnect() {
+        localStorage.removeItem("TOKEN");
+        localStorage.removeItem("USER_ID");
+    }
+
     // Variables du Formulaire de mise à jour du pseudo et du mail
     let user = {
         pseudo: "",
@@ -63,11 +69,15 @@
 
             const json = await response.json();
             console.log(json);
+            console.log("Compte mis à jour !");
 
             user.signupOk = "Mise à jour réussie ! Redirection vers la page de connexion";
 
+            disconnect();
+
             setTimeout(() => {
                 window.location.href = "#/login";
+                window.location.reload();
             }, 1000);
         } catch (error) {
             console.error("Erreur réseau", error);
@@ -78,7 +88,7 @@
 
 <main>
     {#if token && userId}
-    <h1>MODIFIER MES IDENTIFIANTS</h1>
+    <h1>Modifier mes identifiants</h1>
     <section class="signup_and_login">
         <form on:submit|preventDefault={handleSubmit}>
             <label class="label_signup_login" for="pseudo"

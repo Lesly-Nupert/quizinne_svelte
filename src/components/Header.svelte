@@ -63,21 +63,21 @@
                 class="btn_login"
                 href="/addRecipe"
                 aria-label="Accès à la page d'ajout d'une recette"
-                use:link><Icon data={plus} width="60" height="20" /></a
+                use:link><Icon data={plus} width="60" height="15" /></a
             >
 
             <a
                 class="btn_account"
                 href={`/user/${userId}`}
                 aria-label="Accès à mon compte utilisateur"
-                use:link><Icon data={user} width="60" height="20" /></a
+                use:link><Icon data={user} width="60" height="15" /></a
             >
 
             <button
                 aria-label="Se déconnecter de son compte utilisateur"
                 class="btn_logout"
                 on:click={disconnect}
-                ><Icon data={powerOff} width="60" height="20" /></button
+                ><Icon data={powerOff} width="60" height="15" /></button
             >
         {/if}
 

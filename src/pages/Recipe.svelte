@@ -62,7 +62,7 @@
                 }, 1000);
             } else {
                 console.error("Erreur Suppression", response.status);
-                alert("Erreur lors de la suppression !");
+                
             }
         } catch (error) {
             console.error("Erreur réseau", error);
