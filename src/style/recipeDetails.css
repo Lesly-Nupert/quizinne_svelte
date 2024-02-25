@@ -47,8 +47,10 @@ h2 {
     font-size: 36px;
     color: var(--blue-color);
     letter-spacing: 1px;
+    border-bottom: 2px solid #5B59C7;
 }
-
+.doneAndLike,
+.container_info_cook,
 .container_ingredients,
 .container_steps {
     margin-top: 30px;
@@ -73,21 +75,25 @@ h2 {
     margin-top: 35px;
     margin-left: 10px;
     width: 134px;
-    border: 1px solid var(--black-color);
-    border-radius: 2px;
+    border: 2px solid var(--blue-color);
+    border-radius: 20px;
     text-align: center;
     text-decoration: none;
     color: var(--black-color);
     background-color: #efefef;
     padding: 5px;
+    letter-spacing: 0.5px;
 }
 
 .btn_delete_recipe {
     cursor: pointer;
+    border-radius: 20px;
+    color: var(--red-color);
+    border: 2px solid var(--red-color);
+    letter-spacing: 0.5px;
 }
 
 .delete_recipe {
-    border-radius: 5px;
     cursor: pointer;
     margin-top: 15px;
     margin-bottom: -10px;
@@ -120,8 +126,8 @@ h2 {
     background: var(--background-like);
 }
 
-.content {
-    font-size: 16px;
+.container_comments .content {
+    font-size: 20px;
 }
 
 .content_pseudo_date {
@@ -146,7 +152,7 @@ h2 {
     margin-top: 50px;
     margin-left: 10px;
     margin-right: 10px;
-    letter-spacing: 1px;
+    font-size: 20px;
 }
 
 .container_addcomment button {
@@ -158,7 +164,8 @@ h2 {
 .doneAndLike {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 50px;
+    margin-bottom: -45px;
 }
 
 .error_message {
@@ -177,6 +184,10 @@ h2 {
     color:green;
     font-size: 24px;
 }
+
+.textarea_comment{
+    border: 2px solid #5B59C7;
+}
 /* Cache le texte mais il est lu par les lecteurs d'ecran */
 /* https://www.anysurfer.be/fr/documentation/articles/detail/cacher-du-texte */
 .text_like{
@@ -190,6 +201,14 @@ h2 {
     width: 1px;
 }
 
+.container_info_cook{
+    
+    border: 2px solid #5B59C7;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 768px) {
     h1 {
         text-align: center;
@@ -200,8 +219,9 @@ h2 {
     h2 {
         font-size: 30px;
     }
-
-    p {
+    .container_addComment,
+    .container_comments .content,
+    .container_details_recipe p {
         font-size: 18px;
     }
     .message{
@@ -220,8 +240,9 @@ h2 {
     h2 {
         font-size: 20px;
     }
-
-    p {
+    .container_addComment,
+    .container_comments .content,
+    .container_details_recipe p {
         font-size: 16px;
     }
     .message{

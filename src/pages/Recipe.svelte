@@ -183,11 +183,7 @@
     {:then recipe}
         <h1>{recipe.title}</h1>
 
-        <img
-            class="img_recipe"
-            src={`http://localhost:3000/${recipe.image}`}
-            alt={`${recipe.title}`}
-        />
+       
 
         <!-- *BLOC TEXTE RECETTE FAITE PAR  + LA DATE -->
         <!-- Méthode toLocaleDateString = Conversion en date locale -->
@@ -224,8 +220,14 @@
             </div>
         </div>
 
+        <img
+        class="img_recipe"
+        src={`http://localhost:3000/${recipe.image}`}
+        alt={`${recipe.title}`}
+    />
+
         <!-- *BLOC TEMPS DE PREPARATION + NIVEAU DIFFICULTÉ + NB DE PORTIONS-->
-        <div>
+        <div class="container_info_cook">
             <p class="done_by">
                 <b>Temps de préparation :</b> {recipe.time_cook}
             </p>
@@ -240,12 +242,12 @@
 
         <!-- *BLOC INGREDIENTS + ETAPES-->
         <div class="container_ingredients">
-            <h2>Ingrédients :</h2>
+            <h2>Ingrédients</h2>
             <p class="ingredients">{recipe.ingredients}</p>
         </div>
 
         <div class="container_steps">
-            <h2>Étapes :</h2>
+            <h2>Étapes</h2>
             <p class="steps">{recipe.steps}</p>
         </div>
 
@@ -281,14 +283,14 @@
     <div class="container_addComment">
         <form on:submit|preventDefault={handleComment}>
             <label for="content">Partager un commentaire :</label>
-            <textarea
+            <textarea class="textarea_comment"
                 bind:value={content}
                 name="contents"
                 id="content"
                 placeholder="Commentaires..."
                 required
             ></textarea>
-            <button disabled={!token} aria-label="Publication du commentaire"
+            <button class="btn_addComment" disabled={!token} aria-label="Publication du commentaire"
                 >Publier commentaire</button
             >
         </form>
