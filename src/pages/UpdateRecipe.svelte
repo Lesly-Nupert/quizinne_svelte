@@ -14,6 +14,9 @@
         image: "",
         ingredients: "",
         steps: "",
+        time_cook: "",
+        difficulty: "",
+        nb_persons: "",
         addRecipeOk: "",
         errorMessage: "",
     };
@@ -49,6 +52,9 @@
         formData.append("category", recipe.category);
         formData.append("title", recipe.title);
         formData.append("image", recipe.image);
+        formData.append("time_cook", recipe.time_cook);
+        formData.append("difficulty", recipe.difficulty);
+        formData.append("nb_persons", recipe.nb_persons);
         formData.append("ingredients", recipe.ingredients);
         formData.append("steps", recipe.steps);
 
@@ -85,92 +91,143 @@
     }
 </script>
 
-
 <main>
     {#if token && userId}
-    <section class="add_and_update_recipe">
-        <h1>MODIFIER LA RECETTE</h1>
-    
-        <form on:submit|preventDefault={handleSubmit}>
-            <label for="category"
-                >Choisir une catégorie <span aria-hidden="true">*</span></label
-            >
-            <select
-                bind:value={recipe.category}
-                name="category"
-                id="category"
-                required
-                aria-required="true"
-            >
-                <option value="Entrées">Entrées</option>
-                <option value="Plats">Plats</option>
-                <option value="Desserts">Desserts</option>
-                <option value="Boissons">Boissons</option>
-            </select>
-    
-            <label for="title"
-                >Titre de la recette <span aria-hidden="true">*</span></label
-            >
-            <input
-                bind:value={recipe.title}
-                type="text"
-                name="title"
-                id="title"
-                placeholder="Titre de la recette"
-                required
-                aria-required="true"
-            />
-    
-            <label for="image"
-                >Télécharger une photo <span aria-hidden="true">*</span></label
-            >
-            <!-- on:change car fichier et non texte -->
-            <input
-                on:change={handleFile}
-                type="file"
-                name="image"
-                id="image"
-                accept=".jpg, .jpeg, .png"
-            />
-    
-            <label for="ingredients"
-                >Ingrédients <span aria-hidden="true">*</span></label
-            >
-            <textarea
-                bind:value={recipe.ingredients}
-                name="ingredients"
-                id="ingredients"
-                placeholder="Les ingrédients"
-                required
-                aria-required="true"
-                rows="5"
-            ></textarea>
-    
-            <label for="steps">Les étapes <span aria-hidden="true">*</span></label>
-            <textarea
-                bind:value={recipe.steps}
-                name="steps"
-                id="steps"
-                placeholder="Les étapes"
-                required
-                aria-required="true"
-                rows="10"
-            ></textarea>
-    
-            <input class="submit" type="submit" value="Mettre à jour la recette" />
-    
-            {#if recipe.addRecipeOk}
-                <div aria-live="polite" class="addRecipeOk">
-                    {recipe.addRecipeOk}
-                </div>
-            {/if}
-    
-            {#if recipe.errorMessage}
-                <div class="error_message" aria-live="assertive">
-                    {recipe.errorMessage}
-                </div>
-            {/if}
-        </form>
-    </section>
+        <section class="add_and_update_recipe">
+            <h1>MODIFIER LA RECETTE</h1>
+
+            <form on:submit|preventDefault={handleSubmit}>
+                <label for="category"
+                    >Choisir une catégorie <span aria-hidden="true">*</span
+                    ></label
+                >
+                <select
+                    bind:value={recipe.category}
+                    name="category"
+                    id="category"
+                    required
+                    aria-required="true"
+                >
+                    <option value="Entrées">Entrées</option>
+                    <option value="Plats">Plats</option>
+                    <option value="Desserts">Desserts</option>
+                    <option value="Boissons">Boissons</option>
+                </select>
+
+                <label for="title"
+                    >Titre de la recette <span aria-hidden="true">*</span
+                    ></label
+                >
+                <input
+                    bind:value={recipe.title}
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="Titre de la recette"
+                    required
+                    aria-required="true"
+                />
+
+                <label for="image"
+                    >Télécharger une photo <span aria-hidden="true">*</span
+                    ></label
+                >
+                <!-- on:change car fichier et non texte -->
+                <input
+                    on:change={handleFile}
+                    type="file"
+                    name="image"
+                    id="image"
+                    accept=".jpg, .jpeg, .png"
+                />
+
+                <label for="time_cook"
+                    >Temps de préparation <span aria-hidden="true">*</span
+                    ></label
+                >
+                <input
+                    bind:value={recipe.time_cook}
+                    type="time_cook"
+                    name="time_cook"
+                    id="time_cook"
+                    placeholder="Temps de préparation"
+                    required
+                    aria-required="true"
+                />
+
+                <label for="difficulty"
+                    >Niveau de difficulté <span aria-hidden="true">*</span
+                    ></label
+                >
+                <select
+                    bind:value={recipe.difficulty}
+                    name="difficulty"
+                    id="difficulty"
+                    required
+                    aria-required="true"
+                >
+                    <option value="Facile">Facile</option>
+                    <option value="Moyen">Moyen</option>
+                    <option value="Difficile">Difficile</option>
+                </select>
+
+                <label for="nb_persons"
+                    >Nombre de portions <span aria-hidden="true">*</span></label
+                >
+                <input
+                    bind:value={recipe.nb_persons}
+                    type="nb_persons"
+                    name="nb_persons"
+                    id="nb_persons"
+                    placeholder="Nombre de personnes"
+                    required
+                    aria-required="true"
+                />
+
+                <label for="ingredients"
+                    >Ingrédients <span aria-hidden="true">*</span></label
+                >
+                <textarea
+                    bind:value={recipe.ingredients}
+                    name="ingredients"
+                    id="ingredients"
+                    placeholder="Les ingrédients"
+                    required
+                    aria-required="true"
+                    rows="5"
+                ></textarea>
+
+                <label for="steps"
+                    >Les étapes <span aria-hidden="true">*</span></label
+                >
+                <textarea
+                    bind:value={recipe.steps}
+                    name="steps"
+                    id="steps"
+                    placeholder="Les étapes"
+                    required
+                    aria-required="true"
+                    rows="10"
+                ></textarea>
+
+                <input
+                    class="submit"
+                    type="submit"
+                    value="Mettre à jour la recette"
+                />
+
+                {#if recipe.addRecipeOk}
+                    <div aria-live="polite" class="addRecipeOk">
+                        {recipe.addRecipeOk}
+                    </div>
+                {/if}
+
+                {#if recipe.errorMessage}
+                    <div class="error_message" aria-live="assertive">
+                        {recipe.errorMessage}
+                    </div>
+                {/if}
+            </form>
+        </section>
     {/if}
 </main>

@@ -224,6 +224,20 @@
             </div>
         </div>
 
+        <!-- *BLOC TEMPS DE PREPARATION + NIVEAU DIFFICULTÉ + NB DE PORTIONS-->
+        <div>
+            <p class="done_by">
+                <b>Temps de préparation :</b> {recipe.time_cook}
+            </p>
+            <p class="done_by">
+                <b>Niveau de difficulté :</b> {recipe.difficulty}
+            </p>
+            <p class="done_by">
+                <b>Nombre de portions :</b> {recipe.nb_persons}
+            </p>
+            
+        </div>
+
         <!-- *BLOC INGREDIENTS + ETAPES-->
         <div class="container_ingredients">
             <h2>Ingrédients :</h2>

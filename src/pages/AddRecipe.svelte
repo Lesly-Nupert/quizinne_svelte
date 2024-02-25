@@ -3,7 +3,7 @@
     let token = localStorage.getItem("TOKEN");
 
     // Variables du Formulaire d'ajout d'une recette
-    let category, title, image, ingredients, steps, addRecipeOk, errorMessage;
+    let category, title, image, ingredients, steps, time_cook, difficulty,nb_persons, addRecipeOk, errorMessage;
 
     // Fonction pour le traitement de l'image
     function handleFile(event) {
@@ -17,6 +17,9 @@
         formData.append("category", category);
         formData.append("title", title);
         formData.append("image", image);
+        formData.append("time_cook", time_cook);
+        formData.append("difficulty", difficulty);
+        formData.append("nb_persons", nb_persons);
         formData.append("ingredients", ingredients);
         formData.append("steps", steps);
 
@@ -76,6 +79,7 @@
                     <option value="Desserts">Desserts</option>
                     <option value="Boissons">Boissons</option>
                 </select>
+
                 <label for="title"
                     >Titre de la recette <span aria-hidden="true">*</span
                     ></label
@@ -91,8 +95,7 @@
                     autocapitalize="sentences"
                 />
                 <label for="image"
-                    >Télécharger une photo <span aria-hidden="true">*</span
-                    ></label
+                    >Télécharger une photo</label
                 >
                 <!-- on:change car fichier et non texte -->
                 <input
@@ -102,6 +105,51 @@
                     id="image"
                     accept=".jpg, .jpeg, .png"
                 />
+                    
+                <label for="time_cook"
+                    >Temps de préparation <span aria-hidden="true">*</span
+                    ></label
+                >
+                <input
+                    bind:value={time_cook}
+                    type="time_cook"
+                    name="time_cook"
+                    id="time_cook"
+                    placeholder="Temps de préparation"
+                    required
+                    aria-required="true"
+                />
+
+                <label for="difficulty"
+                    >Niveau de difficulté <span aria-hidden="true">*</span
+                    ></label
+                >
+                <select
+                    bind:value={difficulty}
+                    name="difficulty"
+                    id="difficulty"
+                    required
+                    aria-required="true"
+                >
+                    <option value="Facile">Facile</option>
+                    <option value="Moyen">Moyen</option>
+                    <option value="Difficile">Difficile</option>
+                </select>
+
+                <label for="nb_persons"
+                    >Nombre de portions <span aria-hidden="true">*</span
+                    ></label
+                >
+                <input
+                    bind:value={nb_persons}
+                    type="nb_persons"
+                    name="nb_persons"
+                    id="nb_persons"
+                    placeholder="Nombre de personnes"
+                    required
+                    aria-required="true"
+                />
+
                 <label for="ingredients"
                     >Ingrédients <span aria-hidden="true">*</span></label
                 >
