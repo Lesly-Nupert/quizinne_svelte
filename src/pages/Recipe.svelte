@@ -62,7 +62,6 @@
                 }, 1000);
             } else {
                 console.error("Erreur Suppression", response.status);
-                
             }
         } catch (error) {
             console.error("Erreur réseau", error);
@@ -183,8 +182,6 @@
     {:then recipe}
         <h1>{recipe.title}</h1>
 
-       
-
         <!-- *BLOC TEXTE RECETTE FAITE PAR  + LA DATE -->
         <!-- Méthode toLocaleDateString = Conversion en date locale -->
         <div class="doneAndLike">
@@ -202,7 +199,8 @@
                     <p>Chargement des J'aime</p>
                 {:then likes}
                     <span class="like_count">
-                        <span class="text_like">Cette recette a été aimée</span> {likes.count} <span class="text_like">fois</span>
+                        <span class="text_like">Cette recette a été aimée</span>
+                        {likes.count} <span class="text_like">fois</span>
                     </span>
                 {/await}
 
@@ -221,23 +219,25 @@
         </div>
 
         <img
-        class="img_recipe"
-        src={`http://localhost:3000/${recipe.image}`}
-        alt={`${recipe.title}`}
-    />
+            class="img_recipe"
+            src={`http://localhost:3000/${recipe.image}`}
+            alt={`${recipe.title}`}
+        />
 
         <!-- *BLOC TEMPS DE PREPARATION + NIVEAU DIFFICULTÉ + NB DE PORTIONS-->
         <div class="container_info_cook">
             <p class="done_by">
-                <b>Temps de préparation :</b> {recipe.time_cook}
+                <b>Temps de préparation :</b>
+                {recipe.time_cook}
             </p>
             <p class="done_by">
-                <b>Niveau de difficulté :</b> {recipe.difficulty}
+                <b>Niveau de difficulté :</b>
+                {recipe.difficulty}
             </p>
             <p class="done_by">
-                <b>Nombre de portions :</b> {recipe.nb_persons}
+                <b>Nombre de portions :</b>
+                {recipe.nb_persons}
             </p>
-            
         </div>
 
         <!-- *BLOC INGREDIENTS + ETAPES-->
@@ -283,14 +283,18 @@
     <div class="container_addComment">
         <form on:submit|preventDefault={handleComment}>
             <label for="content">Partager un commentaire :</label>
-            <textarea class="textarea_comment"
+            <textarea
+                class="textarea_comment"
                 bind:value={content}
                 name="contents"
                 id="content"
                 placeholder="Commentaires..."
                 required
             ></textarea>
-            <button class="btn_addComment" disabled={!token} aria-label="Publication du commentaire"
+            <button
+                class="btn_addComment"
+                disabled={!token}
+                aria-label="Publication du commentaire"
                 >Publier commentaire</button
             >
         </form>
