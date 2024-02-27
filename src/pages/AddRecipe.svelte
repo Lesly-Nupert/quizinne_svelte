@@ -3,7 +3,17 @@
     let token = localStorage.getItem("TOKEN");
 
     // Variables du Formulaire d'ajout d'une recette
-    let category, title, image, ingredients, steps, time_cook, difficulty,nb_persons, addRecipeOk, errorMessage;
+    let category,
+        title,
+        image,
+        ingredients,
+        steps,
+        time_cook_hours,
+        time_cook_minutes,
+        difficulty,
+        nb_persons,
+        addRecipeOk,
+        errorMessage;
 
     // Fonction pour le traitement de l'image
     function handleFile(event) {
@@ -17,7 +27,8 @@
         formData.append("category", category);
         formData.append("title", title);
         formData.append("image", image);
-        formData.append("time_cook", time_cook);
+        formData.append("time_cook_hours", time_cook_hours);
+        formData.append("time_cook_minutes", time_cook_minutes);
         formData.append("difficulty", difficulty);
         formData.append("nb_persons", nb_persons);
         formData.append("ingredients", ingredients);
@@ -94,9 +105,7 @@
                     aria-required="true"
                     autocapitalize="sentences"
                 />
-                <label for="image"
-                    >Télécharger une photo</label
-                >
+                <label for="image">Télécharger une photo</label>
                 <!-- on:change car fichier et non texte -->
                 <input
                     on:change={handleFile}
@@ -105,17 +114,31 @@
                     id="image"
                     accept=".jpg, .jpeg, .png"
                 />
-                    
-                <label for="time_cook"
-                    >Temps de préparation <span aria-hidden="true">*</span
+
+                <label for="time_cook_hours"
+                    >Temps de préparation en heures <span aria-hidden="true">*</span
                     ></label
                 >
                 <input
-                    bind:value={time_cook}
-                    type="text"
-                    name="time_cook"
-                    id="time_cook"
-                    placeholder="Temps de préparation"
+                    bind:value={time_cook_hours} 
+                    type="number"
+                    name="time_cook_hours"
+                    id="time_cook_hours"
+                    placeholder="Heures"
+                    required
+                    aria-required="true"
+                />
+
+                <label for="time_cook_minutes"
+                    >Temps de préparation en minutes <span aria-hidden="true">*</span
+                    ></label
+                >
+                <input
+                    bind:value={time_cook_minutes} 
+                    type="number"
+                    name="time_cook_minutes"
+                    id="time_cook_minutes"
+                    placeholder="Minutes"
                     required
                     aria-required="true"
                 />
@@ -137,8 +160,7 @@
                 </select>
 
                 <label for="nb_persons"
-                    >Nombre de portions <span aria-hidden="true">*</span
-                    ></label
+                    >Nombre de portions <span aria-hidden="true">*</span></label
                 >
                 <input
                     bind:value={nb_persons}

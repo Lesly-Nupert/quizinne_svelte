@@ -228,11 +228,11 @@
         <div class="container_info_cook">
             <p class="done_by">
                 <b>Temps de préparation :</b>
-                {recipe.time_cook}
+                {recipe.time_cook_hours} heures et {recipe.time_cook_minutes} minutes
             </p>
             <p class="done_by">
                 <b>Niveau de difficulté :</b>
-                {recipe.difficulty}
+                {recipe.difficulty} 
             </p>
             <p class="done_by">
                 <b>Nombre de portions :</b>

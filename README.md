@@ -34,6 +34,10 @@ cd /chemin/du/projet
 ```
 npm install
 ```
+4 Lancer le serveur local
+```
+npm run dev
+```
 
 ## Licence 
 ***

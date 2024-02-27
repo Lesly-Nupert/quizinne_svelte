@@ -34,6 +34,7 @@
                 },
             );
             if (!response.ok) {
+                // Les messages d'erreur quand c'est OK
                 errorMessageEmail = "";
                 errorMessagePassword = "";
 
