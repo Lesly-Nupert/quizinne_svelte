@@ -14,7 +14,8 @@
         image: "",
         ingredients: "",
         steps: "",
-        time_cook: "",
+        time_cook_hours: "",
+        time_cook_minutes: "",
         difficulty: "",
         nb_persons: "",
         addRecipeOk: "",
@@ -52,7 +53,8 @@
         formData.append("category", recipe.category);
         formData.append("title", recipe.title);
         formData.append("image", recipe.image);
-        formData.append("time_cook", recipe.time_cook);
+        formData.append("time_cook_hours", recipe.time_cook_hours);
+        formData.append("time_cook_minutes", recipe.time_cook_minutes);
         formData.append("difficulty", recipe.difficulty);
         formData.append("nb_persons", recipe.nb_persons);
         formData.append("ingredients", recipe.ingredients);
@@ -146,11 +148,25 @@
                     ></label
                 >
                 <input
-                    bind:value={recipe.time_cook}
+                    bind:value={recipe.time_cook_hours}
                     type="text"
                     name="time_cook"
                     id="time_cook"
                     placeholder="Temps de préparation"
+                    required
+                    aria-required="true"
+                />
+
+                <label for="time_cook_minutes"
+                    >Temps de préparation en minutes <span aria-hidden="true">*</span
+                    ></label
+                >
+                <input
+                    bind:value={recipe.time_cook_minutes} 
+                    type="number"
+                    name="time_cook_minutes"
+                    id="time_cook_minutes"
+                    placeholder="Minutes"
                     required
                     aria-required="true"
                 />
