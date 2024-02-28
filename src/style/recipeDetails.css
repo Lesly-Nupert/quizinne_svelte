@@ -44,11 +44,12 @@ h1 {
 }
 
 h2 {
-    font-size: 36px;
+    font-size: 34px;
     color: var(--blue-color);
     letter-spacing: 1px;
     border-bottom: 2px solid #5B59C7;
 }
+
 .doneAndLike,
 .container_info_cook,
 .container_ingredients,
@@ -180,17 +181,18 @@ h2 {
     letter-spacing: 2px;
 }
 
-.message{
-    color:green;
+.message {
+    color: green;
     font-size: 24px;
 }
 
-.textarea_comment{
+.textarea_comment {
     border: 1px solid #5B59C7;
 }
+
 /* Cache le texte mais il est lu par les lecteurs d'ecran */
 /* https://www.anysurfer.be/fr/documentation/articles/detail/cacher-du-texte */
-.text_like{
+.text_like {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -201,56 +203,56 @@ h2 {
     width: 1px;
 }
 
-.container_info_cook{
-    
+.container_info_cook {
+
     border: 2px solid #5B59C7;
     padding: 10px;
     text-align: center;
     border-radius: 10px;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
-@media screen and (max-width: 768px) {
-    h1 {
-        text-align: center;
-        margin-top: 50px;
-        font-size: 36px;
+@media screen and (max-width: 1030px) {
+    h2 {
+        font-size: 32px;
     }
+}
+
+@media screen and (max-width: 768px) {
 
     h2 {
         font-size: 30px;
     }
+
     .container_addComment,
     .container_comments .content,
     .container_details_recipe p {
         font-size: 18px;
     }
-    .message{
-        color:green;
+
+    .message {
+        color: green;
         font-size: 18px;
     }
 }
 
 @media screen and (max-width: 500px) {
-    h1 {
-        text-align: center;
-        margin-top: 50px;
-        font-size: 24px;
-    }
 
     h2 {
         font-size: 20px;
     }
+
     .container_addComment,
     .container_comments .content,
     .container_details_recipe p {
         font-size: 16px;
     }
-    .message{
-        color:green;
+
+    .message {
+        color: green;
         font-size: 18px;
     }
 }

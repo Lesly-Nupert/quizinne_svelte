@@ -1,3 +1,11 @@
+/* .add_and_update_recipe{
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: #fdf7ff;
+} */
+
 h1 {
     text-align: center;
     margin-top: 50px;
@@ -6,7 +14,7 @@ h1 {
 }
 
 .add_and_update_recipe form {
-    max-width: 500px;
+    max-width: 700px;
     width: 100%;
     margin: 0 auto;
     margin-top: 50px;
@@ -24,6 +32,7 @@ h1 {
     margin-bottom: 15px;
     padding: 8px;
     font-size: 24px;
+    border-radius: 20px;
 }
 
 .add_and_update_recipe input::first-letter {
@@ -51,6 +60,21 @@ h1 {
     color:var(--red-color);
     font-size: 24px;
 }
+
+.add_and_update_recipe input:invalid,
+.add_and_update_recipe textarea:invalid {
+    border: var(--input-invalid-red) solid 3px;
+}
+
+.add_and_update_recipe input:valid:not([type="submit"], [type="file"]),
+.add_and_update_recipe textarea:valid:not([type="submit"])
+{
+    border: 3px solid #02be02;
+}
+.add_and_update_recipe input[type="file"]{
+    border: 1px solid black;
+}
+
 
 /* Largeur d'écran inférieur à */
 @media screen and (max-width: 768px) {

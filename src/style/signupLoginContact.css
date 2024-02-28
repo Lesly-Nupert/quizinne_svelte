@@ -6,6 +6,16 @@
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
+     
+}
+
+.signup_and_login{
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    /* background-color: #f0edff; */
+    border-radius: 20px;
+    background-color: #fdf7ff; 
 }
 
 .signup_and_login form label,
@@ -14,6 +24,8 @@
     margin-bottom: 15px;
     padding: 8px;
     font-size: 24px;
+    border-radius: 20px;
+
 }
 
 .signup_and_login form label {
@@ -57,7 +69,8 @@
 }
 
 .signup_and_login input:valid:not([type="submit"]) {
-    background-color: var(--input-valid-green);
+    border: 3px solid #02be02;
+    /* background-color: var(--input-valid-green); */
 }
 
 /* Formulaire de contact */
