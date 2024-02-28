@@ -14,6 +14,7 @@
 @import './legalNotice.css';
 @import './account.css';
 @import './contact.css';
+@import './notFound.css';
 
 /*Reset: enlève les styles par défaut du navigateur*/
 *, ::before, ::after {

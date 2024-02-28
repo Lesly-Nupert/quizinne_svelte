@@ -16,6 +16,7 @@ import LegalNotice from "./pages/LegalNotice.svelte";
 import Account from "./pages/Account.svelte";
 import UpdateAccount from "./pages/UpdateAccount.svelte";
 import ChangePassword from "./pages/ChangePassword.svelte";
+import NotFound from "./pages/NotFound.svelte";
 
 export default {
     "/": HomePage,
@@ -36,4 +37,5 @@ export default {
     "/user/:userId": Account,
     "/user/update/:userId": UpdateAccount,
     "/user/updatePassword/:userId": ChangePassword,
+    "*": NotFound,
 };
