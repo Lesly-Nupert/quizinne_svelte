@@ -138,8 +138,9 @@
 
         <label for="checkbox" class="checkbox"
           >Je consens à ce que ce site collecte et traite mes données
-          personnelles soumises dans ce formulaire afin de valider mon
-          inscription <span aria-hidden="true">*</span></label
+          personnelles soumises dans ce formulaire afin de valider ma demande <span
+            aria-hidden="true">*</span
+          ></label
         >
         <input
           id="checkbox"

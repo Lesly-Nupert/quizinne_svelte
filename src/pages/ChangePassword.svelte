@@ -16,13 +16,23 @@
     localStorage.removeItem("USER_ID");
   }
 
-  // Variables du Formulaire Inscription (mise à jour)
+  // Variables du Formulaire Modification du mot de passe
   let user = {
     email: "",
     oldPassword: "",
     newPassword: "",
     signupOk: "",
+    errorMessagePassword: "",
   };
+
+  function validateOldPassword(oldPassword) {
+    let passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,12}$/;
+    return passwordRegex.test(oldPassword);
+  }
+  function validateNewPassword(newPassword) {
+    let passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,12}$/;
+    return passwordRegex.test(newPassword);
+  }
 
   onMount(async () => {
     const response = await fetch(
@@ -37,7 +47,6 @@
   });
 
   // Fonction pour gérer la soumission du formulaire d'inscription
-  // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
   async function handleSubmit() {
     try {
       const data = user;
@@ -55,11 +64,21 @@
         }
       );
       if (!response.ok) {
+        user.errorMessagePassword = "";
+
+        if (!validateOldPassword(user.oldpassword) || !validateNewPassword(user.newpassword)) {
+          user.errorMessagePassword =
+            "ERREUR : Vérifier votre saisie ! Vos mots de passe doivent contenir entre 8 et 12 caractères, avec au moins une lettre majuscule, un chiffre et un caractère spécial";
+        }
+      
         throw new Error(`Erreur HTTP : ${response.status}`);
       }
 
       const json = await response.json();
       console.log(json);
+
+      // Retire le message d'erreur quand le mot de passe est OK
+      user.errorMessagePassword = "";
 
       user.signupOk =
         "Mise à jour du mot de passe réussie ! Redirection vers la page de connexion";
@@ -112,14 +131,7 @@
           aria-required="true"
           minlength="8"
           maxlength="12"
-          aria-describedby="passwordDetails"
         />
-
-        <!-- <div class="info_input" id="passwordDetails" aria-hidden="true">
-                    Votre mot de passe doit contenir entre 8 et 12
-                    caractères, avec au moins une lettre majuscule, un chiffre
-                    et un caractère spécial.
-                </div> -->
 
         <label class="label_signup_login" for="password2"
           >Taper votre nouveau mot de passe <span aria-hidden="true">*</span> :</label
@@ -146,10 +158,17 @@
 
         <input class="submit" type="submit" value="Envoyer" />
 
+        {#if user.errorMessagePassword}
+        <div class="error_message" id="email" aria-live="assertive">
+          {user.errorMessagePassword}
+        </div>
+      {/if}
+
         {#if user.signupOk}
           <div aria-live="polite" class="signupOk">
             {user.signupOk}
           </div>
+
         {/if}
       </form>
     </section>

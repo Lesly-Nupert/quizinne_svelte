@@ -17,7 +17,7 @@
   // Variable compteur des J'aime
   let count = 0;
 
-  // Message
+  // Message recette supprimée
   let messageDeleteRecipe = "";
 
   // Fonction pour charger une recette
@@ -28,7 +28,6 @@
       );
       if (response.ok) {
         const recipe = await response.json();
-        // console.log(recipe);
         return recipe;
       } else {
         console.error("Erreur lors de la récupération de la recette");
@@ -70,7 +69,6 @@
   async function handleComment() {
     try {
       const data = { content };
-      // console.log(data);
 
       const response = await fetch(
         `${import.meta.env.VITE_API_BASE_URL}recipes/comment/${params.id}`,
@@ -91,9 +89,7 @@
       console.log(json);
 
       console.log("Données soumises avec succès");
-      // alert("Commentaire publié !");
-
-      // Rechargement de la page après ajout commentaire
+      
       window.location.reload();
     } catch (error) {
       console.error("Erreur réseau", error);
@@ -108,7 +104,6 @@
       );
       if (response.ok) {
         const comments = await response.json();
-        // console.log(comments);
         return comments;
       } else {
         console.error("Erreur lors de la récupération des commentaires");
@@ -155,7 +150,6 @@
       );
       if (response.ok) {
         const likes = await response.json();
-        // console.log(likes);
         return likes;
       } else {
         console.error("Erreur lors de la récupération des J'aime");
@@ -172,9 +166,9 @@
   {:then recipe}
     <h1>{recipe.title}</h1>
 
-    <!-- *BLOC TEXTE RECETTE FAITE PAR  + LA DATE -->
+    <!-- *BLOC TEXTE RECETTE FAITE PAR nom_du_membre  + LA DATE DE CRÉATION-->
     <!-- Méthode toLocaleDateString = Conversion en date locale -->
-    <div class="doneAndLike">
+    <section class="doneAndLike">
       <p class="done_by">
         Fait par <span class="user">{recipe.pseudo}</span>, le
         <span class="date"
@@ -182,8 +176,7 @@
         >
       </p>
 
-      <!-- *BLOC DU COMPTEUR J'AIME -->
-      <!-- https://svelte.dev/repl/f5acc8113ec14bc7946eff9687916fa1?version=3.4.1 -->
+      <!-- *BLOC DU COMPTEUR DE "J'AIME" -->
       <div class="like_content">
         {#await getLikes()}
           <p>Chargement des J'aime</p>
@@ -202,11 +195,8 @@
         >
           J'aime
         </button>
-        <!-- {#if token && userId && count >1}
-                <p>Vous aimez déjà cette recette</p>
-                {/if} -->
       </div>
-    </div>
+    </section>
 
     <img
       class="img_recipe"
@@ -215,7 +205,7 @@
     />
 
     <!-- *BLOC TEMPS DE PREPARATION + NIVEAU DIFFICULTÉ + NB DE PORTIONS-->
-    <div class="container_info_cook">
+    <section class="container_info_cook">
       <p class="done_by">
         <b>Temps de préparation :</b>
         <span class:hidden={recipe.time_cook_hours <= 0}
@@ -232,18 +222,18 @@
         <b>Nombre de portions :</b>
         {recipe.nb_persons}
       </p>
-    </div>
+    </section>
 
     <!-- *BLOC INGREDIENTS + ETAPES-->
-    <div class="container_ingredients">
+    <section class="container_ingredients">
       <h2>Ingrédients</h2>
       <p class="ingredients">{recipe.ingredients}</p>
-    </div>
+    </section>
 
-    <div class="container_steps">
+    <section class="container_steps">
       <h2>Étapes</h2>
       <p class="steps">{recipe.steps}</p>
-    </div>
+    </section>
 
     <!-- *BLOC BOUTONS MODIFIER + SUPPRIMER UNE RECETTE -->
     <!-- *Si User connecté visualise sa propre recette -->
@@ -274,7 +264,7 @@
   {/await}
 
   <!-- * BLOC FORMULAIRE AJOUT COMMENTAIRE-->
-  <div class="container_addComment">
+  <section class="container_addComment">
     <form on:submit|preventDefault={handleComment}>
       <label for="content">Partager un commentaire :</label>
       <textarea
@@ -287,14 +277,14 @@
       ></textarea>
       <button
         class="btn_addComment"
-        disabled={!token}
+        disabled={!token || !content}
         aria-label="Publication du commentaire">Publier commentaire</button
       >
     </form>
-  </div>
+  </section>
 
-  <!-- *BLOC COMMENTAIRE DES MEMBRES-->
-  <div class="container_comments">
+  <!-- *BLOC AFFICHAGE DES COMMENTAIRES DES MEMBRES-->
+  <section class="container_comments">
     {#await getComments()}
       <p>Chargement des commentaires</p>
     {:then comments}
@@ -311,5 +301,5 @@
         </section>
       {/each}
     {/await}
-  </div>
+  </section>
 </main>

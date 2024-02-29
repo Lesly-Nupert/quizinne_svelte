@@ -93,9 +93,8 @@
 
 <main>
   {#if token && userId}
+  <h1>MODIFIER LA RECETTE</h1>
     <section class="add_and_update_recipe">
-      <h1>MODIFIER LA RECETTE</h1>
-
       <form on:submit|preventDefault={handleSubmit}>
         <label for="category"
           >Choisir une catégorie <span aria-hidden="true">*</span></label

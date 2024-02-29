@@ -5,11 +5,8 @@
 }
 
 .legalNotice h2 {
-    margin-top: 30px;
-    font-size: 36px;
-    color: var(--blue-color);
-    margin-left: 3px;
-    letter-spacing: 1px;
+    margin-top: 40px;
+    border-bottom: none;
 }
 
 .legalNotice p {
@@ -19,30 +16,18 @@
 }
 
 @media screen and (max-width: 1029px) {
-    .legalNotice h2 {
-        font-size: 30px;
-    }
-
     .legalNotice p {
         font-size: 18px;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .legalNotice h2 {
-        font-size: 30px;
-    }
-
     .legalNotice p {
         font-size: 18px;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .legalNotice h2{
-        font-size: 20px;
-    }
-
     .legalNotice p {
         font-size: 16px;
     }

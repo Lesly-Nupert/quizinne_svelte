@@ -24,6 +24,14 @@ h1 {
     color: var(--blue-color);
 }
 
+.add_and_update_recipe{
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: #fdf7ff; 
+}
+
 .add_and_update_recipe form label,
 .add_and_update_recipe form input,
 .add_and_update_recipe form select,

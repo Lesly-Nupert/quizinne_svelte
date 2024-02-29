@@ -20,15 +20,6 @@
     cursor: pointer;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 48px;
-    word-wrap: break-word;
-    max-width: 100%;
-    color: var(--black-color);
-}
-
 .container_details_recipe h1::first-letter {
     text-transform: uppercase;
 }
@@ -41,13 +32,6 @@ h1 {
 
 .container_details_recipe .done_by {
     font-size: 16px;
-}
-
-h2 {
-    font-size: 34px;
-    color: var(--blue-color);
-    letter-spacing: 1px;
-    border-bottom: 2px solid #5B59C7;
 }
 
 .doneAndLike,
@@ -191,7 +175,6 @@ h2 {
 }
 
 /* Cache le texte mais il est lu par les lecteurs d'ecran */
-/* https://www.anysurfer.be/fr/documentation/articles/detail/cacher-du-texte */
 .text_like {
     border: 0;
     clip: rect(0 0 0 0);
@@ -215,18 +198,8 @@ h2 {
     display: none;
 }
 
-@media screen and (max-width: 1030px) {
-    h2 {
-        font-size: 32px;
-    }
-}
 
 @media screen and (max-width: 768px) {
-
-    h2 {
-        font-size: 30px;
-    }
-
     .container_addComment,
     .container_comments .content,
     .container_details_recipe p {
@@ -240,11 +213,6 @@ h2 {
 }
 
 @media screen and (max-width: 500px) {
-
-    h2 {
-        font-size: 20px;
-    }
-
     .container_addComment,
     .container_comments .content,
     .container_details_recipe p {

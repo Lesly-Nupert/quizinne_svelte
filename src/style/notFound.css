@@ -9,7 +9,7 @@
 }
 
 main .h1_404{
-    color: rgb(0, 0, 0);
+    color: var(--black-color);
 }
 
 @media screen and (max-width: 1027px) {

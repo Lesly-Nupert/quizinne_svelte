@@ -71,8 +71,8 @@
 
 {#if token}
   <main>
+    <h1>AJOUTER UNE RECETTE</h1>
     <section class="add_and_update_recipe">
-      <h1>AJOUTER UNE RECETTE</h1>
       <form on:submit|preventDefault={handleSubmit}>
         <label for="category"
           >Choisir une catégorie <span aria-hidden="true">*</span></label
@@ -103,11 +103,7 @@
           aria-required="true"
           autocapitalize="sentences"
         />
-        <!-- aria-describedby="notTitle"
-        <div id="notTitle" hidden>
-            Le titre est obligatoire
-        </div> -->
-
+        
         <label for="image">Télécharger une photo</label>
         <input
           on:change={handleFile}

@@ -8,7 +8,7 @@
 }
 
 .contact{
-    height: 500px;
+    height: 600px;
     background-image: url(/public/images/bg_contact.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -22,7 +22,7 @@
     }
     .contact{
         background-size: 800px;
-        height: 400px;
+        height: 500px;
     }
     
 }
@@ -33,7 +33,7 @@
     }
     .contact{
         background-size: 600px;
-        height: 300px;
+        height: 400px;
     }
 }
 
@@ -43,6 +43,6 @@
     }
     .contact{
         background-size: 400px;
-        height: 250px;
+        height: 300px;
     }
 }
