@@ -1,0 +1,26 @@
+h2 {
+    font-size: 34px;
+    color: var(--blue-color);
+    letter-spacing: 1px;
+    border-bottom: 2px solid #5B59C7;
+}
+
+@media screen and (max-width: 1030px) {
+    h2 {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    h2 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    h2 {
+        font-size: 20px;
+    }
+}

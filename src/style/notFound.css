@@ -1,0 +1,37 @@
+.page404{
+    background-image: url(/images/404_page.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    margin-top: -73px;
+}
+
+main .h1_404{
+    color: var(--black-color);
+}
+
+@media screen and (max-width: 1027px) {
+    .page404 {
+        margin-top: -60px;
+    } 
+}
+
+@media screen and (max-width: 550px) {
+    .page404 {
+        margin-top: -100px;
+    } 
+}
+
+@media screen and (max-width: 493px) {
+    .page404 {
+        margin-top: -48px;
+    } 
+}
+
+@media screen and (max-width: 387px) {
+    .page404 {
+        margin-top: -76px;
+    } 
+}

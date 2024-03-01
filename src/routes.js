@@ -9,13 +9,14 @@ import CategoryDesserts from "./pages/CategoryDesserts.svelte";
 import CategoryDrinks from "./pages/CategoryDrinks.svelte";
 import AddRecipe from "./pages/AddRecipe.svelte";
 import UpdateRecipe from "./pages/UpdateRecipe.svelte";
-import User from "./pages/User.svelte";
-import Users from "./pages/Users.svelte";
-// import UserUpdate from "./pages/UserUpdate.svelte";
 import RecipesByUser from "./pages/RecipesByUser.svelte";
-// import Favorites from "./pages/Favorites.svelte";
-
-
+import RecipesFilter from "./pages/RecipesFilter.svelte";
+import Contact from "./pages/Contact.svelte";
+import LegalNotice from "./pages/LegalNotice.svelte";
+import Account from "./pages/Account.svelte";
+import UpdateAccount from "./pages/UpdateAccount.svelte";
+import ChangePassword from "./pages/ChangePassword.svelte";
+import NotFound from "./pages/NotFound.svelte";
 
 export default {
     "/": HomePage,
@@ -27,11 +28,14 @@ export default {
     "/recipes/category/dishes": CategoryDishes,
     "/recipes/category/desserts": CategoryDesserts,
     "/recipes/category/drinks": CategoryDrinks,
-    "/admin/addRecipe": AddRecipe,
+    "/addRecipe": AddRecipe,
     "/recipes/update/:id": UpdateRecipe,
-    "/users/:id": User,
-    "/users/": Users,
-    // "/users/update/:id": UserUpdate,
-    "/recipes/user/:id": RecipesByUser,
-    // "/recipes/favorites/": Favorites,
+    "/recipes/user/:userId": RecipesByUser,
+    "/recipesFilter": RecipesFilter,
+    "/contact": Contact,
+    "/legalNotice": LegalNotice,
+    "/user/:userId": Account,
+    "/user/update/:userId": UpdateAccount,
+    "/user/updatePassword/:userId": ChangePassword,
+    "*": NotFound,
 };

@@ -1,0 +1,46 @@
+@import './variables.css';
+@import './header.css';
+@import './footer.css';
+@import './searchRecipe.css';
+@import './linkAllRecipes.css';
+@import './textLastRecipes.css';
+@import './welcome.css';
+@import './recipes.css';
+@import './addAndUpdateRecipe.css';
+@import './signupLogin.css';
+@import './recipe.css';
+@import './h1.css';
+@import './h2.css';
+@import './menu.css';
+@import './legalNotice.css';
+@import './account.css';
+@import './contact.css';
+@import './notFound.css';
+
+/*Reset: enlève les styles par défaut du navigateur*/
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Avec ce code le Footer reste en bas avec ou sans contenu  */
+html{
+  height: 100%;
+}
+
+body {
+  font-family: "Favorite Font", sans-serif;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 6.74rem;
+}
+
+
+
+
+
+
+
+
+

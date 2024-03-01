@@ -1,0 +1,226 @@
+.container_details_recipe {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.container_details_recipe textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.container_details_recipe button {
+    display: block;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.container_details_recipe h1::first-letter {
+    text-transform: uppercase;
+}
+
+.img_recipe {
+    margin-top: 50px;
+    border: var(--border);
+    border-radius: 10px;
+}
+
+.container_details_recipe .done_by {
+    font-size: 16px;
+}
+
+.doneAndLike,
+.container_info_cook,
+.container_ingredients,
+.container_steps {
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.container_details_recipe p {
+    font-size: 24px;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+    color: var(--black-color);
+}
+
+.ingredients,
+.steps {
+    white-space: pre-line;
+}
+
+.btn_patch_recipe {
+    font-size: 13px;
+    margin-top: 35px;
+    margin-left: 10px;
+    width: 134px;
+    border: 2px solid var(--blue-color);
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--black-color);
+    background-color: #efefef;
+    padding: 5px;
+    letter-spacing: 0.5px;
+}
+
+.btn_delete_recipe {
+    cursor: pointer;
+    border-radius: 20px;
+    color: var(--red-color);
+    border: 2px solid var(--red-color);
+    letter-spacing: 0.5px;
+}
+
+.delete_recipe {
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: -10px;
+    margin-left: 10px;
+}
+
+.btn_patch_recipe:hover {
+    background-color: var(--blue-color);
+    color: var(--white-color);
+}
+
+.btn_delete_recipe:hover {
+    background-color: red;
+    color: var(--white-color);
+}
+
+.like_content {
+    display: flex;
+}
+
+.like_count {
+    padding: 5px;
+}
+
+.like_click {
+    width: 55px;
+    font-weight: 300;
+    border-radius: 20px;
+    cursor: pointer;
+    background: var(--background-like);
+}
+
+.container_comments .content {
+    font-size: 20px;
+}
+
+.content_pseudo_date {
+    color: #777575;
+}
+
+.container_comments {
+    max-width: 700px;
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.comments {
+    border-bottom: lightgray 2px solid;
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+.container_addComment {
+    max-width: 700px;
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.container_addcomment button {
+    margin-top: 10px;
+    display: block;
+    padding: 5px;
+}
+
+.doneAndLike {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: -45px;
+}
+
+.error_message {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    color: var(--red-color);
+    font-weight: bolder;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+}
+
+.message {
+    color: green;
+    font-size: 24px;
+}
+
+.textarea_comment {
+    border: 1px solid #5B59C7;
+}
+
+/* Cache le texte mais il est lu par les lecteurs d'ecran */
+.text_like {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.container_info_cook {
+
+    border: 2px solid #5B59C7;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+    .container_addComment,
+    .container_comments .content,
+    .container_details_recipe p {
+        font-size: 18px;
+    }
+
+    .message {
+        color: green;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container_addComment,
+    .container_comments .content,
+    .container_details_recipe p {
+        font-size: 16px;
+    }
+
+    .message {
+        color: green;
+        font-size: 18px;
+    }
+}

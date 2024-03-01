@@ -1,0 +1,13 @@
+:root{
+    --black-color: #000;
+    --white-color:#fff;
+    --border:5px solid #5B59C7;
+    --background-header-and-footer:linear-gradient(90deg, hsla(210, 91%, 39%, 1) 0%, hsla(321, 55%, 50%, 1) 100%);
+    --blue-color:#00008b;
+    --box-shadow-color: #5B59C7;
+    --red-color:darkred;
+    --input-valid-green: #ddffdd;
+    --input-invalid-red: red ;
+    --background-like: linear-gradient(90deg, hsla(277, 79%, 84%, 1)0%,
+    hsla(204, 95%, 77%, 1) 100%);
+}

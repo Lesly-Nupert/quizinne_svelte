@@ -1,94 +1,60 @@
 <script>
-    import { link } from "svelte-spa-router";
+   // Import de la variable réactive "searchRecipe" depuis le store, elle permet la mise à jour synchrone dans différents composants (SearchRecipe + RecipesFilter)
+  import { searchRecipe } from "../store";
 
-    export let params = {};
-    console.log(params.id);
+  // Redirection vers la page des résultats de la recherche
+  let messageRedirection;
 
-    let searchRecipe;
-
-    async function handleSubmit() {
-        try {
-            const response = await fetch(`http://localhost:3000/recipes/${params.id}`);
-            if (!response.ok) {
-                throw new Error("Problème lors de la récupération des données");
-            }
-            const searchRecipe = await response.json();
-        } catch (error) {
-            console.error("Erreur lors de la recherche", error);
-            // alert("Erreur réseau.");
+  async function handleSearch() {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}recipes/title/${$searchRecipe}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
+      );
+      if (!response.ok) {
+        throw new Error(`Erreur HTTP : ${response.status}`);
+      }
+      const results = await response.json();
+      console.log(results);
+      
+      messageRedirection =
+        "Redirection vers la page des résultats de votre recherche";
+
+      // Redirection vers la page des recettes filtrées en fonction de ce qui a été tapé dans la barre de recherche
+      setTimeout(() => {
+        window.location.href = "#/RecipesFilter";
+      }, 1200);
+    } catch (error) {
+      console.error("Erreur réseau", error);
     }
+  }
 </script>
 
-<div class="container_search_recipe">
+<section class="container_search_recipe">
+  <form>
+    <label for="searchRecipe">Rechercher une recette</label>
     <input
-        bind:value={searchRecipe}
-        type="text"
-        placeholder="Rechercher une recette"
+      id="searchRecipe"
+      bind:value={$searchRecipe}
+      type="search"
+      placeholder="Parcourir Quizine..."
     />
-    <button on:submit={handleSubmit}>Rechercher</button>
-</div>
+    <input
+      on:click={handleSearch}
+      type="button"
+      value="Rechercher"
+      disabled={!$searchRecipe}
+    />
 
-
-<style>
-    /*CONTAINER SEARCH RECIPE*/
-    .container_search_recipe {
-        max-width: 1200px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        margin-top: 40px;
-        border-radius: 20px;
-        background-image: url(/images/background_search.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 170px;
-    }
-
-    .container_search_recipe input {
-        border: #00008b 1px solid;
-    }
-
-    input,
-    button {
-        padding: 5px;
-        font-size: 24px;
-    }
-
-    /* Largeur d'écran inférieur à */
-    @media screen and (max-width: 1024px) {
-        .container_search_recipe {
-            height: 150px;
-        }
-
-        input,
-        button {
-            font-size: 20px;
-        }
-    }
-
-    @media screen and (max-width: 736px) {
-        .container_search_recipe {
-            height: 120px;
-        }
-
-        input,
-        button {
-            font-size: 18px;
-        }
-    }
-
-    @media screen and (max-width: 426px) {
-        .container_search_recipe {
-            height: 70px;
-        }
-
-        input,
-        button {
-            font-size: 16px;
-        }
-    }
-</style>
+    {#if messageRedirection}
+      <div class="message_redirection" aria-live="assertive">
+        {messageRedirection}
+      </div>
+    {/if}
+  </form>
+</section>

@@ -1,20 +1,19 @@
 <script>
+   // Import de la variable réactive "searchRecipe" depuis le store, elle permet la mise à jour synchrone dans différents composants (SearchRecipe + RecipesFilter)
+  import { searchRecipe } from "../store";
   import { link } from "svelte-spa-router";
 
-  // Fonction pour charger les cartes des 3 dernières recettes qui sont sur la page d'accueil du site.
-  async function getRecipes() {
+  async function resultsSearch() {
     try {
       const response = await fetch(
-        import.meta.env.VITE_API_BASE_URL + "recipesLast"
+        `${import.meta.env.VITE_API_BASE_URL}recipes/title/${$searchRecipe}`
       );
       if (response.ok) {
         const recipes = await response.json();
-        // console.log(recipes);
+        console.log(recipes);
         return recipes;
       } else {
-        console.error(
-          "Erreur lors de la récupération des 3 dernières recettes"
-        );
+        console.error("Erreur lors de la récupération des recettes filtrées");
       }
     } catch (error) {
       console.error("Erreur réseau", error);
@@ -22,8 +21,10 @@
   }
 </script>
 
+<h1>RECHERCHE FILTRÉE</h1>
+
 <section class="container_cards_recipes">
-  {#await getRecipes()}
+  {#await resultsSearch()}
     <p>Chargement des recettes</p>
   {:then recipes}
     {#each recipes as recipe}

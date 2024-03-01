@@ -1,0 +1,40 @@
+footer {
+    width: 100%;
+    margin: 0 auto;
+    color: var(--blue-color);
+    text-align: center;
+    font-size: 16px;
+    border: var(--border);
+    background: var(--background-header-and-footer);
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    height: 30px;
+}
+
+footer a {
+    margin: 10px;
+    color: var(--white-color);
+    text-shadow: 1px 1px 2px var(--black-color);
+    letter-spacing: 1px;
+}
+
+.footer{
+    margin: 10px;
+    color: var(--white-color);
+    text-shadow: 1px 1px 2px var(--black-color);
+    letter-spacing: 1px;
+}
+
+@media screen and (max-width: 768px) {
+    footer {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    footer {
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,76 @@
+.container_cards_recipes {
+    max-width: 1050px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+    justify-content:center;
+}
+
+.cards_recipes {
+    text-decoration: none;
+    width: 310px;
+    height: 315px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 1px 1px 1px 2px var(--box-shadow-color);
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 20px 20px;
+}
+
+.cards_recipes:hover {
+    box-shadow: 5px 5px 5px 5px var(--box-shadow-color);
+}
+
+.cards_recipes img {
+    width: 100%;
+    height: 70%;
+    /* object-fit: cover; */
+}
+
+.p_category {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--red-color);
+    margin: 10px;
+    letter-spacing: 1px;
+}
+
+.p_category::first-letter {
+    text-transform: uppercase;
+}
+
+.p_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--black-color);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    padding: 0px 10px;
+    letter-spacing: 1px;
+}
+
+.p_title::first-letter {
+    text-transform: uppercase;
+}
+
+
+@media screen and (max-width: 1045px) {
+    .cards_recipes {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .cards_recipes {
+        width: 600px;
+    }
+}
+
+

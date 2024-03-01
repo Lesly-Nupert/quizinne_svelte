@@ -1,0 +1,123 @@
+.signup_and_login form {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column; 
+}
+
+.signup_and_login{
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: #fdf7ff; 
+    margin-top: 50px;
+    border: var(--border);
+}
+
+.signup_and_login form label,
+.signup_and_login form input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 24px;
+    border-radius: 20px;
+}
+
+.signup_and_login form label {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.signup_and_login .submit:hover {
+    background-color: var(--blue-color);
+    color: var(--white-color);
+    cursor: pointer;
+    transition: background 1000ms ease-in-out;
+}
+
+.error_message {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    color: var(--red-color);
+    font-weight: bolder;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+}
+
+.info_input {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.signupOk {
+    color: green;
+    font-size: 24px;
+}
+
+/* https://developer.mozilla.org/fr/docs/Learn/Forms/Form_validation  */
+
+.signup_and_login input:invalid {
+    border: var(--input-invalid-red) solid 3px;
+}
+
+.signup_and_login input:valid:not([type="submit"]) {
+    border: 3px solid #02be02;
+    /* background-color: var(--input-valid-green); */
+}
+
+/* Formulaire de contact */
+.checkbox {
+    letter-spacing: 1px; 
+}
+
+.textarea_contact {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 24px;
+}
+
+@media screen and (max-width: 600px) {
+    .signup_and_login{
+        border: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .signup_and_login form label,
+    .signup_and_login form input {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 8px;
+        font-size: 18px;
+    }
+
+    .signupOk {
+        color: green;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .signup_and_login form label,
+    .signup_and_login form input {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    .signupOk {
+        color: green;
+        font-size: 16px;
+    }
+}

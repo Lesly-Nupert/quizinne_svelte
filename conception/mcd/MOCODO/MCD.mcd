@@ -1,7 +1,0 @@
-MEMBRE: pseudo, email, mot de passe
-ECRIT_PAR, 11 COMMENTAIRE, 0N MEMBRE
-COMMENTAIRE: contenu
-
-A, 0N MEMBRE, 11 RECETTE
-RECETTE: titre, image, categorie, ingredients, etapes
-CONTIENT, 0N RECETTE, 11 COMMENTAIRE

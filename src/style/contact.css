@@ -1,0 +1,48 @@
+.contact_us {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 22px;
+}
+
+.contact{
+    height: 600px;
+    background-image: url(/public/images/bg_contact.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1000px;
+    
+ }
+
+@media screen and (max-width: 1024px) {
+    .contact_us {
+        font-size: 20px;
+    }
+    .contact{
+        background-size: 800px;
+        height: 500px;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+    .contact_us {
+        font-size: 18px;
+    }
+    .contact{
+        background-size: 600px;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .contact_us {
+        font-size: 16px;
+    }
+    .contact{
+        background-size: 400px;
+        height: 300px;
+    }
+}

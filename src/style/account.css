@@ -1,0 +1,79 @@
+.account {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    line-height: 3;
+    align-items:center; 
+}
+
+.link_recipes_by_user {
+    color: var(--blue-color);
+    letter-spacing: 1px;
+    font-size: 24px;
+}
+
+.link_recipes_by_user:hover {
+    color: var(--red-color);
+}
+
+.link_update_account {
+    color: var(--blue-color);
+    letter-spacing: 1px;
+    font-size: 24px;
+}
+
+.link_update_account:hover {
+    color: var(--red-color);
+}
+
+.p_account {
+    font-size: 24px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
+.ident {
+    font-weight: 600;
+}
+
+.btn_delete_account{
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: var(--red-color);
+    background-color: var(--white-color);
+    font-weight: bolder;
+    cursor: pointer;
+    transition: background 500ms ease-in-out;
+    letter-spacing: 1px;
+    border-color: red;
+}
+
+.btn_delete_account:hover{
+    background-color: var(--red-color);
+    color: var(--white-color);
+}
+
+@media screen and (max-width: 768px) {
+
+    .link_recipes_by_user,
+    .link_update_account,
+    .p_account {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .link_recipes_by_user,
+    .link_update_account,
+    .p_account {
+        font-size: 16px;
+    }
+
+}
