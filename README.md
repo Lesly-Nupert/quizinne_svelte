@@ -9,14 +9,17 @@ L'accès aux données se fait via l'API Quizine avec Fetch.
 ### Capture d'écran
 ![Capture page d'accueil su site](/public/images/quizine.png)
 
-## Technologies
+## Technologies et Bibliothèques utilisées
 ***
-Liste des technologies utilisées dans ce projet:
-* SVELTE 
-* BUNDLER VITE
-* SVELTE-SPA-ROUTER
-* HTML 5
-* CSS 
+* SVELTE: Framework pour interfaces web, compile lors de la construction pour plus de performance.
+
+* BUNDLER VITE: Outil de développement rapide, utilise les modules ES pour rechargement instantané.
+
+* SVELTE-SPA-ROUTER: Gestion de la navigation dans les SPA Svelte.
+
+* HTML 5: Langage de balisage pour structurer le contenu web.
+
+* CSS: Langage pour le style des pages web.
 
 ## Installation
 ***

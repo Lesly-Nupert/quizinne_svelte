@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <main class="legalNotice">
   <h1>Mentions légales</h1>
   <section>
