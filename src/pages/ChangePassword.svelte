@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
 
-  // Exporte la variable params pour récupérer l'identifiant id
   // Route dynamique
   export let params = {};
   console.log(params.id);
@@ -25,6 +24,7 @@
     errorMessagePassword: "",
   };
 
+  // REGEX
   function validateOldPassword(oldPassword) {
     let passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,12}$/;
     return passwordRegex.test(oldPassword);

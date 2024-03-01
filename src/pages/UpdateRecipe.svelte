@@ -1,6 +1,4 @@
 <script>
-  // Chargement du composant dans le Document Object Model (DOM)
-  // Equivalent au DOMContentLoad en JS vanilla
   import { onMount } from "svelte";
 
   // Obtention du token dans le localStorage
@@ -27,7 +25,6 @@
     recipe.image = event.target.files[0];
   }
 
-  // Exporte la variable params pour récupérer l'identifiant id
   // Route dynamique
   export let params = {};
   console.log(params.id);
@@ -73,7 +70,6 @@
       );
 
       if (response.ok) {
-        console.log("Recette mise à jour avec succès");
         recipe.addRecipeOk =
           "Recette mise à jour avec succès ! Redirection vers la page de toutes les recettes";
 
@@ -128,7 +124,7 @@
         <label for="image"
           >Télécharger une photo </label
         >
-        <!-- on:change car fichier et non texte -->
+        
         <input
           on:change={handleFile}
           type="file"

@@ -6,7 +6,6 @@
   let token = localStorage.getItem("TOKEN");
   let userId = localStorage.getItem("USER_ID");
 
-  // Exporte la variable params pour récupérer l'identifiant de la recette
   // Route dynamique
   export let params = {};
   console.log(`id recette: ${params.id}`);

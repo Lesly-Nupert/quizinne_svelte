@@ -5,8 +5,7 @@
     margin-top: 50px;
     margin-bottom: 50px;
     display: flex;
-    flex-direction: column;
-     
+    flex-direction: column; 
 }
 
 .signup_and_login{
@@ -15,6 +14,8 @@
     margin: 0 auto;
     border-radius: 20px;
     background-color: #fdf7ff; 
+    margin-top: 50px;
+    border: var(--border);
 }
 
 .signup_and_login form label,
@@ -24,7 +25,6 @@
     padding: 8px;
     font-size: 24px;
     border-radius: 20px;
-
 }
 
 .signup_and_login form label {
@@ -82,6 +82,12 @@
     margin-bottom: 15px;
     padding: 8px;
     font-size: 24px;
+}
+
+@media screen and (max-width: 600px) {
+    .signup_and_login{
+        border: none;
+    }
 }
 
 @media screen and (max-width: 768px) {

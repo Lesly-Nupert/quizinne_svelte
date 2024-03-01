@@ -1,5 +1,5 @@
 <script>
-  // Import de la variable réactive "searchRecipe" depuis le store, elle permet la mise à jour synchrone dans différents composants
+   // Import de la variable réactive "searchRecipe" depuis le store, elle permet la mise à jour synchrone dans différents composants (SearchRecipe + RecipesFilter)
   import { searchRecipe } from "../store";
 
   // Redirection vers la page des résultats de la recherche
@@ -21,8 +21,7 @@
       }
       const results = await response.json();
       console.log(results);
-      console.log("Recherche effectuée avec succès");
-
+      
       messageRedirection =
         "Redirection vers la page des résultats de votre recherche";
 

@@ -2,7 +2,6 @@
   // Routeur optimisé pour Single Page Application (SPA)
   import { link } from "svelte-spa-router";
 
-  // Exporte la variable params pour récupérer l'identifiant id
   // Route dynamique
   export let params = {};
   console.log(params.id);
@@ -11,7 +10,7 @@
   let token = localStorage.getItem("TOKEN");
   let userId = localStorage.getItem("USER_ID");
 
-  // Fonction pour charger toutes les recettes
+  // Fonction pour charger toutes les recettes par utilisateur
   async function getRecipes() {
     try {
       const response = await fetch(

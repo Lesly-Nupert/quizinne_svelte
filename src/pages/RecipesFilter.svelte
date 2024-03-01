@@ -1,4 +1,5 @@
 <script>
+   // Import de la variable réactive "searchRecipe" depuis le store, elle permet la mise à jour synchrone dans différents composants (SearchRecipe + RecipesFilter)
   import { searchRecipe } from "../store";
   import { link } from "svelte-spa-router";
 

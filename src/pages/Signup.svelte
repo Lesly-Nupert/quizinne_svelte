@@ -7,6 +7,7 @@
     errorMessagePassword,
     signupOk;
 
+    // REGEX
   function validateEmail(email) {
     let emailRegex = /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/;
     return emailRegex.test(email);
@@ -17,7 +18,6 @@
   }
 
   // Fonction pour gérer la soumission du formulaire d'inscription
-  // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
   async function handleSubmit() {
     try {
       const data = { pseudo, email, password };
@@ -34,7 +34,7 @@
         }
       );
       if (!response.ok) {
-        // Les messages d'erreur quand c'est pas OK
+
         errorMessageEmail = "";
         errorMessagePassword = "";
 
@@ -54,6 +54,10 @@
       const json = await response.json();
       console.log(json);
       console.log("Inscription réussie !");
+
+       // Retire le message d'erreur quand le formulaire est OK
+      errorMessageEmail = "";
+      errorMessagePassword = "";
 
       signupOk = "Inscription réussie ! Redirection vers la page de connexion";
 

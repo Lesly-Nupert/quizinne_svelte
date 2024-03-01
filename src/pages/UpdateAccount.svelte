@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
 
-  // Exporte la variable params pour récupérer l'identifiant id
   // Route dynamique
   export let params = {};
   console.log(params.id);
@@ -42,7 +41,6 @@
   });
 
   // Fonction pour gérer la soumission du formulaire d'inscription
-  // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
   async function handleSubmit() {
     try {
       const data = user;
