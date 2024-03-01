@@ -2,11 +2,9 @@
 ***
 Quizine est une plateforme d'échanges de recettes.
 
-## Infos Générales
-***
 Le site s'adapte à tous les supports visuels (mobile, tablette, bureau) et se veut accessible aux personnes ayant une déficience visuelle.
 
- L'accès aux données se fait via l'API Quizine.
+L'accès aux données se fait via l'API Quizine avec Fetch.
 
 ### Capture d'écran
 ![Capture page d'accueil su site](/public/images/quizine.png)
@@ -14,7 +12,7 @@ Le site s'adapte à tous les supports visuels (mobile, tablette, bureau) et se v
 ## Technologies
 ***
 Liste des technologies utilisées dans ce projet:
-* SVELTE 4
+* SVELTE 
 * BUNDLER VITE
 * SVELTE-SPA-ROUTER
 * HTML 5
