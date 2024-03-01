@@ -54,6 +54,8 @@
 .info_input {
     margin-bottom: 20px;
     font-size: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .signupOk {
@@ -61,18 +63,12 @@
     font-size: 24px;
 }
 
-/* https://developer.mozilla.org/fr/docs/Learn/Forms/Form_validation  */
-
-.signup_and_login input:invalid {
-    border: var(--input-invalid-red) solid 3px;
-}
-
 .signup_and_login input:valid:not([type="submit"]) {
     border: 3px solid #02be02;
     /* background-color: var(--input-valid-green); */
 }
 
-/* Formulaire de contact */
+/* Message Checkbox*/
 .checkbox {
     letter-spacing: 1px; 
 }

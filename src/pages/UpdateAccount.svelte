@@ -135,8 +135,8 @@
         {/if}
 
         <label for="checkbox" class="checkbox"
-          >Je consens à ce que ce site collecte et traite mes données
-          personnelles soumises dans ce formulaire afin de valider ma demande <span
+          >En cochant cette case, j'accepte que mes données personnelles
+          soumises dans ce formulaire soient utilisées afin de valider la mise à jour <span
             aria-hidden="true">*</span
           ></label
         >

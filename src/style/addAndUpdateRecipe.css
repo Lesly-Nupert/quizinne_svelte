@@ -27,7 +27,7 @@
     margin-bottom: 15px;
     padding: 8px;
     font-size: 24px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .add_and_update_recipe input::first-letter {
@@ -56,11 +56,6 @@
     font-size: 24px;
 }
 
-.add_and_update_recipe input:invalid,
-.add_and_update_recipe textarea:invalid {
-    border: var(--input-invalid-red) solid 3px;
-}
-
 .add_and_update_recipe input:valid:not([type="submit"], [type="file"]),
 .add_and_update_recipe textarea:valid:not([type="submit"])
 {
@@ -83,7 +78,7 @@
     .add_and_update_recipe form select,
     .add_and_update_recipe form textarea {
         width: 100%;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         padding: 8px;
         font-size: 18px;
     }
@@ -105,7 +100,7 @@
     .add_and_update_recipe form select,
     .add_and_update_recipe form textarea {
         width: 100%;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         padding: 8px;
         font-size: 16px;
     }

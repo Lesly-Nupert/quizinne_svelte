@@ -6,6 +6,7 @@
     background-attachment: fixed;
     height: 100vh;
     margin-top: -73px;
+    margin-bottom: -60px;
 }
 
 main .h1_404{
@@ -33,5 +34,6 @@ main .h1_404{
 @media screen and (max-width: 387px) {
     .page404 {
         margin-top: -76px;
+        
     } 
 }

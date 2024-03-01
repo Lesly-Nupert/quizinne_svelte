@@ -5,10 +5,8 @@
   <h1>Mentions légales</h1>
   <section>
     <h2>Éditeur</h2>
-    <p>Nom de l'Éditeur</p>
-    <p>Adresse</p>
-    <p>Email:</p>
-    <p>Téléphone :</p>
+    <p>Lesly Nupert</p>
+    <p>Email: quizine7@gmail.com</p>
 
     <h2>Hebergement</h2>
     <p>Nom de l'Hébergeur</p>
@@ -52,7 +50,14 @@
       accès à l'email. Nous nous engageons à traiter vos données avec le plus
       grand soin et à ne pas les divulguer à des tiers sans votre consentement.
     </p>
+    <br>
+    <p>
+      Conformément à la loi Informatique et libertés du 6 janvier 1978 modifiée, vous disposez
+d'un droit d'accès, de rectification, de modification et de suppression des données qui
+vous concernent. Vous pouvez exercer ce droit en envoyant un courrier électronique à
+l'adresse suivante : <a href="mailto:quizine7@gmail.com">quizine7@gmail.com</a>
+    </p>
     <br />
-    <p>Rédigé par <a href="http://quizine.fr">http://quizine.fr</a></p>
+    <p>Rédigé par <a href="https://quizine.fr">https://quizine.fr</a></p>
   </section>
 </main>
