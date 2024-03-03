@@ -25,7 +25,7 @@ L'accès aux données se fait via l'API Quizine avec Fetch.
 ***
 1 Cloner le dépôt
 ```
-git clone https://github.com/O-clock-Gaufre/projet-quizine-front.git
+https://github.com/Lesly-Nupert/quizine_svelte.git
 ```
 2 Aller dans le repertoire du projet
 ```
