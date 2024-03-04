@@ -30,7 +30,7 @@
 
 <header>
   <a href="/" class="link_home" aria-label="Accès à la page d'accueil" use:link>
-    <div class="quizine">Quizine</div>
+    <div class="quizine">Quizinne</div>
   </a>
 
   <div class="login">

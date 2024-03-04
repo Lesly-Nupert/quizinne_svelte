@@ -5,7 +5,7 @@
 
 {#if !token}
   <section class="welcome">
-    <h1>Bienvenue sur Quizine !</h1>
+    <h1>Bienvenue sur Quizinne !</h1>
 
     <p>
       Quizine est une plateforme d'échanges de recettes. Découvrez les recettes

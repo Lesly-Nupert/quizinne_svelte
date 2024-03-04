@@ -63,6 +63,6 @@ vous concernent. Vous pouvez exercer ce droit en envoyant un courrier électroni
 l'adresse suivante : <a href="mailto:quizine7@gmail.com">quizine7@gmail.com</a>
     </p>
     <br />
-    <p>Rédigé par <a href="https://quizine.fr">https://quizine.fr</a></p>
+    <p>Rédigé par <a href="https://quizinne.netlify.app/">https://quizine.fr</a></p>
   </section>
 </main>
