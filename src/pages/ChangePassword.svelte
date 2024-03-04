@@ -20,9 +20,14 @@
     email: "",
     oldPassword: "",
     newPassword: "",
-    signupOk: "",
-    errorMessagePassword: "",
+    // signupOk: "",
+    // errorMessagePassword: "",
   };
+
+  let signupOk = "";
+  let errorMessagePassword = "";
+
+
 
   // REGEX
   function validateOldPassword(oldPassword) {
@@ -64,10 +69,10 @@
         }
       );
       if (!response.ok) {
-        user.errorMessagePassword = "";
+        errorMessagePassword = "";
 
         if (!validateOldPassword(user.oldpassword) || !validateNewPassword(user.newpassword)) {
-          user.errorMessagePassword =
+          errorMessagePassword =
             "ERREUR : Vérifier votre saisie ! Vos mots de passe doivent contenir entre 8 et 12 caractères, avec au moins une lettre majuscule, un chiffre et un caractère spécial";
         }
       
@@ -78,9 +83,9 @@
       console.log(json);
 
       // Retire le message d'erreur quand le mot de passe est OK
-      user.errorMessagePassword = "";
+      errorMessagePassword = "";
 
-      user.signupOk =
+      signupOk =
         "Mise à jour du mot de passe réussie ! Redirection vers la page de connexion";
 
       disconnect();
@@ -113,7 +118,6 @@
           required
           aria-required="true"
           maxlength="100"
-          aria-describedby="emailDetails"
           disabled
         />
 
@@ -158,18 +162,18 @@
 
         <input class="submit" type="submit" value="Envoyer" />
 
-        {#if user.errorMessagePassword}
+        <!-- {#if user.errorMessagePassword} -->
         <div class="error_message" id="email" aria-live="assertive">
-          {user.errorMessagePassword}
+          {errorMessagePassword}
         </div>
-      {/if}
+      <!-- {/if} -->
 
-        {#if user.signupOk}
+        <!-- {#if user.signupOk} -->
           <div aria-live="polite" class="signupOk">
-            {user.signupOk}
+            {signupOk}
           </div>
 
-        {/if}
+        <!-- {/if} -->
       </form>
     </section>
   {/if}
