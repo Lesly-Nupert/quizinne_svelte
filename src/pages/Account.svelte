@@ -59,7 +59,7 @@
       if (response.ok) {
         console.log("Compte supprimé !");
 
-        message = "Compte utilisateur supprimé avec succès !";
+        message = "Compte utilisateur supprimé avec succès ! Redirection vers la page d'accueil";
 
         disconnect();
 
