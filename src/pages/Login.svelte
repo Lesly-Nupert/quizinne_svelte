@@ -1,6 +1,9 @@
 <script>
   // Variables du Formulaire Connexion
-  let email, password, errorMessage, loginOk;
+  let email, password;
+  let errorMessage = '';
+let loginOk = '';
+
 
   // Fonction d'authentification
   async function handleSubmit() {
@@ -40,7 +43,7 @@
         localStorage.setItem("USER_ID", userId);
 
         // Retire le message d'erreur quand c'est le login est OK
-        // errorMessage = "";
+        errorMessage = "";
         
         loginOk = "Connexion réussie ! Redirection vers la page d'accueil";
 
