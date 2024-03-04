@@ -22,12 +22,9 @@
       const results = await response.json();
       console.log(results);
       
-      messageRedirection = "";
-      setTimeout(() => {
       messageRedirection =
         "Redirection vers la page des résultats de votre recherche";
-      }, 100);
-
+      
       // Redirection vers la page des recettes filtrées en fonction de ce qui a été tapé dans la barre de recherche
       setTimeout(() => {
         window.location.href = "#/RecipesFilter";
@@ -54,10 +51,10 @@
       disabled={!$searchRecipe}
     />
 
-    {#if messageRedirection}
+    <!-- {#if messageRedirection} -->
       <div class="message_redirection" aria-live="assertive">
         {messageRedirection}
       </div>
-    {/if}
+    <!-- {/if} -->
   </form>
 </section>
