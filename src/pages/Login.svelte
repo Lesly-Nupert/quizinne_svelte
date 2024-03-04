@@ -40,9 +40,8 @@
         localStorage.setItem("USER_ID", userId);
 
         // Retire le message d'erreur quand c'est le login est OK
-        errorMessage = "";
-        loginOk = ""; //xxxxxxxxxxxxxxxxxx
-
+        // errorMessage = "";
+        
         loginOk = "Connexion réussie ! Redirection vers la page d'accueil";
 
         setTimeout(() => {
