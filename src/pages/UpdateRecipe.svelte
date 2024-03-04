@@ -16,9 +16,12 @@
     time_cook_minutes: "",
     difficulty: "",
     nb_persons: "",
-    addRecipeOk: "",
-    errorMessage: "",
+    // addRecipeOk: "",
+    // errorMessage: "",
   };
+
+  let errorMessage = "";
+  let addRecipeOk = "";
 
 
   // Fonction pour le traitement de l'image
@@ -71,9 +74,9 @@
       );
 
       if (response.ok) {
-        recipe.errorMessage = "";
+        errorMessage = "";
 
-        recipe.addRecipeOk =
+        addRecipeOk =
           "Recette mise à jour avec succès ! Redirection vers la page de toutes les recettes";
 
         setTimeout(() => {
@@ -81,7 +84,7 @@
         }, 1000);
       } else {
         console.error("Erreur lors de la mise à jour", response.status);
-        recipe.errorMessage =
+        errorMessage =
           "Erreur lors de la mise à jour de la recette, veuillez réessayer !";
       }
     } catch (error) {
@@ -219,13 +222,13 @@
 
         <!-- {#if recipe.addRecipeOk} -->
           <div aria-live="polite" class="addRecipeOk">
-            {recipe.addRecipeOk}
+            {addRecipeOk}
           </div>
         <!-- {/if} -->
 
         <!-- {#if recipe.errorMessage} -->
           <div class="error_message" aria-live="assertive">
-            {recipe.errorMessage}
+            {errorMessage}
           </div>
         <!-- {/if} -->
       </form>

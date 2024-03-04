@@ -1,13 +1,12 @@
 <script>
   // Variables du Formulaire Inscription
-  let pseudo,
-    email,
-    password,
-    errorMessageEmail,
-    errorMessagePassword,
-    signupOk;
+  let pseudo, email, password;
 
-    // REGEX
+  let errorMessageEmail = "";
+  let errorMessagePassword = "";
+  let signupOk = "";
+
+  // REGEX
   function validateEmail(email) {
     let emailRegex = /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/;
     return emailRegex.test(email);
@@ -31,10 +30,9 @@
             "Content-Type": "application/x-www-form-urlencoded",
           },
           body: new URLSearchParams(data).toString(),
-        }
+        },
       );
       if (!response.ok) {
-
         errorMessageEmail = "";
         errorMessagePassword = "";
 
@@ -55,7 +53,7 @@
       console.log(json);
       console.log("Inscription réussie !");
 
-       // Retire le message d'erreur quand le formulaire est OK
+      // Retire le message d'erreur quand le formulaire est OK
       errorMessageEmail = "";
       errorMessagePassword = "";
 
@@ -113,11 +111,11 @@
         Format d'email attendu : exemple@mail.com
       </div>
 
-      {#if errorMessageEmail}
-        <div class="error_message" id="email" aria-live="assertive">
-          {errorMessageEmail}
-        </div>
-      {/if}
+      <!-- {#if errorMessageEmail} -->
+      <div class="error_message" id="email" aria-live="assertive">
+        {errorMessageEmail}
+      </div>
+      <!-- {/if} -->
 
       <label class="label_signup_login" for="password"
         >Taper votre mot de passe <span aria-hidden="true">*</span> :</label
@@ -140,15 +138,15 @@
         une lettre majuscule, un chiffre et un caractère spécial.
       </div>
 
-      {#if errorMessagePassword}
-        <div class="error_message" id="email" aria-live="assertive">
-          {errorMessagePassword}
-        </div>
-      {/if}
+      <!-- {#if errorMessagePassword} -->
+      <div class="error_message" id="email" aria-live="assertive">
+        {errorMessagePassword}
+      </div>
+      <!-- {/if} -->
 
       <label for="checkbox" class="checkbox"
-        >En cochant cette case, j'accepte que mes données personnelles
-        soumises dans ce formulaire soient utilisées afin de valider mon inscription <span
+        >En cochant cette case, j'accepte que mes données personnelles soumises
+        dans ce formulaire soient utilisées afin de valider mon inscription <span
           aria-hidden="true">*</span
         ></label
       >
@@ -162,9 +160,9 @@
 
       <input class="submit" type="submit" value="S'inscrire" />
 
-      {#if signupOk}
-        <div aria-live="polite" class="signupOk">{signupOk}</div>
-      {/if}
+      <!-- {#if signupOk} -->
+      <div aria-live="polite" class="signupOk">{signupOk}</div>
+      <!-- {/if} -->
     </form>
   </section>
 </main>
