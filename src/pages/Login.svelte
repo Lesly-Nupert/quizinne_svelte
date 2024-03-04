@@ -43,7 +43,7 @@ let loginOk = '';
         localStorage.setItem("USER_ID", userId);
 
         // Retire le message d'erreur quand c'est le login est OK
-        errorMessage = "";
+        // errorMessage = "";
         
         loginOk = "Connexion réussie ! Redirection vers la page d'accueil";
 
