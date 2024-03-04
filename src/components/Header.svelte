@@ -76,10 +76,10 @@
       >
     {/if}
 
-    {#if messageDeconnexion}
+    <!-- {#if messageDeconnexion} -->
       <div class="message_deconnexion" aria-live="assertive">
         {messageDeconnexion}
       </div>
-    {/if}
+    <!-- {/if} -->
   </div>
 </header>

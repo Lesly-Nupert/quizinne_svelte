@@ -122,9 +122,9 @@
         >Supprimer mon compte définitivement</button
       >
 
-      {#if message}
-        <div aria-live="polite" class="signupOk">{message}</div>
-      {/if}
+      <!-- {#if message} -->
+        <div aria-live="polite" class="delete_message">{message}</div>
+      <!-- {/if} -->
     </section>
   {/if}
 </main>

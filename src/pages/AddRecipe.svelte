@@ -195,17 +195,17 @@
         ></textarea>
         <input class="submit" type="submit" value="Publier la recette" />
 
-        {#if addRecipeOk}
+        <!-- {#if addRecipeOk} -->
           <div aria-live="polite" class="addRecipeOk">
             {addRecipeOk}
           </div>
-        {/if}
+        <!-- {/if} -->
 
-        {#if errorMessage}
+        <!-- {#if errorMessage} -->
           <div class="error_message" aria-live="assertive">
             {errorMessage}
           </div>
-        {/if}
+        <!-- {/if} -->
       </form>
     </section>
   </main>
