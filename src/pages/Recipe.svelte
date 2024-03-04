@@ -199,7 +199,7 @@
 
     <img
       class="img_recipe"
-      src={`http://localhost:3000/${recipe.image}`}
+      src={`${import.meta.env.VITE_API_BASE_URL}${recipe.image}`}
       alt={`${recipe.title}`}
     />
 

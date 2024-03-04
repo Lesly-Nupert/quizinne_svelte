@@ -37,7 +37,7 @@
           class="cards_recipes"
         >
           <img
-            src={`http://localhost:3000/${recipe.image}`}
+            src={`${import.meta.env.VITE_API_BASE_URL}${recipe.image}`}
             alt={`Photo de ${recipe.title}`}
             class="img_card"
           />
