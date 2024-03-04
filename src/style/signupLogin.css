@@ -49,15 +49,6 @@
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 2px;
-
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
 }
 
 .info_input {
