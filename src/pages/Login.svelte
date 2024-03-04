@@ -1,9 +1,8 @@
 <script>
   // Variables du Formulaire Connexion
   let email, password;
-  let errorMessage = '';
-let loginOk = '';
-
+  let errorMessage = "";
+  let loginOk = "";
 
   // Fonction d'authentification
   async function handleSubmit() {
@@ -19,7 +18,7 @@ let loginOk = '';
             "Content-Type": "application/x-www-form-urlencoded",
           },
           body: new URLSearchParams(data).toString(),
-        }
+        },
       );
 
       if (response.ok) {
@@ -43,8 +42,8 @@ let loginOk = '';
         localStorage.setItem("USER_ID", userId);
 
         // Retire le message d'erreur quand c'est le login est OK
-        // errorMessage = "";
-        
+        errorMessage = "";
+
         loginOk = "Connexion réussie ! Redirection vers la page d'accueil";
 
         setTimeout(() => {
@@ -55,7 +54,7 @@ let loginOk = '';
         errorMessage = "Email ou mot de passe incorrect. Veuillez réessayer";
 
         console.log(
-          "Erreur : " + response.status + ", Message : " + response.statusText
+          "Erreur : " + response.status + ", Message : " + response.statusText,
         );
       }
     } catch (error) {
@@ -110,13 +109,13 @@ let loginOk = '';
       <input class="submit" type="submit" value="Se connecter" />
 
       <!-- {#if errorMessage} -->
-        <div class="error_message" aria-live="assertive">
-          {errorMessage}
-        </div>
+      <div class="error_message" aria-live="assertive">
+        {errorMessage}
+      </div>
       <!-- {/if} -->
 
       <!-- {#if loginOk} -->
-        <div aria-live="polite" class="signupOk">{loginOk}</div>
+      <div aria-live="polite" class="signupOk">{loginOk}</div>
       <!-- {/if} -->
     </form>
   </section>
