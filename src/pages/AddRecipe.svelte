@@ -11,9 +11,10 @@
     time_cook_hours,
     time_cook_minutes,
     difficulty,
-    nb_persons,
-    addRecipeOk,
-    errorMessage;
+    nb_persons;
+
+  let errorMessage = "";
+  let addRecipeOk = "";
 
   // Fonction pour le traitement de l'image
   function handleFile(event) {
@@ -43,11 +44,13 @@
             Authorization: "Bearer " + token,
           },
           body: formData,
-        }
+        },
       );
 
       if (response.ok) {
         console.log("Recette soumise avec succès");
+
+        errorMessage = "";
 
         addRecipeOk =
           "Recette ajoutée avec succès ! Redirection vers la page de toutes les recettes";
@@ -58,7 +61,7 @@
       } else {
         console.error(
           "Erreur lors de la soumission des données",
-          response.status
+          response.status,
         );
         errorMessage =
           "Erreur lors de la soumission de la recette, veuillez réessayer !";
@@ -103,7 +106,7 @@
           aria-required="true"
           autocapitalize="sentences"
         />
-        
+
         <label for="image">Télécharger une photo</label>
         <input
           on:change={handleFile}
@@ -196,15 +199,15 @@
         <input class="submit" type="submit" value="Publier la recette" />
 
         <!-- {#if addRecipeOk} -->
-          <div aria-live="polite" class="addRecipeOk">
-            {addRecipeOk}
-          </div>
+        <div aria-live="polite" class="addRecipeOk">
+          {addRecipeOk}
+        </div>
         <!-- {/if} -->
 
         <!-- {#if errorMessage} -->
-          <div class="error_message" aria-live="assertive">
-            {errorMessage}
-          </div>
+        <div class="error_message" aria-live="assertive">
+          {errorMessage}
+        </div>
         <!-- {/if} -->
       </form>
     </section>

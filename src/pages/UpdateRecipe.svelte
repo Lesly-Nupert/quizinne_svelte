@@ -20,6 +20,7 @@
     errorMessage: "",
   };
 
+
   // Fonction pour le traitement de l'image
   function handleFile(event) {
     recipe.image = event.target.files[0];
@@ -70,6 +71,8 @@
       );
 
       if (response.ok) {
+        recipe.errorMessage = "";
+
         recipe.addRecipeOk =
           "Recette mise à jour avec succès ! Redirection vers la page de toutes les recettes";
 
@@ -214,17 +217,17 @@
 
         <input class="submit" type="submit" value="Mettre à jour la recette" />
 
-        {#if recipe.addRecipeOk}
+        <!-- {#if recipe.addRecipeOk} -->
           <div aria-live="polite" class="addRecipeOk">
             {recipe.addRecipeOk}
           </div>
-        {/if}
+        <!-- {/if} -->
 
-        {#if recipe.errorMessage}
+        <!-- {#if recipe.errorMessage} -->
           <div class="error_message" aria-live="assertive">
             {recipe.errorMessage}
           </div>
-        {/if}
+        <!-- {/if} -->
       </form>
     </section>
   {/if}
