@@ -106,15 +106,15 @@
 
       <input class="submit" type="submit" value="Se connecter" />
 
-      {#if errorMessage}
+      <!-- {#if errorMessage} -->
         <div class="error_message" aria-live="assertive">
           {errorMessage}
         </div>
-      {/if}
+      <!-- {/if} -->
 
-      {#if loginOk}
+      <!-- {#if loginOk} -->
         <div aria-live="polite" class="signupOk">{loginOk}</div>
-      {/if}
+      <!-- {/if} -->
     </form>
   </section>
 </main>
