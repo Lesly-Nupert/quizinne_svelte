@@ -6,9 +6,17 @@
     <p>Email: quizine7@gmail.com</p>
 
     <h2>Hebergement</h2>
-    <p>Nom de l'Hébergeur</p>
-    <p>Adresse de l'Hébergeu</p>
-    <p>Téléphone de l'Hébergeur</p>
+    <p>Netlify, Inc</p>
+    <p>512 2nd Street, Fl 2
+      San Francisco, CA 94107</p>
+    <p>Email : privacy@netlify.com</p>
+
+    <p>Heroku</p>
+    <p>415 Mission Street
+      Suite 300
+      San Francisco, CA
+      94105, United States.</p>
+    <p>https://www.heroku.com/contact</p>
 
     <h2>Objectif des contenus</h2>
     <p>
