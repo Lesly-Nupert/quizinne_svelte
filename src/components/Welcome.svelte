@@ -8,7 +8,7 @@
     <h1>Bienvenue sur Quizinne !</h1>
 
     <p>
-      Quizine est une plateforme d'échanges de recettes. Découvrez les recettes
+      Quizinne est une plateforme d'échanges de recettes. Découvrez les recettes
       de cuisine écrites par la communauté. Inscrivez-vous et ajoutez vos
       propres recettes !
     </p>

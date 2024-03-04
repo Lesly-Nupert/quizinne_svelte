@@ -42,7 +42,7 @@
       id="searchRecipe"
       bind:value={$searchRecipe}
       type="search"
-      placeholder="Parcourir Quizine..."
+      placeholder="Parcourir Quizinne..."
     />
     <input
       on:click={handleSearch}
