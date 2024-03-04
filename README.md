@@ -9,7 +9,7 @@ L'accès aux données se fait via l'API Quizine avec Fetch.
 ### Capture d'écran
 ![Capture page d'accueil su site](/public/images/quizine.png)
 
-## Technologies et Bibliothèques utilisées
+## Technologies et Bibliothèques utilisée
 ***
 * SVELTE: Framework pour interfaces web, compile lors de la construction pour plus de performance.
 
