@@ -22,8 +22,11 @@
       const results = await response.json();
       console.log(results);
       
+      messageRedirection = "";
+      setTimeout(() => {
       messageRedirection =
         "Redirection vers la page des résultats de votre recherche";
+      }, 100);
 
       // Redirection vers la page des recettes filtrées en fonction de ce qui a été tapé dans la barre de recherche
       setTimeout(() => {
