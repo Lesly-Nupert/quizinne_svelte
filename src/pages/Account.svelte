@@ -11,7 +11,7 @@
   let userId = localStorage.getItem("USER_ID");
 
   // Message confirmation de suppression du compte utilisateur
-  let message;
+  let message = "";
 
   // Fonction pour vider le localStorage après suppression du compte utilisateur
   function disconnect() {
