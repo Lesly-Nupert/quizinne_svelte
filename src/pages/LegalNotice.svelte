@@ -11,12 +11,8 @@
       San Francisco, CA 94107</p>
     <p>Email : privacy@netlify.com</p>
       <br>
-    <p>Le backend est hébergé par Heroku</p>
-    <p>415 Mission Street
-      Suite 300
-      San Francisco, CA
-      94105, United States.</p>
-    <p>https://www.heroku.com/contact</p>
+    <p>Le backend est hébergé par ???</p>
+    
 
     <h2>Objectif des contenus</h2>
     <p>
