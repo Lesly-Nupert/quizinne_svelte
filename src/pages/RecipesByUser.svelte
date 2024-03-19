@@ -52,8 +52,8 @@
             class="cards_recipes"
           >
             <img
-              src={`${import.meta.env.VITE_API_BASE_URL}${recipe.image}`}
-              alt={`Photo de ${recipe.title}`}
+            src={recipe.image}
+            alt={recipe.title}
               class="img_card"
             />
             <p class="p_category">{recipe.category}</p>

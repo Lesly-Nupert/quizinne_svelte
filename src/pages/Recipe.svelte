@@ -197,10 +197,11 @@
       </div>
     </section>
 
+    <!-- IMAGE DE LA RECETTE -->
     <img
       class="img_recipe"
-      src={`${import.meta.env.VITE_API_BASE_URL}${recipe.image}`}
-      alt={`${recipe.title}`}
+      src={recipe.image}
+      alt={recipe.title}
     />
 
     <!-- *BLOC TEMPS DE PREPARATION + NIVEAU DIFFICULTÉ + NB DE PORTIONS-->

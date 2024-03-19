@@ -5,7 +5,7 @@
   async function getRecipes() {
     try {
       const response = await fetch(
-        import.meta.env.VITE_API_BASE_URL + "recipes/category/Desserts"
+        import.meta.env.VITE_API_BASE_URL + "recipes/category/Desserts",
       );
       if (response.ok) {
         const recipes = await response.json();
@@ -13,13 +13,13 @@
         return recipes;
       } else {
         console.error(
-          "Erreur lors de la récupération des recettes par catégorie"
+          "Erreur lors de la récupération des recettes par catégorie",
         );
       }
     } catch (error) {
       console.error(
         "Erreur lors de la récupération des recettes par catégorie : ",
-        error
+        error,
       );
     }
   }
@@ -34,11 +34,7 @@
     {:then recipes}
       {#each recipes as recipe}
         <a href={`/recipes/${recipe.id_recipe}`} use:link class="cards_recipes">
-          <img
-            src={`${import.meta.env.VITE_API_BASE_URL}${recipe.image}`}
-            alt={`Photo de ${recipe.title}`}
-            class="img_card"
-          />
+          <img src={recipe.image} alt={recipe.title} class="img_card" />
           <p class="p_category">{recipe.category}</p>
           <p class="p_title">{recipe.title}</p>
         </a>
