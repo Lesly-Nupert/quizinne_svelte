@@ -11,7 +11,8 @@
       San Francisco, CA 94107</p>
     <p>Email : privacy@netlify.com</p>
       <br>
-    <p>Le backend est hébergé par ???</p>
+    <p>Le backend est hébergé sur Railway</p>
+    <p>Pour plus d'informations, vous pouvez consulter leur site web : https://railway.app/</p>
     
 
     <h2>Objectif des contenus</h2>
