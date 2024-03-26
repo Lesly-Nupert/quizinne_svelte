@@ -45,3 +45,6 @@
     {/each}
   {/await}
 </section>
+
+
+npm run build
